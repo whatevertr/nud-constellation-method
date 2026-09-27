@@ -2,7 +2,7 @@
 
 # Método: o piso, os guardrails e em que isso se apoia
 
-Este arquivo guarda a explicação do método, para a instância entender o porquê de cada regra antes de ajudar a pessoa. O [README](https://github.com/whatevertr/constellation-method/blob/main/README.pt-BR.md) diz o que é e como usar; aqui está o porquê de cada regra que os agentes carregam.
+Este arquivo guarda a explicação do método, para a instância entender o porquê de cada regra antes de ajudar a pessoa. O [README](https://github.com/whatevertr/nud-constellation-method/blob/main/README.pt-BR.md) diz o que é e como usar; aqui está o porquê de cada regra que os agentes carregam.
 
 ## Dois modos de usar (mesma arquitetura, investimentos diferentes)
 

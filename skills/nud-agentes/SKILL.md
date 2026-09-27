@@ -51,4 +51,4 @@ Gerenciar áreas e projetos a partir de um **contexto mínimo** que direciona tu
 
 ## Direcionamento
 
-Repositório completo (README, MANIFESTO, cronologia, devlog e as outras duas skills): https://github.com/whatevertr/constellation-method · tumblr: https://tumblr.com/nerdunitdescription
+Repositório completo (README, MANIFESTO, cronologia, devlog e as outras duas skills): https://github.com/whatevertr/nud-constellation-method · tumblr: https://tumblr.com/nerdunitdescription

@@ -33,11 +33,11 @@ O `start_here.md` vai no espaço dedicado a arquivos do projeto (ou numa pasta n
 
 **Em espaços dedicados a arquivos do projeto dentro do app do provedor da IA:** ele não funciona sozinho, é preciso pedir à instância que o leia no início do trabalho. Vale guardar e atualizar um arquivo de memória do projeto, é o que permite retomar o trabalho sem reler tudo do zero.
 
-**Em espaços dedicados no seu computador, pasta de projetos/repositórios:** funciona se traduzida conforme a configuração descrita em https://github.com/whatevertr/constellation-method.
+**Em espaços dedicados no seu computador, pasta de projetos/repositórios:** funciona se traduzida conforme a configuração descrita em https://github.com/whatevertr/nud-constellation-method.
 
 ## Complemento
 
 `how_to_work_with_me` (skill `nud-como-trabalhar-comigo`) e os arquivos de papel (skill `nud-agentes`) complementam este documento. NUD recomenda usar os três documentos.
 
 ---
-Para entender melhor ou se aprofundar, repositório: https://github.com/whatevertr/constellation-method & tumblr: https://tumblr.com/nerdunitdescription
+Para entender melhor ou se aprofundar, repositório: https://github.com/whatevertr/nud-constellation-method & tumblr: https://tumblr.com/nerdunitdescription
