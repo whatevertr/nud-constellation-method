@@ -13,7 +13,7 @@ Method for managing several areas and projects from a minimum context that steer
 
 ## What it is
 
-It is a way to organize context so AI can help me manage my life. I started simple: markdown files inside projects in the provider's interface, which the instance read at the start of each job. I documented it here as it scaled. Today I have a system that works on any model, provider or interface, and I manage my whole life from three agent functions: thinker, manager and worker. This is transforming my life. It gives me more autonomy and capacity to create, and it made me a healthier person.
+It is a way to organize context so AI can help me manage my life. I started simple: markdown files inside projects in the provider's interface, which the instance read at the start of each job. I documented it here as it scaled. Today I have a system I designed to be model-agnostic — I've run it on the platforms I've tested (Claude Code, Hermes, Codex) — and I manage my whole life from three agent functions: thinker, manager and worker. This is how I use it and it works for me; if you try it somewhere else, I'd genuinely like to hear how it went. It's transforming my life. It gives me more autonomy and capacity to create, and it made me a healthier person.
 
 I still have a lot to improve and learn, so improvements will always arrive in this repository. Here I explain how to install and start using my agents and my method of context flow for whatever you want: managing a life, a project, or an annoying task from your job.
 
@@ -31,7 +31,7 @@ Three documents, three layers:
 
 In a small job, inside an app project, the task is one-off: it is either analysis, or checking, or execution. You choose one agent and use only that one. To manage, the three work in layers within the same project, and what reaches you is just the result, ready for the decision. What makes me confident enough to let the agents manage is the floor each one carries: I work with a lot of data analysis and research, I need layers of checking, and they work exactly like this:
 
-- **Operationalized execution** (worker): runs the task without the bias of whoever designed the process.
+- **Operationalized execution** (worker): takes the task with clean context, to reduce the bias of whoever designed the process — that's how I set it up.
 - **Audit check** (manager): checks what came back against what was agreed.
 - **Analytical check** (thinker): stresses the hypothesis before it becomes a decision, and plans the next one.
 

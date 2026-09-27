@@ -13,7 +13,7 @@ Método de gerenciar várias áreas e projetos a partir de um contexto mínimo q
 
 ## O que é
 
-É um jeito de organizar contexto para que a IA consiga me ajudar a gerenciar a minha vida. Comecei simples: arquivos markdown dentro de projetos na interface do provedor, que a instância lia no início de cada trabalho. Fui documentando aqui conforme escalava. Hoje tenho um sistema que funciona em qualquer modelo, provedor ou interface, e gerencio toda a minha vida a partir de três funções de agente: thinker, manager e worker. Isso está transformando a minha vida. Me dá mais autonomia e capacidade de criação, e me deixou uma pessoa mais saudável.
+É um jeito de organizar contexto para que a IA consiga me ajudar a gerenciar a minha vida. Comecei simples: arquivos markdown dentro de projetos na interface do provedor, que a instância lia no início de cada trabalho. Fui documentando aqui conforme escalava. Hoje tenho um sistema que projetei para ser agnóstico de modelo — já rodei nas plataformas que testei (Claude Code, Hermes, Codex) — e gerencio toda a minha vida a partir de três funções de agente: thinker, manager e worker. É assim que eu uso e funciona pra mim; se você testar em outro lugar, eu ia adorar saber como foi. Isso está transformando a minha vida. Me dá mais autonomia e capacidade de criação, e me deixou uma pessoa mais saudável.
 
 Ainda tenho muito pra melhorar e aprender, por isso as melhorias vão sempre chegar a este repositório. Aqui explico como instalar e começar a usar os meus agentes e o meu método de fluxo de contexto para o que você quiser: gerenciar uma vida, um projeto, ou uma demanda chata do seu trabalho.
 
@@ -31,7 +31,7 @@ Três documentos, três camadas:
 
 Num trabalho pequeno, dentro de um projeto do app, a tarefa é pontual: ou é análise, ou é conferência, ou é execução. Você escolhe um agente e usa só ele. Para gerenciar, os três trabalham em camadas no mesmo projeto, e o que chega até você é só o resultado, pronto para a decisão. O que me deixa confiante para deixar os agentes gerenciando é o piso que cada um carrega: eu trabalho com muita análise de dado e pesquisa, preciso de camadas de conferência, e eles funcionam exatamente assim:
 
-- **Execução operacionalizada** (worker): executa a tarefa sem o viés de quem desenhou o processo.
+- **Execução operacionalizada** (worker): recebe a tarefa com contexto limpo, pra reduzir o viés de quem desenhou o processo — é assim que eu monto.
 - **Conferência auditiva** (manager): confere o que voltou contra o que foi combinado.
 - **Conferência analítica** (thinker): estressa a hipótese antes de ela virar decisão, e planeja o próximo.
 
