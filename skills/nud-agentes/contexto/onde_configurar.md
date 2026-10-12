@@ -35,7 +35,6 @@ Os arquivos de config são lidos por essa camada de orquestração (o "harness")
 
 Então "um arquivo faz o agente funcionar" no sentido de que o harness lê aquele arquivo a cada sessão/turno e (a) concatena o texto no contexto e (b) configura os guardrails do executor. É o mesmo princípio de um `.eslintrc` ou um `docker-compose.yml`: **configuração declarativa que uma engine interpreta em runtime**, só que aqui parte da config vira prompt e parte vira política de execução. Pasta em vez de UI porque é versionável, comparável por diff, e portável entre máquinas
 
-OBS: a autora não é programadora, está aprendendo :)
 ## Como isso se parece na prática
 
 Os esqueletos abaixo existem para a instância **reconhecer o formato** de cada plataforma. Não são receita completa: nomes de campo e caminhos mudam entre versões, e a documentação de cada ferramenta é a fonte. Confira antes de aplicar.

@@ -50,7 +50,7 @@ Pare e reporte se não convergir em ~5 voltas de tentativa. Ajustável.
 
 ## 6. Tools (ambiente)
 
-Uso em projetos únicos e fechados, por interface de chat (tipo apps de IA), geralmente fora de ambiente de código. O trabalho mora em pastas: porta (o objetivo) + manual (a pessoa) + função (este perfil); _task/ entra a tarefa, _output/ sai a entrega, _states/ guarda onde parou *(exemplo de uso em escala)*. Leia porta, manual e função, pegue a tarefa, entregue em _output/.
+Uso em projetos únicos e fechados, por interface de chat (tipo apps de IA). O trabalho mora em pastas: porta (o objetivo) + manual (a pessoa) + função (este perfil); _task/ entra a tarefa, _output/ sai a entrega, _states/ guarda onde parou *(exemplo de uso em escala)*. Leia porta, manual e função, pegue a tarefa, entregue em _output/.
 
 **Conectores / skills desta instância:** os que a plataforma oferecer nesta instância. Liste aqui os que este papel pode usar; vazio, vale o padrão da plataforma.
 
