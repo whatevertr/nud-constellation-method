@@ -6,7 +6,7 @@ Este arquivo é o mapa do **segundo modo** de usar a tríade: quando os document
 
 ## Como ler a tabela
 
-Cada linha é uma **camada de contexto**. Cada coluna é uma plataforma. A célula diz **onde** aquilo se configura, e o comando para consultar, quando existe. O conteúdo de cada camada é o que as três skills geram e o que está descrito no [README](README.pt-BR.md).
+Cada linha é uma **camada de contexto**. Cada coluna é uma plataforma. A célula diz **onde** aquilo se configura, e o comando para consultar, quando existe. O conteúdo de cada camada é o que as três skills geram e o que está descrito no [README](../README.pt-BR.md).
 
 | Camada                                      | O que é                                                    | Claude Code                                                                                                                                        | Hermes Agent                                                                                                                                              | Codex                                                                                                                                              |
 | ------------------------------------------- | ---------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -82,8 +82,8 @@ O Codex casa por lista de argumentos, então dá pra ir mais fino: `prefix_rule(
 **Um gatilho antes da ação (hook).** As três plataformas chamam um script externo antes de a ferramenta rodar, passando o pedido por entrada padrão e esperando uma resposta que autoriza ou bloqueia. O que muda é onde ele é declarado: nas configurações (Claude Code), numa seção do perfil (Hermes), ou num arquivo de hooks com a funcionalidade habilitada (Codex).
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/context-structure-night.svg">
-  <img alt="Estrutura de contexto: os três agentes e o acesso de cada um às pastas" src="assets/context-structure-day.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="../assets/context-structure-night.svg">
+  <img alt="Estrutura de contexto: os três agentes e o acesso de cada um às pastas" src="../assets/context-structure-day.svg">
 </picture>
 
 ## Linguagens

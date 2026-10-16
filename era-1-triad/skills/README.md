@@ -17,6 +17,6 @@ Copie a pasta da skill inteira para o diretório de skills da sua instância (po
 
 Se o seu app aceita skill em arquivo `.zip`, cada pasta tem o seu zip ao lado, pronto para subir: `nud-como-trabalhar-comigo.zip`, `nud-comece-aqui.zip`, `nud-agentes.zip`.
 
-*Manutenção (para quem edita o repositório): depois de mudar qualquer skill, rode `python skills/build_zips.py` para regenerar os três zips.*
+*Manutenção (para quem edita o repositório): depois de mudar qualquer skill, rode `python era-1-triad/skills/build_zips.py` para regenerar os três zips.*
 
 Licença: CC-BY-4.0 · Thainá Ramos (Nud by Whatevertr).

@@ -19,7 +19,7 @@ I still have a lot to improve and learn, so improvements will always arrive in t
 
 ## Minimum context
 
-Everything starts from minimum context, split into three documents. Each one organizes a type of information the instance needs to work in a managerial way. If you want to use it in just a one-off project, use a project in your provider's app (Claude Cowork, for example): the three documents go into the project configuration, and that's it. It is simple and functional. **To scale, with management and continued memory**, these same three documents are the minimum the platform needs to configure an agent: the manual becomes the rules of conduct, the door becomes the project's memory, and the function becomes the agent's profile. Guardrails (what it cannot run, where it cannot write) and hooks (what is blocked before it happens) sit on top of this, as platform configuration, not as text. Where each piece lives on each platform is in [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md).
+Everything starts from minimum context, split into three documents. Each one organizes a type of information the instance needs to work in a managerial way. If you want to use it in just a one-off project, use a project in your provider's app (Claude Cowork, for example): the three documents go into the project configuration, and that's it. It is simple and functional. **To scale, with management and continued memory**, these same three documents are the minimum the platform needs to configure an agent: the manual becomes the rules of conduct, the door becomes the project's memory, and the function becomes the agent's profile. Guardrails (what it cannot run, where it cannot write) and hooks (what is blocked before it happens) sit on top of this, as platform configuration, not as text. Where each piece lives on each platform is in [`ONDE_CONFIGURAR.md`](era-3-configs-e-hooks/ONDE_CONFIGURAR.md).
 
 Three documents, three layers:
 
@@ -35,11 +35,11 @@ In a small job, inside an app project, the task is one-off: it is either analysi
 - **Audit check** (manager): checks what came back against what was agreed.
 - **Analytical check** (thinker): stresses the hypothesis before it becomes a decision, and plans the next one.
 
-The floor and the guardrails the three carry are explained in [`METODO.md`](METODO.md).
+The floor and the guardrails the three carry are explained in [`METODO.md`](era-1-triad/METODO.md).
 
 ## How to use
 
-1. **Download the skills.** They are in the [`skills/`](skills/) folder: each one as an open folder and as a `.zip` ready to upload to your app. The folder's `README` explains the installation.
+1. **Download the skills.** They are in the [`skills/`](era-1-triad/skills/) folder: each one as an open folder and as a `.zip` ready to upload to your app. The folder's `README` explains the installation.
 2. **`nud-como-trabalhar-comigo`**: install it or paste it into the chat. The instance will ask questions; answer honestly. This document is what establishes the common ground for communication between you and your agents.
 3. **`nud-comece-aqui`**: helps you explain your goal. It works for a project folder, a one-off task, or a specific goal (a wedding party, for example). It ensures the minimum context of a goal.
 4. **`nud-agentes`**: the context of the method. It installs in the instance the capacity to help you set up your way of working, whether in an app project or at scale, and it brings the profiles of the three agents inside it. It will ask for the two documents generated above to understand what kind of configuration you need.
@@ -79,11 +79,11 @@ What each piece does: the **home** (`home_[agent]`) is where each agent is bound
 
 ## Dig deeper
 
-- [`METODO.md`](METODO.md): the epistemic floor, the guardrails, the two rules of honesty, what rung the method is on and what it leans on.
-- [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md): where each layer lives on each platform (Claude Code, Hermes, Codex).
+- [`METODO.md`](era-1-triad/METODO.md): the epistemic floor, the guardrails, the two rules of honesty, what rung the method is on and what it leans on.
+- [`ONDE_CONFIGURAR.md`](era-3-configs-e-hooks/ONDE_CONFIGURAR.md): where each layer lives on each platform (Claude Code, Hermes, Codex).
 - [`MANIFESTO.md`](MANIFESTO.md): where this came from.
-- [`cronologia/`](cronologia/): the trail of the method, by eras.
-- [`DEVLOG.md`](DEVLOG.md): what changed, when, and what the check knocked down.
+- [`cronologia/`](historia/cronologia/): the trail of the method, by eras.
+- [`DEVLOG.md`](historia/DEVLOG.md): what changed, when, and what the check knocked down.
 
 ## License
 

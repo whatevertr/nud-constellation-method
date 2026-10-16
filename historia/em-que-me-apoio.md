@@ -1,27 +1,6 @@
-# Método: o piso, os guardrails e em que isso se apoia
+# Em que o método se apoia
 
-Este arquivo guarda a explicação. O [README](README.pt-BR.md) diz o que é e como usar; aqui está o porquê de cada regra que os agentes carregam.
-
-## Dois modos de usar (mesma arquitetura, investimentos diferentes)
-
-1. **Como projeto.** Os três documentos num espaço de trabalho da interface da empresa que fornece o serviço de IA. É o jeito manual, custo baixo de manutenção, bom para projetos de curto a médio prazo. Foi assim que o método começou.
-2. **Como agente configurado.** Os mesmos documentos virando configuração de agente na plataforma. Mesmo efeito, só que escalável, para duração a longo prazo, e parece depender da organização de navegação do contexto no espaço do projeto.
-
-A tabela em [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md) mostra onde cada camada mora em cada plataforma que eu testei, para quem quiser o segundo modo.
-
-## Duas camadas que se reforçam
-
-- **Guardrails determinísticos**: paredes que não dependem do modelo (o que ele não pode executar, onde não pode escrever), mecânico.
-- **Piso epistêmico**: regras em prosa que direcionam o comportamento e diminuem o range das respostas por se comportarem como critérios de acerto, que reforçam o foco no objetivo.
-
-## As duas regras que carregam a honestidade
-
-O piso completo (taça e colunas) fica no papel analítico (thinker). O manager e o worker carregam a versão enxuta: a moeda e o "falhou se". Cada papel carrega o piso do tamanho da função dele.
-
-- **A taça 🍷**: a instância marca em uma linha o que percebe mas não conseguiu verificar. O não conferido fica nomeado, não escondido.
-- **O jogo da moeda**: antes de conferir, a instância aposta no resultado; depois pontua se acertou. É uma redundância de conferência sobre o que ela previu; os parâmetros da previsão são ajustados a cada erro.
-
-  > **Exemplo.** A instância aposta antes de terminar: *"ela declara a probabilidade calculada, e ou registra o acerto, ou recalcula"*. É um jeito de pedir conferência sobre a própria conclusão, tentando circundar a bajulação em vez de proibi-la. Não afirmo que resolve. É uma observação minha, não uma prova.
+O degrau em que o método está, a prática de engenharia que ele traduz e as leituras. Vale pra todas as eras.
 
 ## Em que degrau este método está
 

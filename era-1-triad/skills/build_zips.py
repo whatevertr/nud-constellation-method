@@ -1,5 +1,5 @@
 """Regenera o .zip de cada skill desta pasta. Rode depois de qualquer mudanca numa skill.
-Uso: python skills/build_zips.py   (de qualquer lugar). Barras normais (/) dentro do zip, para abrir em Mac/Linux/Windows.
+Uso: python era-1-triad/skills/build_zips.py   (de qualquer lugar). Barras normais (/) dentro do zip, para abrir em Mac/Linux/Windows.
 Licenca: MIT."""
 import os, zipfile
 HERE = os.path.dirname(os.path.abspath(__file__))

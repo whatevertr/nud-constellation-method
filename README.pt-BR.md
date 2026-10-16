@@ -19,7 +19,7 @@ Ainda tenho muito pra melhorar e aprender, por isso as melhorias vão sempre che
 
 ## Contexto mínimo
 
-Tudo parte de um contexto mínimo, dividido em três documentos. Cada um organiza um tipo de informação que a instância precisa para trabalhar de forma gerencial. Se você quer usar só num projeto pontual, use um projeto no app do seu provedor (o Claude Cowork, por exemplo): os três documentos entram na configuração do projeto, e pronto. É simples e funcional. **Para escalar, com gerenciamento e memória continuada**, esses mesmos três documentos são o mínimo que a plataforma precisa para configurar um agente: o manual vira as regras de conduta, a porta vira a memória do projeto, e a função vira o perfil do agente. Os guardrails (o que ele não pode executar, onde não pode escrever) e os hooks (o que é barrado antes de acontecer) entram por cima disso, como configuração da plataforma, não como texto. Onde cada peça mora em cada plataforma está em [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md).
+Tudo parte de um contexto mínimo, dividido em três documentos. Cada um organiza um tipo de informação que a instância precisa para trabalhar de forma gerencial. Se você quer usar só num projeto pontual, use um projeto no app do seu provedor (o Claude Cowork, por exemplo): os três documentos entram na configuração do projeto, e pronto. É simples e funcional. **Para escalar, com gerenciamento e memória continuada**, esses mesmos três documentos são o mínimo que a plataforma precisa para configurar um agente: o manual vira as regras de conduta, a porta vira a memória do projeto, e a função vira o perfil do agente. Os guardrails (o que ele não pode executar, onde não pode escrever) e os hooks (o que é barrado antes de acontecer) entram por cima disso, como configuração da plataforma, não como texto. Onde cada peça mora em cada plataforma está em [`ONDE_CONFIGURAR.md`](era-3-configs-e-hooks/ONDE_CONFIGURAR.md).
 
 Três documentos, três camadas:
 
@@ -35,11 +35,11 @@ Num trabalho pequeno, dentro de um projeto do app, a tarefa é pontual: ou é an
 - **Conferência auditiva** (manager): confere o que voltou contra o que foi combinado.
 - **Conferência analítica** (thinker): estressa a hipótese antes de ela virar decisão, e planeja o próximo.
 
-O piso e os guardrails que os três carregam estão explicados em [`METODO.md`](METODO.md).
+O piso e os guardrails que os três carregam estão explicados em [`METODO.md`](era-1-triad/METODO.md).
 
 ## Como usar
 
-1. **Baixe as skills.** Estão na pasta [`skills/`](skills/): cada uma como pasta aberta e como `.zip` pronto para subir no seu app. O `README` da pasta explica a instalação.
+1. **Baixe as skills.** Estão na pasta [`skills/`](era-1-triad/skills/): cada uma como pasta aberta e como `.zip` pronto para subir no seu app. O `README` da pasta explica a instalação.
 2. **`nud-como-trabalhar-comigo`** — instale ou cole no chat. A instância vai fazer perguntas; responda com sinceridade. Esse documento é o que estabelece o chão comum de comunicação entre você e seus agentes.
 3. **`nud-comece-aqui`** — te ajuda a explicar seu objetivo. Serve para pasta de projeto, demanda pontual ou objetivo específico (uma festa de casamento, por exemplo). Garante o contexto mínimo de um objetivo.
 4. **`nud-agentes`** — o contexto do método. Instala na instância a capacidade de te ajudar a montar o seu jeito de trabalhar, seja num projeto do app ou em escala, e traz os perfis dos três agentes dentro. Ela vai pedir os dois documentos gerados acima para entender que tipo de configuração você precisa.
@@ -79,11 +79,11 @@ O que cada peça faz: a **casa** (`home_[agent]`) é onde cada agente é vincula
 
 ## Para se aprofundar
 
-- [`METODO.md`](METODO.md): o piso epistêmico, os guardrails, as duas regras da honestidade, em que degrau o método está e em que ele se apoia.
-- [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md): onde cada camada mora em cada plataforma (Claude Code, Hermes, Codex).
+- [`METODO.md`](era-1-triad/METODO.md): o piso epistêmico, os guardrails, as duas regras da honestidade, em que degrau o método está e em que ele se apoia.
+- [`ONDE_CONFIGURAR.md`](era-3-configs-e-hooks/ONDE_CONFIGURAR.md): onde cada camada mora em cada plataforma (Claude Code, Hermes, Codex).
 - [`MANIFESTO.pt-BR.md`](MANIFESTO.pt-BR.md): de onde isso veio.
-- [`cronologia/`](cronologia/): a trilha do método, por eras.
-- [`DEVLOG.md`](DEVLOG.md): o que mudou, quando, e o que a conferência derrubou.
+- [`cronologia/`](historia/cronologia/): a trilha do método, por eras.
+- [`DEVLOG.md`](historia/DEVLOG.md): o que mudou, quando, e o que a conferência derrubou.
 
 ## Licença
 

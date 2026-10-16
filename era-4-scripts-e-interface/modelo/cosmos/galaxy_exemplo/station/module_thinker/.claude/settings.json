@@ -1,0 +1,39 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(rm *)",
+      "Bash(rmdir *)"
+    ],
+    "ask": [
+      "Bash(git commit *)",
+      "Bash(git push *)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_exemplo/tools/hook_chegada.py\""
+          },
+          {
+            "type": "command",
+            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_exemplo/tools/hook_alma.py\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Read|Edit|Write|Glob|Grep",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_exemplo/tools/hook_mission.py\""
+          }
+        ]
+      }
+    ]
+  }
+}
