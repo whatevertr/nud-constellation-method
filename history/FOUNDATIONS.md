@@ -6,7 +6,7 @@ O degrau em que o método está, a prática de engenharia que ele traduz e as le
 
 **método** (formalizado e aplicável) → **reproduzível** (terceiros repetem) → **eficaz** (avaliação mede o resultado) → **generalizável** (resultado observado por outros)
 
-A Tríade se declara no **primeiro degrau**: método formalizado, em uso diário, com reprodutibilidade e eficácia ainda em teste. Nomear a escada é o convite: quem quiser ajudar sabe qual degrau está vago.
+Em outubro de 2026, o método está no **segundo degrau**: pelo menos três pessoas além da autora usaram e reproduziram o método, e duas relataram melhora no resultado do trabalho. São relatos de uso, não avaliação medida: o terceiro degrau ainda espera uma medição. Nomear a escada é o convite: quem quiser ajudar sabe qual degrau está vago.
 
 ## Em que eu me apoio
 

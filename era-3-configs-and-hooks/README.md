@@ -12,9 +12,9 @@ O contexto passou a chegar sozinho, e os guardrails passaram a valer sem depende
 ## Duas camadas que se reforçam
 
 - **Guardrails determinísticos**: paredes que não dependem do modelo (o que ele não pode executar, onde não pode escrever), mecânico. Chegam nesta era.
-- **Piso epistêmico**: o da Era 1 (as regras em prosa que os agentes carregam; ver [`METODO.md`](../era-1-triad/METODO.md)). Continua valendo: um não substitui o outro.
+- **Piso epistêmico**: o da Era 1 (as regras em prosa que os agentes carregam; ver [`METHOD.md`](../era-1-triad/METHOD.md)). Continua valendo: um não substitui o outro.
 
 ## O que tem aqui
 
-- [`ONDE_CONFIGURAR.md`](ONDE_CONFIGURAR.md): onde cada camada mora em cada plataforma testada (Claude Code, Hermes, Codex);
+- [`WHERE_TO_CONFIGURE.md`](WHERE_TO_CONFIGURE.md): onde cada camada mora em cada plataforma testada (Claude Code, Hermes, Codex);
 - uma pasta de exemplo *(em construção)*.

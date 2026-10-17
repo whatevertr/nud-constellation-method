@@ -15,11 +15,11 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_exemplo/tools/hook_chegada.py\""
+            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_example/tools/hook_chegada.py\""
           },
           {
             "type": "command",
-            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_exemplo/tools/hook_alma.py\""
+            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_example/tools/hook_alma.py\""
           }
         ]
       }
@@ -30,7 +30,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_exemplo/tools/hook_mission.py\""
+            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_example/tools/hook_mission.py\""
           }
         ]
       }

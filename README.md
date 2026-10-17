@@ -19,7 +19,7 @@ I still have a lot to improve and learn, so improvements will always arrive in t
 
 ## Minimum context
 
-Everything starts from minimum context, split into three documents. Each one organizes a type of information the instance needs to work in a managerial way. If you want to use it in just a one-off project, use a project in your provider's app (Claude Cowork, for example): the three documents go into the project configuration, and that's it. It is simple and functional. **To scale, with management and continued memory**, these same three documents are the minimum the platform needs to configure an agent: the manual becomes the rules of conduct, the door becomes the project's memory, and the function becomes the agent's profile. Guardrails (what it cannot run, where it cannot write) and hooks (what is blocked before it happens) sit on top of this, as platform configuration, not as text. Where each piece lives on each platform is in [`ONDE_CONFIGURAR.md`](era-3-configs-e-hooks/ONDE_CONFIGURAR.md).
+Everything starts from minimum context, split into three documents. Each one organizes a type of information the instance needs to work in a managerial way. If you want to use it in just a one-off project, use a project in your provider's app (Claude Cowork, for example): the three documents go into the project configuration, and that's it. It is simple and functional. **To scale, with management and continued memory**, these same three documents are the minimum the platform needs to configure an agent: the manual becomes the rules of conduct, the door becomes the project's memory, and the function becomes the agent's profile. Guardrails (what it cannot run, where it cannot write) and hooks (what is blocked before it happens) sit on top of this, as platform configuration, not as text. Where each piece lives on each platform is in [`WHERE_TO_CONFIGURE.md`](era-3-configs-and-hooks/WHERE_TO_CONFIGURE.md).
 
 Three documents, three layers:
 
@@ -35,7 +35,7 @@ In a small job, inside an app project, the task is one-off: it is either analysi
 - **Audit check** (manager): checks what came back against what was agreed.
 - **Analytical check** (thinker): stresses the hypothesis before it becomes a decision, and plans the next one.
 
-The floor and the guardrails the three carry are explained in [`METODO.md`](era-1-triad/METODO.md).
+The floor and the guardrails the three carry are explained in [`METHOD.md`](era-1-triad/METHOD.md).
 
 ## How to use
 
@@ -79,11 +79,11 @@ What each piece does: the **home** (`home_[agent]`) is where each agent is bound
 
 ## Dig deeper
 
-- [`METODO.md`](era-1-triad/METODO.md): the epistemic floor, the guardrails, the two rules of honesty, what rung the method is on and what it leans on.
-- [`ONDE_CONFIGURAR.md`](era-3-configs-e-hooks/ONDE_CONFIGURAR.md): where each layer lives on each platform (Claude Code, Hermes, Codex).
+- [`METHOD.md`](era-1-triad/METHOD.md): the epistemic floor, the guardrails, the two rules of honesty, what rung the method is on and what it leans on.
+- [`WHERE_TO_CONFIGURE.md`](era-3-configs-and-hooks/WHERE_TO_CONFIGURE.md): where each layer lives on each platform (Claude Code, Hermes, Codex).
 - [`MANIFESTO.md`](MANIFESTO.md): where this came from.
-- [`cronologia/`](historia/cronologia/): the trail of the method, by eras.
-- [`DEVLOG.md`](historia/DEVLOG.md): what changed, when, and what the check knocked down.
+- [`cronologia/`](history/cronologia/): the trail of the method, by eras.
+- [`DEVLOG.md`](history/DEVLOG.md): what changed, when, and what the check knocked down.
 
 ## License
 

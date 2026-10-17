@@ -27,7 +27,7 @@ retrato: retrato.png
 
 ## Registrar (a porta única do log)
 ```
-"{PYTHON}" "{COSMOS}\galaxy_exemplo\tools\registrar.py" "{COSMOS}\galaxy_exemplo\station\module_thinker" --por thinker --tipo nota --tag {tipo} --txt "..."
+"{PYTHON}" "{COSMOS}\galaxy_example\tools\registrar.py" "{COSMOS}\galaxy_example\station\module_thinker" --por thinker --tipo nota --tag {tipo} --txt "..."
 ```
 Tipos de linha: `tarefa`, `nota`, `decisao` (exige `--porque`), `resumo` (onde paramos | o que decidimos e por quê | o que vem | como a pessoa está). **Toda tarefa e pendência leva `--tag` com o tipo de trabalho** (`tools\tipos.json`). Se vier `AVISO`, corrija na hora.
 
@@ -39,7 +39,7 @@ A lista viva do que falta fora de mission fica em `pendencias.jsonl`, aqui. Nada
 2. **As skills de contexto** (`skill-context`): se existir uma sobre o assunto, ela vem antes do galley.
 3. **O galley** (busca por sentido; plano B por palavra).
    ```
-   "{PYTHON}" "{COSMOS}\galaxy_exemplo\tools\buscador.py" "{COSMOS}\galaxy_exemplo\station\module_thinker\galley\states" "a pergunta" --n 5
+   "{PYTHON}" "{COSMOS}\galaxy_example\tools\buscador.py" "{COSMOS}\galaxy_example\station\module_thinker\galley\states" "a pergunta" --n 5
    ```
    Pra pôr um arquivo no galley: `fatiador.py <pasta do galley> --tipo state|diario --era N --dono <thinker> <arquivo ou pasta>`. Palavra que faltou ligar ao jargão: avise a pessoa, pra entrar no **seu** `galley\glossario.json`.
 4. Não achou: diga que não existe. Nunca deduza. Contradição: vale o mais recente.

@@ -9,7 +9,7 @@ Read the repository's thesis and talk with the person: how they work, what they 
 ## What comes in this package
 ```
 cosmos\                         the root: rules that apply to every agent
-└─ galaxy_exemplo\              one universe of work, with a single Tars
+└─ galaxy_example\              one universe of work, with a single Tars
    ├─ station\module_thinker\   the thinker's home: CLAUDE.md (its profile card and way of working),
    │                            diary\ (the diary), galley\ (the search into the past),
    │                            .claude\settings.json (the hooks)
@@ -31,29 +31,29 @@ cosmos\                         the root: rules that apply to every agent
 **The galley:** the search into the past (old diaries and records). It works **with nothing installed** (keyword search). With [Ollama](https://ollama.com) and the `qwen3-embedding:0.6b` model, it also searches by meaning, and results improve. If Ollama doesn't answer, it falls back to keyword search on its own.
 
 ## Step by step
-1. **Where it lives.** The recommended place is `C:\Users\<person's name>\cosmos` (on Mac or Linux, `~/cosmos`): inside the person's own folder, outside synced folders (OneDrive and the like sync in the middle of the work and confuse the agents), with no spaces or accents in the path. Copy the `modelo\cosmos\` folder there.
+1. **Where it lives.** The recommended place is `C:\Users\<person's name>\cosmos` (on Mac or Linux, `~/cosmos`): inside the person's own folder, outside synced folders (OneDrive and the like sync in the middle of the work and confuse the agents), with no spaces or accents in the path. Copy the `model\cosmos\` folder there.
 2. **Python.** The tools use only the standard library of Python 3.10 or newer. Find the full path of the machine's executable (on Windows, `where python` or `py -0p`; watch out for the Microsoft Store shortcut, which opens the store instead of Python). Always use the full path.
 3. **The placeholders.** Replace in every `.md` and `.json`:
    - `{PYTHON}` → the Python path (in `settings.json`, with forward slashes `/`);
    - `{COSMOS}` → the path of the `cosmos` folder (in `settings.json`, with forward slashes `/`);
    - `{AAAA-MM-DD}` → today's date (year-month-day);
    - `{nome da pessoa}` (the person's name), `{como ela prefere trabalhar}` (how they prefer to work) and the other `{…}` → with the person, in conversation.
-4. **The names.** If the person wants, rename `galaxy_exemplo` and `module_thinker` (and update the paths in `settings.json` and in the home's `CLAUDE.md`). The `thinker:` field in the header is the name the log uses: choose it now, because it doesn't change later.
+4. **The names.** If the person wants, rename `galaxy_example` and `module_thinker` (and update the paths in `settings.json` and in the home's `CLAUDE.md`). The `thinker:` field in the header is the name the log uses: choose it now, because it doesn't change later.
 5. **The profile card.** Fill in the header of `module_thinker\CLAUDE.md` with the person. The example diary can be deleted (or replaced) on the first day: the thinker writes the first real diary entry when closing the day.
 6. **The first record.** Run, from the home folder:
    ```
-   "{PYTHON}" "{COSMOS}\galaxy_exemplo\tools\registrar.py" "{COSMOS}\galaxy_exemplo\station\module_thinker" --por thinker --tipo nota --tag organizacao --txt "First line: installation done."
+   "{PYTHON}" "{COSMOS}\galaxy_example\tools\registrar.py" "{COSMOS}\galaxy_example\station\module_thinker" --por thinker --tipo nota --tag organizacao --txt "First line: installation done."
    ```
    It must answer `REGISTRADO`.
 
 ## How to know it worked
 1. Open a new Claude Code session **with the home folder** (`module_thinker`) as the working folder.
 2. In its first reply, the thinker must mention the **`=== CHEGADA (hook, Era 4) ===`** block (arrival) and the **`=== ALMA ===`** block (soul). If they came, continued memory is on.
-3. Ask it to record a task in `minha-primeira-mission` and then to search the galley. If both work, it is installed.
+3. Ask it to record a task in `my-first-mission` and then to search the galley. If both work, it is installed.
 
 **If the arrival block didn't come:** check the Python path in `settings.json` (full path, forward slashes `/`), and whether the session was opened in the home folder (the hooks live in its `.claude\settings.json`).
 
-**On Codex (or another agent):** every folder has an `AGENTS.md` that points to the `CLAUDE.md` next to it, so the rules arrive. The hooks (arrival, soul, mission) were tested only on Claude Code; on another agent, ask it to run, on opening, `"{PYTHON}" "{COSMOS}\galaxy_exemplo\tools\leitor.py" chegada "{COSMOS}\galaxy_exemplo\station\module_thinker"`.
+**On Codex (or another agent):** every folder has an `AGENTS.md` that points to the `CLAUDE.md` next to it, so the rules arrive. The hooks (arrival, soul, mission) were tested only on Claude Code; on another agent, ask it to run, on opening, `"{PYTHON}" "{COSMOS}\galaxy_example\tools\leitor.py" chegada "{COSMOS}\galaxy_example\station\module_thinker"`.
 
 ## What this package doesn't bring
 - **The agent profile** (`.claude\agents\<name>.md`, the soul that goes along into every session), **on purpose**: the profile is born from the Triad, written with the person, from how they work. A ready-made profile would belong to someone else.
