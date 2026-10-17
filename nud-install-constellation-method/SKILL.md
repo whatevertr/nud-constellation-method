@@ -26,7 +26,7 @@ Na dúvida sobre o objetivo de alguma peça, volte aqui. Cada era usa as anterio
 1. **Era 1, a Tríade:** as skills que ajudam a definir um chão comum entre a pessoa e o agente: o **manual** (como ela trabalha), a **porta** (o que é o projeto e o que importa agora) e a **função** (o perfil do agente: thinker, manager ou worker). Juntos, são o **contexto mínimo**.
 2. **Era 2, estados e diários:** com o contexto mínimo pronto, entra a **memória**, com manutenção manual: o estado (onde paramos) e o diário (como foi trabalhar junto), que a próxima conversa consulta.
 3. **Era 3, configs e hooks:** o contexto mínimo vira **configuração de agente personalizado**, e os hooks e o system prompt garantem que o contexto chegue, sem depender de alguém lembrar.
-4. **Era 4, scripts e interface:** o fluxo de contexto é **padronizado e automatizado** (um registrador único escreve o log; hooks entregam o último resumo e o último diário ao abrir), e o passado vira **contexto de consulta** buscável: o **galley**, uma busca híbrida (por sentido, com embeddings, e por palavra, com BM25, unidas por fusão de ranking) sobre os registros antigos fatiados em pedaços. É a parte de recuperação de um RAG, usada sob demanda: o agente busca quando precisa.
+4. **Era 4, scripts e interface:** o fluxo de contexto é **padronizado e automatizado**, com um **painel** que mostra as missions, as pendências e a ficha de cada thinker (um registrador único escreve o log; hooks entregam o último resumo e o último diário ao abrir), e o passado vira **contexto de consulta** buscável: o **galley**, uma busca híbrida (por sentido, com embeddings, e por palavra, com BM25, unidas por fusão de ranking) sobre os registros antigos fatiados em pedaços. É a parte de recuperação de um RAG, usada sob demanda: o agente busca quando precisa.
 
 ## O que você está instalando (explique assim, em linguagem simples)
 
@@ -47,8 +47,9 @@ Na dúvida sobre o objetivo de alguma peça, volte aqui. Cada era usa as anterio
 4. **Siga o guia da Era 4:** `era-4-scripts-and-interface/INSTALAR.md` (ou `INSTALL.md`, em inglês). Ele é o passo a passo completo: onde mora, o Python, os marcadores, os nomes, a ficha do thinker, o primeiro registro e como saber que deu certo. **Mostre a árvore de pastas antes de criar.**
 5. **As galaxies.** Uma por área que a pessoa escolher (comece com uma), cada uma com o seu thinker.
 6. **As missions.** Cada trabalho vira uma mission em `missions\nome-da-mission\`. Se a pessoa trabalha principalmente com repositórios, **o repositório mora dentro da mission** (`missions\nome\repo-nome\`). A `lab\` (materiais, rascunhos, o que ainda não foi revisado) não é obrigatória, mas ajuda a organizar: sugira.
-7. **Teste** como manda o guia ("Como saber que deu certo").
-8. **Diga como continuar:** abrir a conversa sempre na pasta da casa do thinker; fechar o dia com um resumo (e o diário, se ela quiser); nada se apaga de vez (vai pro `_to_delete`, e só ela esvazia).
+7. **O painel e os exemplos.** Ofereça o painel (`cosmos\app\`, passo 7 do guia): ele precisa do `pywebview`, instalado só com o sim da pessoa. Mostre a mission e a skill de exemplo (dados fictícios, pro painel não abrir vazio) e explique que, quando ela quiser começar de verdade, as duas pastas vão inteiras pro `_to_delete`.
+8. **Teste** como manda o guia ("Como saber que deu certo").
+9. **Diga como continuar:** abrir a conversa sempre na pasta da casa do thinker; fechar o dia com um resumo (e o diário, se ela quiser); nada se apaga de vez (vai pro `_to_delete`, e só ela esvazia).
 
 ## Pra quem quer fazer à mão
 Tudo o que esta skill faz está no `INSTALAR.md` da Era 4, no repositório. A pessoa pode ler e instalar sozinha.

@@ -19,6 +19,13 @@ Instale a skill **`nud-install-constellation-method`** no seu agente e peça: *"
 - **Onde roda:** testado no Claude Code, com Python 3.10 ou mais novo.
 - **Prefere fazer à mão?** O passo a passo inteiro está no [`INSTALAR.md`](era-4-scripts-and-interface/INSTALAR.md).
 
+A ficha de um thinker no painel que vem junto, com os dados de exemplo ([as outras vistas](era-4-scripts-and-interface/)):
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ficha_anotada_pt_noite.png">
+  <img alt="A ficha do thinker no painel, anotada: quem ele é, onde vocês pararam, as conquistas, o que ele sabe e usa, e a configuração à vista" src="assets/ficha_anotada_pt_dia.png">
+</picture>
+
 ## O que é
 
 É um jeito de organizar contexto para que a IA consiga me ajudar a gerenciar a minha vida. Comecei simples: arquivos markdown dentro de projetos na interface do provedor, que a instância lia no início de cada trabalho. Fui documentando aqui conforme escalava. Hoje tenho um sistema que projetei para ser agnóstico de modelo, já rodei nas plataformas que testei (Claude Code, Hermes, Codex), e gerencio toda a minha vida a partir de três funções de agente: thinker, manager e worker. É assim que eu uso e funciona pra mim; se você testar em outro lugar, eu ia adorar saber como foi. Isso está transformando a minha vida. Me dá mais autonomia e capacidade de criação, e me deixou uma pessoa mais saudável.
@@ -41,7 +48,7 @@ O método cresceu em eras. Cada era vai até o ponto em que a forma de trabalhar
 | [**1. A Tríade**](era-1-triad/) | O contexto mínimo em três documentos (a porta, o manual e a função) e três papéis de agente. |
 | [**2. Estados e diários**](era-2-states-and-diaries/) | A estrutura sai do projeto do app e vai pras pastas do computador, e entra a memória entre conversas, mantida à mão. |
 | [**3. Configs e hooks**](era-3-configs-and-hooks/) | O contexto mínimo vira configuração de agente, e os hooks garantem que o contexto chegue, sem depender de alguém lembrar. |
-| [**4. Scripts e interface**](era-4-scripts-and-interface/) | O fluxo de contexto é padronizado e automatizado, e o passado vira contexto de consulta, buscável. É a versão que a skill instala. |
+| [**4. Scripts e interface**](era-4-scripts-and-interface/) | O fluxo de contexto é padronizado e automatizado, o passado vira contexto de consulta, buscável, e um painel mostra as missions, as pendências e as fichas. É a versão que a skill instala. |
 
 ## O que tem aqui
 

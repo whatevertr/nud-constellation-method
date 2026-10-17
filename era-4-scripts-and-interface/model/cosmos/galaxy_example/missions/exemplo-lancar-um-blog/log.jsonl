@@ -1,0 +1,9 @@
+{"data": "2026-10-17T01:38", "por": "thinker", "tipo": "nota", "txt": "Mission aberta: lançar um blog pessoal até o fim do mês.", "tag": "organizacao"}
+{"data": "2026-10-17T01:38", "por": "thinker", "tipo": "tarefa", "id": "t1", "status": "aberta", "txt": "Comparar três plataformas de blog (custo, controle, facilidade).", "quem": "thinker", "tag": "pesquisa"}
+{"data": "2026-10-17T01:38", "por": "thinker", "tipo": "tarefa", "id": "t2", "status": "aberta", "txt": "Escrever o primeiro post.", "quem": "pessoa", "tag": "construcao"}
+{"data": "2026-10-17T01:38", "por": "thinker", "tipo": "tarefa", "id": "t3", "status": "aberta", "txt": "Comprar o domínio.", "quem": "pessoa", "tag": "publicacao"}
+{"data": "2026-10-17T01:38", "por": "thinker", "tipo": "tarefa", "id": "t4", "status": "aberta", "txt": "Montar o modelo de página do blog.", "quem": "thinker", "tag": "construcao"}
+{"data": "2026-10-17T01:38", "por": "thinker", "tipo": "decisao", "txt": "Plataforma: um site estático.", "porque": "Barato, rápido e o conteúdo fica sob o controle da pessoa."}
+{"data": "2026-10-17T01:38", "por": "thinker", "tipo": "tarefa", "id": "t1", "status": "feita", "txt": "Comparação feita: o site estático ganhou."}
+{"data": "2026-10-17T01:38", "por": "thinker", "tipo": "tarefa", "id": "t4", "status": "fazendo", "txt": "Começando pelo cabeçalho e pela fonte."}
+{"data": "2026-10-17T01:38", "por": "thinker", "tipo": "resumo", "txt": "Paramos: plataforma escolhida | decidido: site estático, pelo custo e pelo controle | vem: o primeiro post e o domínio | a pessoa está animada.", "id": "r1"}

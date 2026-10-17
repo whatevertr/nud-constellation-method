@@ -21,6 +21,13 @@ Install the **`nud-install-constellation-method`** skill on your agent and ask: 
 
 *The skills and templates are written in Brazilian Portuguese; the agent installing them can talk with you in your language.*
 
+A thinker's profile card in the dashboard that comes with it, with the example data ([the other views](era-4-scripts-and-interface/)):
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/ficha_anotada_en_noite.png">
+  <img alt="The thinker's profile card in the dashboard, annotated: who it is, where you left off, achievements, what it knows and uses, and its configuration in sight" src="assets/ficha_anotada_en_dia.png">
+</picture>
+
 ## What it is
 
 It is a way to organize context so AI can help me manage my life. I started simple: markdown files inside projects in the provider's interface, which the instance read at the start of each job. I documented it here as it scaled. Today I have a system I designed to be model-agnostic, I've run it on the platforms I've tested (Claude Code, Hermes, Codex), and I manage my whole life from three agent functions: thinker, manager and worker. This is how I use it and it works for me; if you try it somewhere else, I'd genuinely like to hear how it went. It's transforming my life. It gives me more autonomy and capacity to create, and it made me a healthier person.
@@ -43,7 +50,7 @@ The method grew in eras. Each era goes up to the point where the way of working 
 | [**1. The Triad**](era-1-triad/) | The minimum context in three documents (the door, the manual and the function) and three agent roles. |
 | [**2. States and diaries**](era-2-states-and-diaries/) | The structure leaves the app's project and moves to folders on the computer, and memory between conversations comes in, kept by hand. |
 | [**3. Configs and hooks**](era-3-configs-and-hooks/) | The minimum context becomes agent configuration, and hooks make sure the context arrives, without depending on anyone remembering. |
-| [**4. Scripts and interface**](era-4-scripts-and-interface/) | The context flow is standardized and automated, and the past becomes searchable reference context. This is the version the skill installs. |
+| [**4. Scripts and interface**](era-4-scripts-and-interface/) | The context flow is standardized and automated, the past becomes searchable reference context, and a dashboard shows missions, pending tasks and profile cards. This is the version the skill installs. |
 
 ## What's here
 

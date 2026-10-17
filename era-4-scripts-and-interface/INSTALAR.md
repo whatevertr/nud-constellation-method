@@ -9,12 +9,13 @@ Leia a tese do repositório e converse com a pessoa: como ela trabalha, o que el
 ## O que vem neste pacote
 ```
 cosmos\                         a raiz: regras que valem pra todo agente
+├─ app\                          o painel: missions, pendências e fichas de todas as galaxies
 └─ galaxy_example\              um universo de trabalho, com um Tars só
    ├─ station\module_thinker\   a casa do thinker: CLAUDE.md (a ficha e o jeito de trabalhar),
    │                            diary\ (o diário), galley\ (a busca no passado),
    │                            .claude\settings.json (os hooks)
-   ├─ missions\                 o trabalho; uma mission de exemplo, com lab\storage|output|tasks
-   ├─ matrix\                   as skills (de contexto e de ofício)
+   ├─ missions\                 o trabalho: a my-first-mission (a sua) e a exemplo-lancar-um-blog (de exemplo)
+   ├─ matrix\                   as skills (de contexto e de ofício; vem uma de exemplo)
    ├─ tools\                    registrar, leitor, os 3 hooks, fatiador e buscador (o galley)
    ├─ _to_delete\               a lixeira (só a pessoa esvazia)
    └─ _archived\                o que acabou, guardado
@@ -45,6 +46,12 @@ cosmos\                         a raiz: regras que valem pra todo agente
    "{PYTHON}" "{COSMOS}\galaxy_example\tools\registrar.py" "{COSMOS}\galaxy_example\station\module_thinker" --por thinker --tipo nota --tag organizacao --txt "Primeira linha: instalação feita."
    ```
    Tem que voltar `REGISTRADO`.
+7. **O painel (opcional).** O app precisa de uma coisa só fora da biblioteca padrão, o `pywebview`. Com o sim da pessoa:
+   ```
+   "{PYTHON}" -m pip install pywebview
+   ```
+   Pra abrir: `"{PYTHON}" "{COSMOS}\app\painel.py"` (no Windows, o `pythonw.exe` da mesma pasta abre sem a janela preta; dá pra criar um atalho na área de trabalho com esse comando). O painel só lê: nada do que ele mostra se edita por ele.
+8. **Os exemplos.** A `exemplo-lancar-um-blog` (mission) e a `exemplo-revisar-texto` (skill) vêm com dados fictícios, pra o painel não abrir vazio: mostre pra pessoa. Quando ela quiser começar de verdade, mova as duas pastas inteiras pro `_to_delete\` da galaxy. Nada no log se apaga à mão.
 
 ## Como saber que deu certo
 1. Abra uma sessão nova do Claude Code **com a pasta da casa** (`module_thinker`) como pasta de trabalho.
@@ -58,7 +65,6 @@ cosmos\                         a raiz: regras que valem pra todo agente
 ## O que este pacote não traz
 - **O perfil de agente** (`.claude\agents\<nome>.md`, a alma que vai junto em toda sessão), **de propósito**: o perfil nasce da Tríade, escrito com a pessoa, a partir de como ela trabalha. Um perfil pronto seria de outra pessoa.
 - **A guarda** (um hook que barra cada agente fora da área dele): cada pessoa tem as suas áreas; uma versão genérica vem depois.
-- **O app painel** (a vista das missions, tarefas e indicadores): numa próxima entrega.
 
 ## Uma última coisa
 Se, depois de conversar, você achar que o método não serve pra essa pessoa, diga. Esse também é o método funcionando.

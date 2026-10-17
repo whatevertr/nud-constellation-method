@@ -1,5 +1,5 @@
 """
-registrar.py · a ÚNICA porta de escrita do log (Era 4, galaxy_observatory).
+registrar.py · a ÚNICA porta de escrita do log (Era 4).
 v0.4.0 · 10/10/2026 (--quem: quem FAZ a tarefa, separado de quem escreve; --canal: onde a peça vai ao ar) · tars (Claude), o thinker do NUD · guardião.
 v0.3.0 · 04/10/2026 (aviso de tipo: toda tarefa nova leva um --tag da lista tipos.json).
 
@@ -12,13 +12,13 @@ Uso (exemplos):
   python registrar.py <pasta> --por thinker --tipo tarefa  --id t3 --status feita
   python registrar.py <pasta> --por thinker --tipo decisao --tag organizacao --txt "..." --porque "..."
   python registrar.py <pasta> --por thinker --tipo resumo  --tag organizacao --txt "onde paramos | decisões e porquê | o que vem | como ela está"
-  python registrar.py <pasta> --por thinker       --tipo tarefa  --tag publicacao --txt "..." --quem autora --canal youtube:short --prazo 2026-10-20
+  python registrar.py <pasta> --por thinker       --tipo tarefa  --tag publicacao --txt "..." --quem pessoa --canal youtube:short --prazo 2026-10-20
   python registrar.py <pasta> --por thinker       --tipo nota    --tag alcance --canal youtube --txt "inscritos=4; views_28d=193"
 Campos opcionais: --ref <arquivo com o detalhe>
---quem: quem FAZ a tarefa (autora, thinker, thinker...). Sem ele, é quem escreveu (--por). É o filtro "é minha" do app.
+--quem: quem FAZ a tarefa (pessoa, thinker...). Sem ele, é quem escreveu (--por). É o filtro "é minha" do app.
 --canal: plataforma:formato (youtube:longo, instagram:reel, itch:pagina) ou só a plataforma. Tarefa com --canal + --prazo entra no calendário.
 Tarefa nova: o --tag é o TIPO de trabalho, um dos que estão em tipos.json (ao lado deste script).
-Sem tipo ou fora da lista, a linha entra, mas sai um AVISO pra corrigir com a autora.
+Sem tipo ou fora da lista, a linha entra, mas sai um AVISO pra corrigir com a pessoa.
 """
 import argparse
 import datetime as dt
@@ -58,14 +58,14 @@ def ler(arquivo):
                     try:
                         linhas.append(json.loads(l))
                     except json.JSONDecodeError:
-                        falhar(f"o log tem uma linha quebrada (linha {n}). Ninguém edita o log à mão: avise a autora.")
+                        falhar(f"o log tem uma linha quebrada (linha {n}). Ninguém edita o log à mão: avise a pessoa.")
     return linhas
 
 
 def main():
     ap = argparse.ArgumentParser(description="Acrescenta uma linha validada no log.jsonl de uma pasta.")
     ap.add_argument("pasta")
-    ap.add_argument("--por", required=True, help="quem escreve (ex.: thinker, sentinela). 'autora' só pelo app.")
+    ap.add_argument("--por", required=True, help="quem escreve (ex.: thinker, sentinela). 'pessoa' só pelo app.")
     ap.add_argument("--tipo", required=True, choices=TIPOS)
     ap.add_argument("--txt", default="")
     ap.add_argument("--tag", default="")
@@ -74,9 +74,9 @@ def main():
     ap.add_argument("--prazo", default="")
     ap.add_argument("--porque", default="")
     ap.add_argument("--ref", default="")
-    ap.add_argument("--quem", default="", help="quem FAZ a tarefa (padrão: o --por). 'autora' pode: é a pendência que só ela faz.")
+    ap.add_argument("--quem", default="", help="quem FAZ a tarefa (padrão: o --por). 'pessoa' pode: é a pendência que só a pessoa faz.")
     ap.add_argument("--canal", default="", help="plataforma:formato (ex.: youtube:short) ou só a plataforma")
-    ap.add_argument("--pelo-app", action="store_true", help="só o app da autora usa: libera --por autora")
+    ap.add_argument("--pelo-app", action="store_true", help="só o app usa: libera --por pessoa")
     ap.add_argument("--pendencia", action="store_true", help="grava no pendencias.jsonl do MÓDULO (a lista viva do que falta, fora de mission), não no log")
     a = ap.parse_args()
 
@@ -90,13 +90,13 @@ def main():
     por = a.por.strip().lower()
     if not re.fullmatch(r"[a-z0-9_]{2,40}", por):
         falhar("--por: só letras minúsculas, números e _ (ex.: thinker).")
-    if por == "autora" and not a.pelo_app:
-        falhar("só a autora assina como 'autora', e só pelo app dela.")
+    if por == "pessoa" and not a.pelo_app:
+        falhar("só a pessoa assina como 'pessoa', e só pelo app.")
     if a.tag and not re.fullmatch(r"[a-z0-9-]{2,30}", a.tag):
         falhar("--tag: minúsculas, números e traço (ex.: organizacao, publicacao).")
     quem = a.quem.strip().lower()
     if quem and not re.fullmatch(r"[a-z0-9_]{2,40}", quem):
-        falhar("--quem: só letras minúsculas, números e _ (ex.: autora, thinker).")
+        falhar("--quem: só letras minúsculas, números e _ (ex.: pessoa, thinker).")
     if quem and a.tipo != "tarefa":
         falhar("--quem só vale pra tarefa (é quem faz).")
     canal = a.canal.strip().lower()
@@ -160,7 +160,7 @@ def main():
         elif not a.tag:
             avisos.append(f"tarefa sem tipo. Use --tag com um destes: {', '.join(validos)}. Sem tipo, ela aparece como 'sem tipo' no kanban.")
         elif a.tag not in validos:
-            avisos.append(f"o tipo '{a.tag}' não está na lista ({', '.join(validos)}). Se é um tipo novo, combine com a autora antes de pôr no tipos.json.")
+            avisos.append(f"o tipo '{a.tag}' não está na lista ({', '.join(validos)}). Se é um tipo novo, combine com a pessoa antes de pôr no tipos.json.")
     if a.tag:
         linha["tag"] = a.tag
     if canal:
