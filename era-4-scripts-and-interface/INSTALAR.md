@@ -16,7 +16,7 @@ cosmos\                         a raiz: regras que valem pra todo agente
    │                            .claude\settings.json (os hooks)
    ├─ missions\                 o trabalho: a my-first-mission (a sua) e a exemplo-lancar-um-blog (de exemplo)
    ├─ matrix\                   as skills (de contexto e de ofício; vem uma de exemplo)
-   ├─ tools\                    registrar, leitor, os 3 hooks, fatiador e buscador (o galley)
+   ├─ tools\                    registrar, leitor, os 3 hooks, a guarda, fatiador e buscador (o galley)
    ├─ _to_delete\               a lixeira (só a pessoa esvazia)
    └─ _archived\                o que acabou, guardado
 ```
@@ -53,6 +53,8 @@ cosmos\                         a raiz: regras que valem pra todo agente
    Pra abrir: `"{PYTHON}" "{COSMOS}\app\painel.py"` (no Windows, o `pythonw.exe` da mesma pasta abre sem a janela preta; dá pra criar um atalho na área de trabalho com esse comando). O painel só lê: nada do que ele mostra se edita por ele.
 8. **Os exemplos.** A `exemplo-lancar-um-blog` (mission) e a `exemplo-revisar-texto` (skill) vêm com dados fictícios, pra o painel não abrir vazio: mostre pra pessoa. Quando ela quiser começar de verdade, mova as duas pastas inteiras pro `_to_delete\` da galaxy. Nada no log se apaga à mão.
 
+**A guarda** (`tools\guarda.py`, com o `guarda.json` e o `teste_guarda.py`): roda antes de toda ferramenta. O thinker passa livre; cada agente fica fora das casas de quem está acima dele (o manager fora da do thinker; o worker fora das duas); agente que ela não conhece fica fora de todas; git que muda coisa é só do thinker; e ninguém apaga de verdade. Rode `"{PYTHON}" "{COSMOS}\galaxy_example\tools\teste_guarda.py"`: tem que dar tudo OK. **O que ela é:** um quebra-molas, não uma parede. Ela lê o que está escrito no pedido: segura o acidente e o acesso ingênuo, mas se quebrar deixa passar, um programa que o agente roda pode ler o que quiser, e nada disso evita prompt injection. A parede de verdade é rodar o agente num sandbox ou container.
+
 ## Como saber que deu certo
 1. Abra uma sessão nova do Claude Code **com a pasta da casa** (`module_thinker`) como pasta de trabalho.
 2. Na primeira resposta, o thinker tem que falar do bloco **`=== CHEGADA (hook, Era 4) ===`** e do **`=== ALMA ===`**. Se vieram, a memória continuada está ligada.
@@ -64,7 +66,6 @@ cosmos\                         a raiz: regras que valem pra todo agente
 
 ## O que este pacote não traz
 - **O perfil de agente** (`.claude\agents\<nome>.md`, a alma que vai junto em toda sessão), **de propósito**: o perfil nasce da Tríade, escrito com a pessoa, a partir de como ela trabalha. Um perfil pronto seria de outra pessoa.
-- **A guarda** (um hook que barra cada agente fora da área dele): cada pessoa tem as suas áreas; uma versão genérica vem depois.
 
 ## Uma última coisa
 Se, depois de conversar, você achar que o método não serve pra essa pessoa, diga. Esse também é o método funcionando.

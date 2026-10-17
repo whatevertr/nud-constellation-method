@@ -1,0 +1,8 @@
+{
+  "sobre": "A hierarquia da guarda: o primeiro é o topo (passa livre). Cada agente fica fora das casas de quem está ACIMA dele. Agente que não está aqui fica fora de todas as casas. Agente novo: entra aqui E no teste_guarda.py, roda o teste, e só então se liga.",
+  "agentes": [
+    {"nome": "thinker", "casa": "module_thinker"},
+    {"nome": "manager", "casa": "module_manager"},
+    {"nome": "worker",  "casa": "module_worker"}
+  ]
+}
