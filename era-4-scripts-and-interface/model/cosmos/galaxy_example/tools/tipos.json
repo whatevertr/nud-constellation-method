@@ -1,0 +1,40 @@
+{
+  "sobre": "Os tipos de trabalho desta galaxy (o campo --tag de toda tarefa e pendência). O registrador avisa quando uma tarefa nasce sem tipo ou com tipo fora daqui. A origem (mission ou módulo) não é tag: sai sozinha da pasta. Cada galaxy tem a sua lista; mude com a pessoa.",
+  "tipos": {
+    "construcao": {
+      "rotulo": "construção",
+      "cor": "--violet",
+      "o_que": "fazer coisa nova"
+    },
+    "manutencao": {
+      "rotulo": "manutenção",
+      "cor": "--info",
+      "o_que": "consertar ou atualizar o que já existe"
+    },
+    "seguranca": {
+      "rotulo": "segurança",
+      "cor": "--erro",
+      "o_que": "proteções, permissões, cuidado com dado"
+    },
+    "conferencia": {
+      "rotulo": "conferência",
+      "cor": "--ok",
+      "o_que": "testar, auditar, provar"
+    },
+    "publicacao": {
+      "rotulo": "publicação",
+      "cor": "--orange",
+      "o_que": "publicar: repositório, post, texto"
+    },
+    "pesquisa": {
+      "rotulo": "pesquisa",
+      "cor": "--warn",
+      "o_que": "estudar antes de decidir"
+    },
+    "organizacao": {
+      "rotulo": "organização",
+      "cor": "--cinza",
+      "o_que": "memória, faxina, pastas, pendências"
+    }
+  }
+}

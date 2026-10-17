@@ -11,3 +11,6 @@ _repo_instrucoes_instancia.md
 # --- sistema operacional (grupo C) ---
 .DS_Store
 Thumbs.db
+
+# --- termos sensíveis da varredura de segurança (local, nunca sobe) ---
+.seguranca-commit-termos
