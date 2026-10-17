@@ -4,6 +4,14 @@ O que muda aqui, quando e por quê. Inclui o que a conferência derrubou, inclus
 
 ---
 
+## 17/10/2026 — o fluxo de contexto da Era 4 e as pastas de exemplo das Eras 2 e 3
+
+**Mudou:** o desenho do fluxo de contexto (`assets/context-flow-*.svg`) passou a mostrar a Era 4: de qualquer provedor ao contexto da galaxy, aos agentes configurados pelas três skills e ao contexto da mission, do log e do módulo; o resultado volta pra pessoa, e o thinker decide com ela e conduz o manager e os workers. As Eras 2 e 3 ganharam as pastas de exemplo, com os nomes da Era 4 (galaxy, station, module, missions, diary, `_to_delete`), pra que subir de uma era pra outra seja só acrescentar: a Era 2 com o manual, a porta, um estado, um diário e o ritual feito à mão; a Era 3 com a mesma pasta virando configuração (os `CLAUDE.md`, o `settings.json` da casa, o perfil do agente) e dois hooks testados, um que entrega o último estado ao abrir e outro que barra o apagar. O mapa da Era 1 ganhou um aviso: é o mapa do surgimento do método, e as datas são aproximadas.
+
+**Por quê:** o desenho antigo mostrava o ciclo dos três agentes da Era 1. Os nomes das eras precisam ser consistentes entre si, senão cada degrau parece um sistema diferente. E as datas do mapa da Era 1 foram conferidas sem o histórico completo das conversas: dizer isso é mais honesto do que deixar parecer exato.
+
+*EN: the context-flow drawing now shows Era 4 (any provider → galaxy context → agents configured by the three skills → mission, log and module context; the result returns to the person, and the thinker decides with them and leads the manager and workers). Eras 2 and 3 get example folders using Era 4's names, so moving up an era is only adding: Era 2 with the manual, the door, a state, a diary and the by-hand ritual; Era 3 with the same folder turned into configuration plus two tested hooks (one delivers the last state on opening, one blocks deleting). The Era 1 map gets a note: it shows how the method emerged, and its dates are approximate.*
+
 ## 17/10/2026 — o painel entra na Era 4
 
 **Mudou:** o modelo ganhou o painel (`cosmos/app/`): as missions, as pendências (em kanban) e a ficha de cada thinker, lidos dos logs; ele só lê. A ficha mostra as conquistas num porta-moedas, em quatro níveis (bronze, prata, ouro e diamante), contadas sobre tudo o que o thinker assinou. O modelo passou a vir com exemplos (uma mission e uma skill, com dados fictícios escritos pelo registrador), pra o painel não abrir vazio; pra tirar, as duas pastas vão inteiras pro `_to_delete`. O thinker de exemplo tem o retrato do Tars (pixel art da marca). A pessoa do sistema, nas ferramentas e no painel, passa a se chamar `pessoa` (o filtro "★ é minha"). Os READMEs ganharam a ficha anotada e a Era 4 ganhou o README dela, com as três vistas.

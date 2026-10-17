@@ -9,4 +9,6 @@ Com isso, a instância passou a fechar o trabalho escrevendo dois arquivos:
 
 A próxima instância lia os dois e voltava calibrada, sem a pessoa ter que explicar tudo de novo.
 
-**O que tem aqui:** a instrução de uso e uma pasta de exemplo *(em construção)*.
+**O que tem aqui:**
+- [`example/COMO_USAR.md`](example/COMO_USAR.md): o ritual de abrir e de fechar, feito à mão;
+- [`example/cosmos/`](example/cosmos/): uma pasta de exemplo, com o manual, a porta, um estado e um diário. Os nomes das pastas já são os da Era 4: pra subir de era, só se acrescenta.

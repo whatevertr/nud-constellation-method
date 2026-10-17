@@ -17,4 +17,5 @@ O contexto passou a chegar sozinho, e os guardrails passaram a valer sem depende
 ## O que tem aqui
 
 - [`WHERE_TO_CONFIGURE.md`](WHERE_TO_CONFIGURE.md): onde cada camada mora em cada plataforma testada (Claude Code, Hermes, Codex);
-- uma pasta de exemplo *(em construção)*.
+- [`example/COMO_USAR.md`](example/COMO_USAR.md): o que muda em relação à Era 2 e como instalar;
+- [`example/`](example/): a mesma pasta da Era 2 virando configuração: os `CLAUDE.md` (o manual, a galaxy, a casa e a porta), o `settings.json` da casa e dois hooks (`ultimo_estado.py`, que entrega o último estado ao abrir, e `nao_apagar.py`, que barra o apagar), mais o perfil do agente.

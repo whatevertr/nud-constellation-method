@@ -36,7 +36,7 @@ A hipótese por trás: a estrutura em volta do modelo (o contexto que ele recebe
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/context-flow-night.svg">
-  <img alt="Fluxo de contexto: dos provedores ao ciclo dos três agentes, e de volta para você" src="assets/context-flow-day.svg">
+  <img alt="Fluxo de contexto: de qualquer provedor ao contexto da galaxy, aos agentes configurados pelas três skills e ao contexto da mission, do log e do módulo; o resultado volta pra você, e o thinker decide com você e conduz o manager e os workers" src="assets/context-flow-day.svg">
 </picture>
 
 ## As eras

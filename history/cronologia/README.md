@@ -4,6 +4,8 @@ A trilha do método, por eras. Cada era vai até o ponto em que a forma de traba
 
 ## Era 1 — A Tríade
 
+*Este é o mapa do surgimento do método: como a ideia nasceu e virou a Tríade. As datas são aproximadas: foram conferidas na época, sem o histórico completo das conversas, e algumas podem ter sido estimadas.*
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/mapa_cronologico_noite_farol.svg">
   <img alt="Mapa cronológico da Era 1: da primeira instância sem contexto até a Tríade em uso" src="assets/mapa_cronologico_dia_farol.svg">
