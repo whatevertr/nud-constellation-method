@@ -1,5 +1,5 @@
 """
-leitor.py · lê os logs (só leitura, sem IA) e monta os resumos (Era 4, galaxy_observatory).
+leitor.py · lê os logs (só leitura, sem IA) e monta os resumos (Era 4).
 v0.3.1 · 10/10/2026 (a tarefa leva também o "quem" e o "canal" pro app) · tars (Claude), o thinker do NUD · guardião.
 v0.3.0 · 04/10/2026 (o json leva as pendências, os tipos e as fichas dos thinkers).
 
@@ -179,23 +179,81 @@ def dias_desde(data):
         return None
 
 
-# As conquistas possíveis (04/10, pedido da autora: moram aqui no back; o app mostra só as destravadas).
+# As conquistas possíveis (04/10, pedido da autora: moram aqui no back).
 # Só o que dá pra medir no log ou nas pastas: nenhum número inventado.
+# v2 (17/10/2026): quatro níveis, calibrados no ritmo real dos thinkers da autora do método.
+#   bronze = o primeiro mês · prata = de 1 a 4 meses · ouro = 4 meses ou mais · diamante = raras, momentos.
+# Conta tudo o que o thinker assinou (o log do módulo + as linhas dele nas missions), não só o módulo.
+# O app mostra o porta-moedas (uma moeda por conquista) e, ao clicar, a lista do que tem e do que falta.
 CONQUISTAS = [
-    ("primeiro registro",   lambda f: f["registros"] >= 1),
-    ("dormiu e acordou",    lambda f: f["resumos_proprios"] >= 1),
-    ("10 registros",        lambda f: f["registros"] >= 10),
-    ("50 registros",        lambda f: f["registros"] >= 50),
-    ("100 registros",       lambda f: f["registros"] >= 100),
-    ("500 registros",       lambda f: f["registros"] >= 500),
-    ("uma semana na Era 4", lambda f: (f["dias_era4"] or 0) >= 7),
-    ("um mês na Era 4",     lambda f: (f["dias_era4"] or 0) >= 30),
-    ("um ano de vida",      lambda f: (f["dias_vida"] or 0) >= 365),
-    ("dono de mission",     lambda f: len(f["missions"]) >= 1),
-    ("três missions",       lambda f: len(f["missions"]) >= 3),
-    ("primeira skill",      lambda f: len(f["skills_proprias"]) >= 1),
-    ("pendências zeradas",  lambda f: f["registros"] >= 1 and f["pendencias"] == 0),
+    ("bronze",   "primeiro registro",       lambda f: f["assinados"] >= 1),
+    ("bronze",   "dormiu e acordou",        lambda f: f["resumos_proprios"] >= 1),
+    ("bronze",   "primeira decisão",        lambda f: f["decisoes"] >= 1),
+    ("bronze",   "primeira tarefa feita",   lambda f: f["feitas"] >= 1),
+    ("bronze",   "dono de mission",         lambda f: len(f["missions"]) >= 1),
+    ("bronze",   "primeira skill própria",  lambda f: len(f["skills_proprias"]) >= 1),
+    ("bronze",   "uma semana na Era 4",     lambda f: (f["dias_era4"] or 0) >= 7),
+    ("bronze",   "100 registros",           lambda f: f["assinados"] >= 100),
+    ("prata",    "um mês na Era 4",         lambda f: (f["dias_era4"] or 0) >= 30),
+    ("prata",    "500 registros",           lambda f: f["assinados"] >= 500),
+    ("prata",    "25 decisões",             lambda f: f["decisoes"] >= 25),
+    ("prata",    "50 tarefas feitas",       lambda f: f["feitas"] >= 50),
+    ("prata",    "30 dias fechados com resumo", lambda f: f["dias_com_resumo"] >= 30),
+    ("prata",    "15 dias seguidos registrando", lambda f: f["seq_registro"] >= 15),
+    ("prata",    "dez missions",            lambda f: len(f["missions"]) >= 10),
+    ("ouro",     "quatro meses na Era 4",   lambda f: (f["dias_era4"] or 0) >= 120),
+    ("ouro",     "2.000 registros",         lambda f: f["assinados"] >= 2000),
+    ("ouro",     "100 decisões",            lambda f: f["decisoes"] >= 100),
+    ("ouro",     "200 tarefas feitas",      lambda f: f["feitas"] >= 200),
+    ("ouro",     "100 dias fechados com resumo", lambda f: f["dias_com_resumo"] >= 100),
+    ("ouro",     "30 dias seguidos registrando", lambda f: f["seq_registro"] >= 30),
+    ("diamante", "um ano de vida",          lambda f: (f["dias_vida"] or 0) >= 365),
+    ("diamante", "maratona: 10 tarefas feitas no mesmo dia", lambda f: f["max_feitas_dia"] >= 10),
+    ("diamante", "sete noites seguidas com resumo", lambda f: f["seq_resumo"] >= 7),
+    ("diamante", "casa limpa: pendências zeradas depois de 10 tarefas feitas", lambda f: f["feitas"] >= 10 and f["pendencias"] == 0),
+    ("diamante", "100 dias seguidos registrando", lambda f: f["seq_registro"] >= 100),
 ]
+
+
+def _maior_sequencia(datas):
+    """A maior sequência de dias seguidos num conjunto de datas 'AAAA-MM-DD'."""
+    dias = sorted({dt.date.fromisoformat(d) for d in datas if len(d) >= 10})
+    melhor = seq = 0
+    ant = None
+    for d in dias:
+        seq = seq + 1 if ant and (d - ant).days == 1 else 1
+        melhor, ant = max(melhor, seq), d
+    return melhor
+
+
+def medidas_do_thinker(log_modulo, missions, quem):
+    """O que as conquistas medem: tudo o que o thinker assinou, no módulo e nas missions."""
+    # "feita" = o ciclo inteiro: a tarefa foi aberta antes e fechada depois (a autora, 17/10).
+    # Tarefa que entra já concluída (ex.: a bagagem trazida de outro sistema
+    # numa mudança) conta como registro, não como tarefa feita.
+    linhas, feitas = [l for l in log_modulo if l.get("data")], []
+    for fonte, so_dele in [(log_modulo, False)] + [(ler_log(m), True) for m in missions]:
+        vistos = set()
+        for l in fonte:
+            if l.get("tipo") == "tarefa":
+                if l.get("status") == "feita" and l.get("id") in vistos and (not so_dele or l.get("por") == quem):
+                    feitas.append(l)
+                vistos.add(l.get("id"))
+        if so_dele:
+            linhas += [l for l in fonte if l.get("por") == quem and l.get("data")]
+    por_dia = {}
+    for l in feitas:
+        por_dia[l["data"][:10]] = por_dia.get(l["data"][:10], 0) + 1
+    resumos = {l["data"][:10] for l in linhas if l.get("tipo") == "resumo" and l.get("por") == quem}
+    return {
+        "assinados": len(linhas),
+        "decisoes": sum(1 for l in linhas if l.get("tipo") == "decisao"),
+        "feitas": len(feitas),
+        "max_feitas_dia": max(por_dia.values()) if por_dia else 0,
+        "dias_com_resumo": len(resumos),
+        "seq_resumo": _maior_sequencia(resumos),
+        "seq_registro": _maior_sequencia({l["data"][:10] for l in linhas}),
+    }
 
 
 def permissoes_de(mod, cab):
@@ -247,6 +305,9 @@ def fichas(galaxy):
         for m in minhas:
             falta += [t for t in dobrar(ler_log(m))["tarefas"] if t.get("status") in ("aberta", "fazendo")]
         resumo = d["resumo"] or {}
+        if not log:   # 17/10: módulo sem log ainda (ex.: recém-instalado) → a frase vem do último resumo das missions dele
+            resumos_m = [r for r in (dobrar(ler_log(m))["resumo"] for m in minhas) if r]
+            resumo = max(resumos_m, key=lambda r: r.get("data", ""), default={})
         ultima_coisa = (resumo.get("txt") or "").split("|")[0].strip() or (log[-1].get("txt", "") if log else "")
         out.append({
             "modulo": nome, "pasta": mod, "cabecalho": cab, "thinker": quem,
@@ -262,7 +323,9 @@ def fichas(galaxy):
         })
         out[-1]["permissoes"] = permissoes_de(mod, cab)
         out[-1]["conectores"] = conectores_de(mod)
-        out[-1]["conquistas"] = [nome_c for nome_c, ok in CONQUISTAS if ok(out[-1])]
+        out[-1].update(medidas_do_thinker(log, minhas, quem))
+        out[-1]["conquistas_todas"] = [{"nivel": nv, "nome": nome_c, "ok": bool(ok(out[-1]))} for nv, nome_c, ok in CONQUISTAS]
+        out[-1]["conquistas"] = [c["nome"] for c in out[-1]["conquistas_todas"] if c["ok"]]
         out[-1]["conquistas_possiveis"] = len(CONQUISTAS)
     return out
 

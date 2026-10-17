@@ -25,5 +25,5 @@ if os.path.basename(os.path.dirname(cwd)).lower() == "station" and os.path.exist
         print(leitor.chegada(cwd))
         print(f"(origem da chegada: {origem})")
     except Exception as erro:   # o hook nunca derruba a sessão: avisa e segue
-        print(f"⚠️ HOOK DE CHEGADA FALHOU ({erro}). Avise a autora: o resumo do log não foi injetado.")
+        print(f"⚠️ HOOK DE CHEGADA FALHOU ({erro}). Avise a pessoa: o resumo do log não foi injetado.")
 sys.exit(0)

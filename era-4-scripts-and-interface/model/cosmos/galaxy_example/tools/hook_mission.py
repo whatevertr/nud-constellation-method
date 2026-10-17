@@ -46,6 +46,6 @@ json.dump(ja, open(marca, "w", encoding="utf-8"))
 try:
     texto = "=== MISSION (hook, Era 4): primeira vez nesta sessão ===\n" + leitor.bloco_mission(mission, longo=True) + "\n=== fim ==="
 except Exception as erro:
-    texto = f"⚠️ HOOK DE MISSION FALHOU ({erro}). Avise a autora."
+    texto = f"⚠️ HOOK DE MISSION FALHOU ({erro}). Avise a pessoa."
 print(json.dumps({"hookSpecificOutput": {"hookEventName": "PostToolUse", "additionalContext": texto}}, ensure_ascii=False))
 sys.exit(0)

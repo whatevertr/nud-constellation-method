@@ -10,7 +10,7 @@ Uso:
   python buscador.py <galley\states ou galley\diaries> "a pergunta" [--n 5] [--palavra]
 A pergunta vira números (o mesmo modelo do fatiador), e o buscador devolve os pedaços
 com o sentido mais parecido, do mais pro menos parecido, com o parentesco (0 a 1) e a fonte.
-A busca normal olha o galley\states\; o galley\diaries\ só quando a autora pedir.
+A busca normal olha o galley\states\; o galley\diaries\ só quando a pessoa pedir.
 Plano B: se o Ollama não responder (ou com --palavra), busca por PALAVRA nos mesmos pedaços.
 """
 import json

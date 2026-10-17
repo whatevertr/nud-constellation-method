@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="night">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>cosmos · painel</title>
+<style>
+  /* estilo-nud, via arredondada + farol (os tokens da marca NUD) */
+  /* v0.3 · 04/10/2026: aba Pendências (kanban de tarefas das missions + pendências soltas dos módulos) */
+  /* v0.4 · 10/10/2026: filtro "é minha", Calendário e Indicadores */
+  /* v0.6 · 16/10/2026: o clay (a última camada do style) */
+  /* v0.5 · 16/10/2026: lateral fixa, missions compactas em grade, fichas em tetris e recolhíveis, filtros recolhíveis, calendário em 5 semanas */
+  :root{
+    --paper:#e7dcd0; --card:#f4ebe2; --ink:#191128; --body:#423b55; --muted:#605875;
+    --rule:#aba9b3; --violet:#642da4; --violet-soft:rgba(100,45,164,.14); --orange:#993700;
+    --ok:#2F7A4E; --warn:#C9A21F; --erro:#A32B1C; --info:#2C4A8A; --cinza:#8a8794;
+    --ok-bg:rgba(47,122,78,.10); --warn-bg:rgba(201,162,31,.13); --info-bg:rgba(44,74,138,.10); --cinza-bg:rgba(138,135,148,.12);
+    --erro-bg:rgba(163,43,28,.10); --orange-bg:rgba(153,55,0,.10); --violet-bg:rgba(100,45,164,.12);
+    --mono:"Share Tech Mono","IBM Plex Mono","Cascadia Mono",Consolas,monospace;
+  }
+  html[data-theme="night"]{
+    --paper:#22202a; --card:#15121d; --ink:#e9e6f1; --body:#d2cedf; --muted:#b6b0c8;
+    --rule:#6f6683; --violet:#b57bff; --violet-soft:rgba(181,123,255,.14); --orange:#ff8a5c;
+    --ok:#7BE0A3; --warn:#F2D24A; --erro:#FF7A6B; --info:#8AB4FF; --cinza:#9c97a8;
+    --ok-bg:rgba(123,224,163,.12); --warn-bg:rgba(242,210,74,.12); --info-bg:rgba(138,180,255,.12); --cinza-bg:rgba(156,151,168,.12);
+    --erro-bg:rgba(255,122,107,.12); --orange-bg:rgba(255,138,92,.12); --violet-bg:rgba(181,123,255,.14);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--body);font-family:var(--mono);font-size:14px}
+  .app{display:grid;grid-template-columns:230px 1fr;min-height:100vh}
+  nav{border-right:1px solid var(--rule);padding:18px 14px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh;overflow-y:auto;align-self:start}
+  .marca{color:var(--ink);font-size:18px;margin-bottom:14px}.marca b{color:var(--violet)}
+  /* lateral em árvore (04/10): a galaxy é a pasta, as vistas são os itens dela, e dá pra recolher */
+  .gal{display:flex;align-items:center;gap:6px;width:100%;background:none;border:1px solid transparent;color:var(--ink);text-align:left;padding:7px 8px;border-radius:8px;font:inherit;cursor:pointer}
+  .gal:hover{border-color:var(--rule)}
+  .gal .seta{color:var(--muted);width:12px;display:inline-block}
+  .gal .n{margin-left:auto;font-size:11px;color:var(--muted);background:var(--card);border-radius:999px;padding:0 7px}
+  .item{display:flex;align-items:center;gap:8px;width:100%;background:none;border:1px solid transparent;color:var(--body);text-align:left;padding:6px 8px 6px 28px;border-radius:8px;font:inherit;font-size:13px;cursor:pointer}
+  .item:hover{border-color:var(--rule)}
+  .item.ativa{background:var(--violet-soft);color:var(--ink);border-color:var(--violet)}
+  .item .n{margin-left:auto;font-size:11px;color:var(--muted)}
+  .rodape{margin-top:auto;display:flex;flex-direction:column;gap:6px}
+  button.btn{background:var(--card);color:var(--ink);border:1px solid var(--rule);border-radius:8px;padding:8px;font:inherit;cursor:pointer}
+  button.btn:hover{border-color:var(--violet)}
+  main{padding:24px 28px;min-width:0}
+  .abas{display:flex;gap:4px;border-bottom:1px solid var(--rule);margin:0 0 18px}
+  .aba{background:none;border:1px solid transparent;border-bottom:none;color:var(--muted);padding:8px 16px;font:inherit;border-radius:8px 8px 0 0;cursor:pointer;margin-bottom:-1px}
+  .aba.ativa{color:var(--ink);border-color:var(--rule);background:var(--paper)}
+  .trilha{color:var(--muted);margin:0 0 4px} h1{color:var(--ink);font-weight:400;margin:0 0 4px;font-size:26px}
+  .sub{color:var(--muted);margin:0 0 16px;line-height:1.6}
+  .view{display:none}.view.ativa{display:block}
+  .filtros{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+  .filtros .rot{color:var(--muted);font-size:12px;min-width:56px}
+  .filtro{background:none;border:1px solid var(--rule);color:var(--body);border-radius:999px;padding:4px 12px;font:inherit;cursor:pointer;display:inline-flex;align-items:center;gap:6px}
+  .filtro.ativo{border-color:var(--violet);color:var(--ink);background:var(--violet-soft)}
+  .filtro .n{font-size:11px;color:var(--muted);background:var(--card);border-radius:999px;padding:0 7px}
+  .filtro .pt{width:9px;height:9px;border-radius:50%;background:var(--c)}
+  .grade{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px;align-items:start}
+  .pj{padding:0 !important}
+  .pj{position:relative}
+  .pj summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;gap:5px;padding:9px 12px}
+  .pj summary .l1,.pj summary .l2{display:flex;align-items:center;gap:8px;min-width:0}
+  .pj .diverg{font-size:11.5px;color:var(--warn);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;min-width:0}
+  .pj .diverg.ok{color:var(--muted)}
+  .pj summary::-webkit-details-marker{display:none}
+  .pj summary .nome{color:var(--ink);font-size:14.5px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}
+  .pj summary .selo{margin:0;flex:none}
+  .pj .pend{flex:none;font-size:11.5px;padding:1px 8px;border-radius:999px;color:var(--warn);background:var(--warn-bg);border:1px solid var(--warn)}
+  .pj .abertas{flex:none;font-size:11.5px;color:var(--muted)}
+  .pj[open]{z-index:6;border-radius:0 12px 0 0}
+  .pj[open] summary{border-bottom:1px solid var(--rule)}
+  /* aberto, o corpo SOBREPÕE os de baixo (não empurra a grade); pra ver o de baixo, recolhe o de cima */
+  .pj .corpo{position:absolute;top:100%;left:-1px;right:-1px;padding:8px 14px 12px;background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--c);border-top:none;border-radius:0 0 12px 0;max-height:65vh;overflow-y:auto;box-shadow:0 14px 28px rgba(0,0,0,.35)}
+  .pj{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--c);border-radius:0 12px 12px 0;padding:14px 16px}
+  .pj h3{margin:0;color:var(--ink);font-weight:400;font-size:16px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
+  .abrir{background:none;border:1px solid var(--rule);color:var(--muted);border-radius:6px;padding:2px 8px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap}
+  .abrir:hover{border-color:var(--violet);color:var(--ink)}
+  .selo{display:inline-block;margin:6px 0 8px;padding:2px 8px;border-radius:999px;background:var(--cbg);color:var(--c);font-size:12px}
+  .pj p{margin:6px 0;line-height:1.55}
+  .meta{color:var(--muted);font-size:12px}
+  .tar{margin:4px 0 0;padding-left:0;list-style:none}.tar li{margin:3px 0}.tar li::before{content:"▲ ";color:var(--warn)}
+  .aviso{margin-top:8px;color:var(--warn);font-size:12px}
+  .vazio{color:var(--muted);padding:30px 0}
+  .erro{color:var(--erro)}
+  /* ===== kanban ===== */
+  .board{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;align-items:start}
+  @media (max-width:1050px){.board{grid-template-columns:minmax(0,1fr)}}
+  .col{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:0 12px 14px;overflow:hidden}
+  .col__faixa{height:6px;margin:0 -12px 12px;background:var(--c)}
+  .col__head{display:flex;justify-content:space-between;align-items:baseline;padding:0 4px 10px;border-bottom:1px solid var(--rule);margin-bottom:10px}
+  .col__t{color:var(--c);font-size:15px;letter-spacing:.06em;text-transform:uppercase}
+  .col__n{color:var(--c);font-size:22px}
+  .col__ajuda{color:var(--muted);font-size:11.5px;margin:4px 0 0}
+  .cards{display:flex;flex-direction:column;gap:8px;max-height:calc(100vh - 230px);overflow-y:auto;padding-right:4px}
+  .gh{display:flex;justify-content:space-between;align-items:center;padding:8px 6px 4px;border-bottom:1px solid var(--rule);color:var(--c);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
+  .gh span:last-child{color:var(--muted)}
+  .c{background:var(--paper);border:1px solid var(--rule);border-left:4px solid var(--c);border-radius:10px;padding:10px 12px}
+  .c__top{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:5px}
+  .tag{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:1px 8px;border-radius:999px;color:var(--c);background:var(--cbg);border:1px solid var(--c)}
+  .orig{font-size:11px;padding:1px 8px;border-radius:999px;border:1px solid var(--rule);color:var(--muted);background:none;font-family:inherit;cursor:pointer}
+  .orig:hover{border-color:var(--violet);color:var(--ink)}
+  .c__data{margin-left:auto;font-size:11.5px;color:var(--muted)}
+  .c__data.vencido{color:var(--erro)}
+  .c__t{margin:0;color:var(--ink);font-size:13px;line-height:1.4}
+  .c.cancelada .c__t{text-decoration:line-through;color:var(--muted)}
+  .c__meta{margin:5px 0 0;font-size:11px;color:var(--muted)}
+  .minha{font-size:10.5px;padding:1px 8px;border-radius:999px;color:var(--violet);background:var(--violet-bg);border:1px solid var(--violet)}
+  .c.e-minha{box-shadow:inset 0 0 0 1px var(--violet)}
+  /* ===== fichas (RPG de leve: classe, habilidades = skills, itens = ferramentas, conquistas) ===== */
+  .fichas{column-width:420px;column-gap:16px}
+  .fichas .ficha{break-inside:avoid;margin:0 0 16px}
+  .ficha{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px}
+  .f__topo{display:flex;gap:16px;align-items:center}
+  .retrato{width:104px;height:104px;flex:none;border:1px solid var(--rule);border-radius:12px;background:var(--paper);display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--violet);font-size:30px}
+  .retrato img{width:100%;height:100%;object-fit:contain;image-rendering:pixelated}
+  .f__nome{margin:0;color:var(--ink);font-size:22px;font-weight:400}
+  .f__classe{display:inline-block;margin:4px 0;padding:2px 10px;border-radius:999px;background:var(--violet-soft);color:var(--violet);font-size:12px}
+  .f__ass{color:var(--muted);font-size:12px}
+  .f__frase{margin:0;padding:10px 12px;border-left:3px solid var(--violet);background:var(--paper);border-radius:0 8px 8px 0;color:var(--body);line-height:1.55;font-size:13px}
+  .f__nums{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+  .num{background:var(--paper);border-radius:10px;padding:8px 10px}
+  .num b{display:block;color:var(--ink);font-size:22px;font-weight:400}
+  .num span{color:var(--muted);font-size:11px}
+  .f__sec h4{margin:0 0 6px;color:var(--violet);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:400}
+  .f__sec h4 small{color:var(--muted);text-transform:none;letter-spacing:0;font-size:11px}
+  /* caixas que recolhem (conquistas, permissões): fechadas por padrão, uma caixa com os chips dentro */
+  .caixa{border:1px solid var(--rule);border-radius:12px;background:var(--paper);overflow:hidden}
+  .caixa summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;padding:9px 12px;color:var(--cx);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase}
+  .caixa summary::-webkit-details-marker{display:none}
+  .caixa summary .seta{transition:transform .15s;display:inline-block}
+  .caixa[open] summary .seta{transform:rotate(90deg)}
+  .caixa summary .n{margin-left:auto;letter-spacing:0;color:var(--muted);text-transform:none}
+  .caixa[open] summary{border-bottom:1px solid var(--rule)}
+  .caixa .dentro{padding:10px 12px}
+  .caixa.conquistas{--cx:var(--warn)} .caixa.permissoes{--cx:var(--violet)} .caixa.sec{--cx:var(--violet)}
+  .caixa.filtros-caixa{--cx:var(--muted);margin-bottom:14px;background:none}
+  .caixa.filtros-caixa .dentro .filtros{margin-bottom:8px}
+  .caixa summary .ativos{letter-spacing:0;text-transform:none;color:var(--ink);font-size:12px}
+  .cal-mais{display:flex;gap:8px;margin:4px 0 16px}
+  .f__sec p{margin:0;line-height:1.5;font-size:13px}
+  .chips{display:flex;flex-wrap:wrap;gap:5px}
+  .chip{font-size:11.5px;padding:2px 9px;border-radius:999px;border:1px solid var(--rule);color:var(--body)}
+  .chip.propria{border-color:var(--violet);color:var(--violet)}
+  .chip.conector{border-color:var(--info);color:var(--info)}
+  .chip.allow{border-color:var(--ok);color:var(--ok);background:var(--ok-bg)}
+  .chip.deny{border-color:var(--erro);color:var(--erro);background:var(--erro-bg)}
+  .chip.combinado{border-style:dashed;background:none}
+  .legenda-p{color:var(--muted);font-size:11px;margin:6px 0 0}
+  .conq{display:flex;flex-wrap:wrap;gap:6px}
+  .badge{font-size:11.5px;padding:3px 10px;border-radius:999px;border:1px solid var(--warn);color:var(--warn);background:var(--warn-bg)}
+  .badge.trancada{border-color:var(--rule);color:var(--muted);background:none;opacity:.55}
+  .f__rodape{display:flex;justify-content:space-between;align-items:center;gap:8px;color:var(--muted);font-size:11.5px;border-top:1px solid var(--rule);padding-top:10px}
+  /* ===== v0.6 · 16/10/2026: CLAY. Cheinho, arredondado, luz em cima e sombra embaixo.
+     Tudo nesta camada: pra voltar ao plano, é só tirar este bloco. ===== */
+  :root{--clay:#f4ebe2;--luz:rgba(255,255,255,.8);--sombra:rgba(120,95,80,.32)}
+  html[data-theme="night"]{--clay:#2b2836;--luz:rgba(255,255,255,.07);--sombra:rgba(0,0,0,.55)}
+  .pj,.ficha,.col,.tile,.ind.caixa-ind,#cal,.c{border:none !important;background:var(--clay);
+    box-shadow:8px 10px 20px var(--sombra),-6px -6px 14px var(--luz),inset 2px 2px 4px var(--luz),inset -3px -5px 9px var(--sombra)}
+  .pj{border-radius:20px !important}
+  .pj[open]{border-radius:20px 20px 0 0 !important}
+  .pj .corpo{border:none;border-radius:0 0 20px 20px;background:var(--clay);box-shadow:8px 14px 22px var(--sombra),inset -3px -5px 9px var(--sombra)}
+  .pj summary .l1 .nome::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c);margin-right:8px;vertical-align:1px}
+  .ficha{border-radius:26px}
+  .col{border-radius:24px}
+  .col__faixa{margin:0 -12px 12px;border-radius:24px 24px 0 0}
+  .c{background:var(--paper);border-radius:16px;box-shadow:4px 5px 10px var(--sombra),-3px -3px 7px var(--luz)}
+  .tile,.ind.caixa-ind{border-radius:22px}
+  #cal{border-radius:24px;overflow:hidden;margin-bottom:12px}
+  #cal .semana{border-color:transparent !important;border-bottom:1px solid var(--rule) !important;background:none;border-radius:0 !important}
+  #cal .semana.ultima{border-bottom:none !important}
+  .semana.semdata{border-radius:24px !important;background:var(--clay) !important;box-shadow:8px 10px 20px var(--sombra),-6px -6px 14px var(--luz)}
+  .caixa{border:none;border-radius:16px;background:var(--paper);box-shadow:inset 2px 2px 5px var(--sombra),inset -2px -2px 5px var(--luz)}
+  .num,.mini div,.f__frase{border:none !important;border-radius:16px;box-shadow:inset 2px 2px 5px var(--sombra),inset -2px -2px 5px var(--luz)}
+  button.btn,.filtro,.abrir,.orig{border:none !important;border-radius:14px;background:var(--clay);box-shadow:4px 4px 9px var(--sombra),-3px -3px 7px var(--luz)}
+  .filtro.ativo,.item.ativa{box-shadow:inset 3px 3px 6px var(--sombra),inset -2px -2px 5px var(--luz) !important;border:none !important}
+  .item.ativa{border-radius:14px}
+  .selo,.tag,.minha,.pend{border:none !important;box-shadow:inset 2px 2px 4px var(--sombra),inset -2px -2px 4px var(--luz)}
+  /* v0.6.2: o card aberto vira um monolito: sem a linha, sem a emenda de sombra entre a cabeça e o corpo */
+  .pj[open] summary{border-bottom:none !important}
+  .pj[open]{box-shadow:10px 0 18px -6px var(--sombra),-8px 0 14px -6px var(--luz),0 -8px 14px -6px var(--luz),inset 2px 2px 4px var(--luz),inset -3px 0 6px -2px var(--sombra) !important}
+  .pj[open] .corpo{top:100%;box-shadow:10px 0 18px -6px var(--sombra),-8px 0 14px -6px var(--luz),0 16px 22px -8px var(--sombra),inset 2px 0 4px var(--luz),inset -3px -5px 9px var(--sombra);clip-path:inset(0 -40px -40px -40px)}
+  /* a marca de seleção do navegador desenhava um retângulo só na cabeça: sai (o clique já mostra que abriu) */
+  .pj,.pj summary{outline:none !important}
+  .pj summary:focus-visible .nome{text-decoration:underline;text-decoration-color:var(--violet)}
+  /* v0.6.1: a lateral fica por cima do painel (sombra pra direita) */
+  nav{border-right:none !important;background:var(--paper);z-index:3;box-shadow:10px 0 22px var(--sombra),inset -1px 0 0 var(--luz)}
+  /* v0.6.1: os botões da base viram bolinhas de clay com ícone */
+  .icones{display:flex;gap:12px;justify-content:center;padding:4px 0 2px}
+  button.btn.ic{width:46px;height:46px;border-radius:50%;padding:0;display:flex;align-items:center;justify-content:center;font-size:19px;line-height:1;color:var(--ink)}
+  button.btn.ic:active{box-shadow:inset 3px 3px 6px var(--sombra),inset -2px -2px 5px var(--luz) !important}
+  .rodape .meta{text-align:center}
+  /* ===== v0.7 · 17/10/2026 =====
+     (e) missions em colunas: abrir um card empurra só a coluna dele (não sobrepõe, não desce a linha toda).
+     O corpo deixa de flutuar e vira parte do card: uma peça só, então some a emenda (b) e o dentinho (c). */
+  .grade{display:flex !important;gap:10px;align-items:flex-start}
+  .grade .coluna{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
+  .pj .corpo{position:static !important;box-shadow:none !important;clip-path:none !important;border:none !important;background:transparent !important;border-radius:0 !important}
+  .pj[open]{border-radius:20px !important;z-index:auto;
+    box-shadow:8px 10px 20px var(--sombra),-6px -6px 14px var(--luz),inset 2px 2px 4px var(--luz),inset -3px -5px 9px var(--sombra) !important}
+  /* (a) o "abrir módulo" vira uma bolinha no canto de cima da ficha */
+  .f__topo{position:relative}
+  .abrir.bola{position:absolute;top:0;right:0;width:34px;height:34px;padding:0;border-radius:50% !important;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--violet)}
+  .abrir.bola:active{box-shadow:inset 3px 3px 6px var(--sombra),inset -2px -2px 5px var(--luz) !important}
+  .f__topo > div:not(.retrato){padding-right:40px;min-width:0}
+  /* o porta-moedas das conquistas (v0.7): fileiras como num organizador de moedas de balcão */
+  .caixa.moedas{--cx:var(--warn)}
+  .caixa.moedas > summary{display:block}
+  .moedas__topo{display:flex;align-items:center;gap:6px}
+  .moedas__topo .n{margin-left:auto}
+  .porta{display:flex;flex-direction:column;gap:7px;margin-top:10px;padding:10px 12px;border-radius:16px;background:var(--clay);
+    box-shadow:inset 3px 3px 7px var(--sombra),inset -2px -2px 6px var(--luz)}
+  .tubo{display:grid;grid-template-columns:62px 1fr 34px;align-items:center;gap:8px;font-size:11.5px;color:var(--muted)}
+  .tubo .n{text-align:right}
+  .trilho{display:flex;gap:3px;align-items:center;padding:4px 6px;min-height:30px;border-radius:999px;background:var(--paper);
+    box-shadow:inset 2px 2px 5px var(--sombra),inset -2px -2px 4px var(--luz)}
+  .moeda{width:10px;height:22px;border-radius:4px;flex:none;opacity:0}
+  .moeda.cheia{opacity:1;box-shadow:1px 1px 2px rgba(0,0,0,.35)}
+  .nv-bronze .moeda{background:linear-gradient(90deg,#7a4a24,#c98447 40%,#f0b37a 55%,#8a5530)}
+  .nv-prata .moeda{background:linear-gradient(90deg,#7f818a,#d9dbe2 40%,#ffffff 55%,#8f919a)}
+  .nv-ouro .moeda{background:linear-gradient(90deg,#94700f,#e2b93f 40%,#fff0a0 55%,#a07a16)}
+  .nv-diamante .moeda{background:linear-gradient(90deg,#3f6f8f,#93e0f5 40%,#ffffff 55%,#7a6cd8)}
+  .nv-bronze .rot{color:#b8763f} .nv-prata .rot{color:#9a9ca6} .nv-ouro .rot{color:#c99a1c} .nv-diamante .rot{color:#5fb8d6}
+  .lconq{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:4px 0 8px}
+  .lconq .lrot{width:100%;font-size:11.5px}
+  .nv-bronze .lrot{color:#b8763f} .nv-prata .lrot{color:#9a9ca6} .nv-ouro .lrot{color:#c99a1c} .nv-diamante .lrot{color:#5fb8d6}
+  .item-c{font-size:11.5px;padding:2px 9px;border-radius:999px;color:var(--muted);opacity:.55;
+    box-shadow:inset 1px 1px 3px var(--sombra),inset -1px -1px 3px var(--luz)}
+  .item-c.ok{opacity:1;color:var(--ink)}
+  /* v0.7: caixa aberta sem a linha entre o título e o conteúdo (seamless, igual às missions) */
+  .caixa[open] > summary{border-bottom:none !important}
+</style>
+</head>
+<body>
+<div class="app">
+  <nav>
+    <div class="marca">[·] <b>cosmos</b> painel</div>
+    <div id="gals"></div>
+    <div class="rodape">
+      <span class="meta" id="gerado">—</span>
+      <div class="icones">
+        <button class="btn ic" id="atualizar" type="button" title="atualizar (ler os logs de novo)" aria-label="atualizar">↻</button>
+        <button class="btn ic" id="tema" type="button" title="trocar pro dia" aria-label="trocar o tema">☾</button>
+        
+      </div>
+    </div>
+  </nav>
+  <main>
+    <p class="trilha" id="trilha">cosmos</p>
+
+    <section class="view ativa" id="view-missions">
+      <h1>Missions</h1>
+      <p class="sub">A visão de portfólio: cada mission se descreve sozinha: o estado vem do cabeçalho do CLAUDE.md dela,<br>o resto vem do log. Mission sem cabeçalho aparece em cinza: é o que falta organizar.</p>
+      <div class="filtros" id="filtros"></div>
+      <div class="grade" id="grade"></div>
+    </section>
+
+    <section class="view" id="view-pendencias">
+      <h1>Pendências</h1>
+      <p class="sub">Tudo o que falta, num lugar só: as tarefas das missions e as pendências soltas dos módulos.<br>O tipo vem da tag (a lista da galaxy); a origem sai sozinha da pasta. Clique na origem pra abrir a pasta.</p>
+      <details class="caixa filtros-caixa" id="filtros-caixa"><summary><span class="seta">▸</span>filtros<span class="n ativos" id="filtros-ativos"></span></summary>
+        <div class="dentro">
+        <div class="filtros" id="f-quem"></div>
+        <div class="filtros" id="f-tipo"></div>
+        <div class="filtros" id="f-orig"></div>
+        </div></details>
+      <div class="board" id="board"></div>
+    </section>
+
+    <section class="view" id="view-fichas">
+      <h1>Fichas</h1>
+      <p class="sub">Cada thinker se descreve sozinho: quem ele é vem do cabeçalho do CLAUDE.md do módulo (escrito uma vez);<br>as habilidades, os itens, as conquistas e a frase viva o app calcula das pastas e do log.</p>
+      <div class="fichas" id="fichas"></div>
+    </section>
+  </main>
+</div>
+<script>
+const EST = {
+  vivo:{rot:"vivo", g:"✓", c:"--ok"}, analise:{rot:"em análise", g:"▲", c:"--warn"},
+  manutencao:{rot:"manutenção", g:"ⓘ", c:"--info"}, pausado:{rot:"pausado", g:"⏸", c:"--cinza"},
+  sem:{rot:"sem cabeçalho", g:"?", c:"--cinza"}
+};
+const COLS = [
+  {k:"aberta",  rot:"aberta",  g:"○", c:"--info", ajuda:"esperando alguém pegar"},
+  {k:"fazendo", rot:"fazendo", g:"◐", c:"--warn", ajuda:"em andamento agora"},
+  {k:"feita",   rot:"feita",   g:"●", c:"--ok",   ajuda:"fechadas (e as canceladas, riscadas)"}
+];
+const SEM_TIPO = {rotulo:"sem tipo", cor:"--cinza"};
+const VISTAS = [{k:"missions", g:"◇", rot:"missions"}, {k:"pendencias", g:"▤", rot:"pendências"}, {k:"fichas", g:"✦", rot:"fichas"}];
+const SIGLA = {youtube:"YT", tiktok:"TT", instagram:"IG", itch:"itch"};
+// na célula, o texto sem o prefixo que repete a plataforma ("TikTok: Vênus" → "Vênus"); o texto inteiro fica no título
+const curto = s => { const i = s.indexOf(": "); return i > 0 && i < 22 ? s.slice(i+2) : s; };
+let fPlat = "todos", calPassado = false, calSemanas = 999;   // 16/10: ela preferiu tudo à mostra (o limite fica, desligado)
+// as conquistas possíveis moram no leitor (back); aqui só aparecem as destravadas
+const fechadas = new Set();   // galaxies recolhidas na lateral
+let DADOS = null, galAtiva = null, filtro = "todos", view = "missions", fTipo = "todos", fOrig = "todos", fQuem = "todos";
+// "é minha" (10/10): o campo quem do registrador. quem = pessoa → só depende de você; sem quem ou outro nome → dos agentes
+const daPessoa = t => t.quem === "pessoa";
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const estadoDe = p => p.tem_cabecalho ? (EST[(p.cabecalho.estado||"").toLowerCase()] ? (p.cabecalho.estado||"").toLowerCase() : "sem") : "sem";
+const dataBR = s => s ? s.slice(8,10)+"/"+s.slice(5,7)+" "+s.slice(11,16) : "nenhum registro";
+const diaBR = s => s ? s.slice(8,10)+"/"+s.slice(5,7) : "";
+const abrirPasta = p => { if (window.pywebview && window.pywebview.api) window.pywebview.api.abrir_pasta(p); };
+// v0.7 (17/10): o porta-moedas das conquistas. Uma fileira por nível; o tubo tem o tamanho do nível
+// e cada conquista ganha é uma moeda em pé. Clicar abre a lista do que tem e do que falta.
+const NIVEIS = [["bronze","bronze"],["prata","prata"],["ouro","ouro"],["diamante","diamante"]];
+function portaMoedas(f){
+  const todas = f.conquistas_todas || [];
+  if (!todas.length) return "";
+  const tubos = NIVEIS.map(([nv, rot]) => {
+    const doNivel = todas.filter(c => c.nivel === nv);
+    if (!doNivel.length) return "";
+    const tem = doNivel.filter(c => c.ok).length;
+    const moedas = doNivel.map((c, i) => `<i class="moeda${i < tem ? " cheia" : ""}"></i>`).join("");
+    return `<div class="tubo nv-${nv}"><span class="rot">${rot}</span><div class="trilho">${moedas}</div><span class="n">${tem}/${doNivel.length}</span></div>`;
+  }).join("");
+  const lista = NIVEIS.map(([nv, rot]) => {
+    const doNivel = todas.filter(c => c.nivel === nv);
+    if (!doNivel.length) return "";
+    return `<div class="lconq nv-${nv}"><span class="lrot">${rot}</span>${doNivel.map(c =>
+      `<span class="item-c${c.ok ? " ok" : ""}">${c.ok ? "●" : "○"} ${esc(c.nome)}</span>`).join("")}</div>`;
+  }).join("");
+  const total = todas.filter(c => c.ok).length;
+  return `<details class="caixa moedas"><summary><div class="moedas__topo"><span class="seta">▸</span>★ conquistas<span class="n">${total} de ${todas.length}</span></div>
+    <div class="porta" title="clique pra ver o que tem e o que falta">${tubos}</div></summary>
+    <div class="dentro">${lista}</div></details>`;
+}
+
+function desenhar(){
+  const gals = document.getElementById("gals"); gals.innerHTML = "";
+  if (!DADOS || DADOS.erro){ document.getElementById("grade").innerHTML = `<p class="erro">não consegui ler os logs: ${esc(DADOS && DADOS.erro)}</p>`; return; }
+  if (!galAtiva && DADOS.galaxies.length) galAtiva = DADOS.galaxies[0].galaxy;
+  for (const g of DADOS.galaxies){
+    const aberta = !fechadas.has(g.galaxy);
+    const faltam = itensDe(g).filter(t => t.status !== "feita" && t.status !== "cancelada").length;
+    const b = document.createElement("button"); b.className = "gal"; b.type = "button";
+    b.title = aberta ? "recolher" : "abrir";
+    b.innerHTML = `<span class="seta">${aberta?"▾":"▸"}</span>${esc(g.galaxy.replace("galaxy_",""))}`;
+    b.onclick = () => { if (fechadas.has(g.galaxy)) fechadas.delete(g.galaxy); else fechadas.add(g.galaxy); desenhar(); };
+    gals.appendChild(b);
+    if (!aberta) continue;
+    for (const v of VISTAS){
+      const n = v.k==="missions" ? g.projetos.length : v.k==="fichas" ? (g.fichas||[]).length : faltam;
+      const it = document.createElement("button"); it.type = "button";
+      it.className = "item" + (g.galaxy===galAtiva && v.k===view ? " ativa" : "");
+      it.innerHTML = `${v.g} ${v.rot}<span class="n">${n}</span>`;
+      it.onclick = () => {
+        if (g.galaxy !== galAtiva){ galAtiva = g.galaxy; filtro = "todos"; fTipo = "todos"; fOrig = "todos"; fQuem = "todos"; fPlat = "todos"; }
+        view = v.k; try { localStorage.setItem("cosmos-aba", view); } catch(e) {} desenhar();
+      };
+      gals.appendChild(it);
+    }
+  }
+  const g = DADOS.galaxies.find(x => x.galaxy===galAtiva);
+  const vistaAtual = VISTAS.find(v => v.k===view) || VISTAS[0];
+  document.getElementById("trilha").textContent = "cosmos › " + (galAtiva||"").replace("galaxy_","") + " › " + vistaAtual.rot;
+  document.getElementById("gerado").textContent = "lido em " + (g ? g.gerado.slice(8,10)+"/"+g.gerado.slice(5,7)+" "+g.gerado.slice(11) : "—");
+  for (const v of document.querySelectorAll(".view")) v.classList.toggle("ativa", v.id==="view-"+view);
+  desenharMissions(g); desenharPendencias(g); desenharFichas(g);
+}
+
+const tempo = n => n == null ? "—" : n < 1 ? "hoje" : n === 1 ? "1 dia" : n + " dias";
+
+function desenharFichas(g){
+  const box = document.getElementById("fichas"); box.innerHTML = "";
+  const fs = (g && g.fichas) || [];
+  if (!fs.length){ box.innerHTML = `<p class="vazio">nenhum thinker nesta galaxy ainda.</p>`; return; }
+  for (const f of fs){
+    const c = f.cabecalho || {};
+    const nome = c.nome || f.thinker;
+    const frase = (f.ultima_coisa ? `A última coisa que fizemos: ${f.ultima_coisa}` : "Ainda não registrou nada.") +
+      ` ${f.pendencias === 0 ? "Nenhuma pendência pra trabalhar." : f.pendencias === 1 ? "Temos 1 pendência pra trabalhar." : `Temos ${f.pendencias} pendências pra trabalhar.`}`;
+    const chips = (lista, proprias, vazio) => lista.length
+      ? `<div class="chips">${lista.map(s => `<span class="chip${(proprias||[]).includes(s)?" propria":""}">${esc(s)}</span>`).join("")}</div>`
+      : `<p class="meta">${vazio}</p>`;
+    const el = document.createElement("article"); el.className = "ficha";
+    el.innerHTML = `
+      <div class="f__topo">
+        <div class="retrato" title="sem retrato? pôr retrato_noite e retrato_dia (.svg ou .png) na pasta do módulo">[·]</div>
+        <div>
+          <h2 class="f__nome">${esc(nome)}</h2>
+          <span class="f__classe">✦ ${esc(c.classe || "thinker")}</span>
+          <div class="f__ass">assina: ${esc(c.assinatura || f.thinker)}</div>
+        </div>
+        <button class="abrir bola" type="button" title="abrir a pasta do módulo">↗</button>
+      </div>
+      <p class="f__frase">${esc(frase)}${f.ultima_data ? ` <span class="meta">(${dataBR(f.ultima_data)})</span>` : ""}</p>
+      <div class="f__nums">
+        <div class="num"><b>${f.assinados ?? f.registros}</b><span>registros</span></div>
+        <div class="num"><b>${tempo(f.dias_era4)}</b><span>na Era 4</span></div>
+        <div class="num"><b>${tempo(f.dias_vida)}</b><span>de vida</span></div>
+      </div>
+      ${portaMoedas(f)}
+      ${(c.papel || c.cuida) ? `<details class="caixa sec"><summary><span class="seta">▸</span>papel</summary><div class="dentro f__sec">${c.papel ? `<p>${esc(c.papel)}</p>` : ""}${c.cuida ? `<p class="meta" style="margin-top:6px">cuida de: ${esc(c.cuida)}</p>` : ""}</div></details>` : ""}
+      <details class="caixa sec"><summary><span class="seta">▸</span>habilidades<span class="n">${f.skills.length} skills</span></summary><div class="dentro">${chips(f.skills, f.skills_proprias, "nenhuma ainda (a matrix desta galaxy está vazia)")}</div></details>
+      <details class="caixa sec"><summary><span class="seta">▸</span>inventário<span class="n">${f.itens.length + (f.conectores||[]).length} itens</span></summary><div class="dentro">${(f.itens.length || (f.conectores||[]).length)
+        ? `<div class="chips">${f.itens.map(s => `<span class="chip">${esc(s)}</span>`).join("")}${(f.conectores||[]).map(s => `<span class="chip conector" title="conector (MCP)">⇄ ${esc(s)}</span>`).join("")}</div>`
+        : `<p class="meta">nenhum</p>`}</div></details>
+      <details class="caixa sec"><summary><span class="seta">▸</span>missions<span class="n">${f.missions.length}</span></summary><div class="dentro">${chips(f.missions, [], "nenhuma no nome dele")}</div></details>
+      ${(f.permissoes||[]).length ? `<details class="caixa permissoes"><summary><span class="seta">▸</span>permissões<span class="n">${f.permissoes.filter(p=>p.lado==="allow").length} allow · ${f.permissoes.filter(p=>p.lado==="deny").length} deny</span></summary>
+        <div class="dentro"><div class="chips">${f.permissoes.map(p =>
+        `<span class="chip ${p.lado}${p.trava?"":" combinado"}" title="${p.trava?"trava: o sistema faz cumprir":"combinado: está no CLAUDE.md, o agente respeita por instrução"}">${p.lado}: ${esc(p.txt)}</span>`).join("")}</div>
+        <p class="legenda-p">borda cheia = trava (o sistema faz cumprir) · borda tracejada = combinado (instrução no CLAUDE.md)</p></div></details>` : ""}
+      <div class="f__rodape"><span>${esc(c.linhagem || "")}${c.nascido ? ` · nasceu ${esc(diaBR(c.nascido))}/${esc(c.nascido.slice(0,4))}` : ""} · ${esc(c.provedor || "")}${c.modelo ? " · " + esc(c.modelo) : ""}</span></div>`;
+    el.querySelector(".abrir").onclick = () => abrirPasta(f.pasta);
+    // retrato (10/10; .svg desde 17/10): procura na pasta do módulo o do tema atual (retrato_noite / retrato_dia, .svg ou .png),
+    // depois o do outro tema, depois o do cabeçalho (retrato: …) ou retrato.png. Usa o primeiro que existir.
+    if (window.pywebview && window.pywebview.api){
+      const tema = document.documentElement.dataset.theme==="day" ? "dia" : "noite";
+      const outro = tema==="dia" ? "noite" : "dia";
+      const tentar = [`retrato_${tema}.svg`, `retrato_${tema}.png`, `retrato_${outro}.svg`, `retrato_${outro}.png`, c.retrato || "retrato.png"];
+      (async () => {
+        for (const arq of tentar){
+          const url = await window.pywebview.api.retrato(f.pasta + "/" + arq);
+          if (url){ el.querySelector(".retrato").innerHTML = `<img alt="retrato de ${esc(nome)}" src="${url}">`; return; }
+        }
+      })();
+    }
+    box.appendChild(el);
+  }
+}
+
+function desenharMissions(g){
+  const fs = document.getElementById("filtros"); fs.innerHTML = "";
+  for (const k of ["todos","vivo","analise","manutencao","pausado","sem"]){
+    const b = document.createElement("button"); b.type="button"; b.className="filtro"+(k===filtro?" ativo":"");
+    b.textContent = k==="todos" ? "todos" : EST[k].g+" "+EST[k].rot; b.onclick=()=>{filtro=k; desenhar();}; fs.appendChild(b);
+  }
+  const grade = document.getElementById("grade"); grade.innerHTML = "";
+  const lista = (g ? g.projetos : []).filter(p => filtro==="todos" || estadoDe(p)===filtro);
+  if (!lista.length){ grade.innerHTML = `<p class="vazio">nenhuma mission aqui ainda.</p>`; return; }
+  // v0.7 (17/10): colunas. O card i vai pra coluna i % n, então a ordem de leitura segue por linha;
+  // abrir um card empurra só a coluna dele.
+  const n = colunasMissions(grade);
+  colunasAtuais = n;
+  const cols = Array.from({length: n}, () => { const c = document.createElement("div"); c.className = "coluna"; grade.appendChild(c); return c; });
+  let i = 0;
+  for (const p of lista){
+    const e = EST[estadoDe(p)];
+    const el = document.createElement("details"); el.className = "pj";
+    el.style.setProperty("--c", `var(${e.c})`);
+    el.style.setProperty("--cbg", `var(${e.c}-bg)`);
+    const tar = (p.abertas||[]).slice(0,4).map(t => `<li>${esc(t.txt)}${t.prazo?` <span class="meta">(prazo ${esc(diaBR(t.prazo))})</span>`:""}</li>`).join("");
+    const pendLog = (p.depois_do_resumo >= 3 ? 1 : 0) + ((p.sem_registro || []).length ? 1 : 0);
+    const nAb = (p.abertas || []).length;
+    const motivos = [p.depois_do_resumo >= 3 ? "resumo desatualizado" : "", (p.sem_registro||[]).length ? "mudança sem registro" : ""].filter(Boolean);
+    el.innerHTML = `<summary><div class="l1"><span class="nome" title="${esc(p.nome)}">${esc(p.nome)}</span><button class="abrir" type="button" title="abrir a pasta no Explorer">↗</button></div><div class="l2"><span class="selo">${e.g} ${e.rot}</span>${nAb ? `<span class="abertas" title="tarefas abertas">▲ ${nAb}</span>` : ""}${pendLog ? `<span class="pend">⚠ ${pendLog}</span><span class="diverg" title="${esc(motivos.join(" e "))}">${esc(motivos.join(" · "))}</span>` : `<span class="diverg ok">✓ log em dia</span>`}</div></summary>
+      <div class="corpo">
+      ${p.cabecalho && p.cabecalho.motivo ? `<p>${esc(p.cabecalho.motivo)}</p>` : ""}
+      ${p.resumo ? `<p class="meta">último resumo (${dataBR(p.resumo_data)}): ${esc(p.resumo)}</p>` : ""}
+      ${p.depois_do_resumo >= 3 ? `<p class="aviso">⚠ resumo desatualizado: ${p.depois_do_resumo} registros vieram depois dele</p>` : ""}
+      ${tar ? `<ul class="tar">${tar}</ul>` : ""}
+      <p class="meta">último registro: ${dataBR(p.ultima)}</p>
+      ${p.sem_registro && p.sem_registro.length ? `<p class="aviso">⚠ mudança sem registro: ${esc(p.sem_registro.slice(0,3).join(", "))}${p.sem_registro.length>3?" …":""}</p>` : ""}</div>`;
+    el.querySelector(".abrir").onclick = ev => { ev.preventDefault(); ev.stopPropagation(); abrirPasta(p.pasta); };
+    el.open = missionsAbertas.has(p.pasta);
+    el.addEventListener("toggle", () => { el.open ? missionsAbertas.add(p.pasta) : missionsAbertas.delete(p.pasta); });
+    cols[i++ % n].appendChild(el);
+  }
+}
+// v0.7: quantas colunas cabem (card de no mínimo 300px + 10px de espaço), e lembrar quais cards estavam abertos
+const missionsAbertas = new Set();
+let colunasAtuais = 0;
+function colunasMissions(grade){
+  const larg = grade.clientWidth || (grade.parentElement && grade.parentElement.clientWidth) || 960;
+  return Math.max(1, Math.floor((larg + 10) / 310));
+}
+let _redimTimer = null;
+window.addEventListener("resize", () => {
+  clearTimeout(_redimTimer);
+  _redimTimer = setTimeout(() => {
+    const grade = document.getElementById("grade");
+    if (grade && grade.offsetParent && colunasMissions(grade) !== colunasAtuais) desenhar();
+  }, 150);
+});
+
+function itensDe(g){
+  if (!g) return [];
+  const tipos = g.tipos || {};
+  const tipoDe = t => tipos[t.tag] ? t.tag : "sem";
+  const itens = [];
+  for (const p of g.projetos) for (const t of (p.tarefas||[]))
+    itens.push({...t, tipo: tipoDe(t), origem: p.nome, pasta: p.pasta, solta: false});
+  for (const t of (g.pendencias||[]))
+    itens.push({...t, tipo: tipoDe(t), origem: "solta", pasta: t.pasta, solta: true});
+  return itens;
+}
+
+function pilulas(id, rotulo, opcoes, atual, mudar){
+  const fs = document.getElementById(id); fs.innerHTML = `<span class="rot">${rotulo}</span>`;
+  for (const o of opcoes){
+    const b = document.createElement("button"); b.type = "button"; b.className = "filtro" + (o.k===atual?" ativo":"");
+    if (o.c) b.style.setProperty("--c", `var(${o.c})`);
+    b.innerHTML = `${o.c?'<span class="pt"></span>':""}${esc(o.rot)} <span class="n">${o.n}</span>`;
+    b.onclick = () => mudar(o.k); fs.appendChild(b);
+  }
+}
+
+function desenharPendencias(g){
+  const tipos = (g && g.tipos) || {};
+  const info = k => k==="sem" ? SEM_TIPO : tipos[k];
+  const todos = itensDe(g);
+  const vivos = todos.filter(t => t.status !== "feita" && t.status !== "cancelada");
+  // filtros: o contador mostra o que ainda falta (aberta + fazendo), não o histórico
+  pilulas("f-quem", "de quem", [{k:"todos", rot:"todas", n:vivos.length},
+    {k:"pessoa", rot:"★ é minha", c:"--violet", n:vivos.filter(daPessoa).length},
+    {k:"agentes", rot:"dos agentes", n:vivos.filter(t => !daPessoa(t)).length}],
+    fQuem, k => { fQuem = k; desenhar(); });
+  const chavesTipo = [...Object.keys(tipos), ...(todos.some(t=>t.tipo==="sem") ? ["sem"] : [])];
+  pilulas("f-tipo", "tipo", [{k:"todos", rot:"todos", n:vivos.length},
+    ...chavesTipo.map(k => ({k, rot:info(k).rotulo, c:info(k).cor, n:vivos.filter(t=>t.tipo===k).length}))],
+    fTipo, k => { fTipo = k; desenhar(); });
+  const origens = [...new Set(todos.filter(t=>!t.solta).map(t=>t.origem))].sort();
+  if (todos.some(t=>t.solta)) origens.push("solta");
+  pilulas("f-orig", "origem", [{k:"todos", rot:"todas", n:vivos.length},
+    ...origens.map(o => ({k:o, rot:o==="solta"?"dos módulos":o, n:vivos.filter(t=>t.origem===o).length}))],
+    fOrig, k => { fOrig = k; desenhar(); });
+
+  const ativos = [fQuem!=="todos" ? (fQuem==="pessoa" ? "★ é minha" : "dos agentes") : "", fTipo!=="todos" ? info(fTipo).rotulo : "",
+    fOrig!=="todos" ? (fOrig==="solta" ? "dos módulos" : fOrig) : ""].filter(Boolean);
+  document.getElementById("filtros-ativos").textContent = ativos.length ? ativos.join(" · ") : "nenhum (tudo aparecendo)";
+  const lista = todos.filter(t => (fTipo==="todos" || t.tipo===fTipo) && (fOrig==="todos" || t.origem===fOrig)
+    && (fQuem==="todos" || (fQuem==="pessoa") === daPessoa(t)));
+  const hoje = new Date().toISOString().slice(0,10);
+  const board = document.getElementById("board"); board.innerHTML = "";
+  for (const col of COLS){
+    const daCol = lista.filter(t => col.k==="feita" ? (t.status==="feita" || t.status==="cancelada") : (t.status||"aberta")===col.k)
+      .sort((a,b) => col.k==="feita" ? (b.data||"").localeCompare(a.data||"") : ((a.prazo||"9999")+(a.data||"")).localeCompare((b.prazo||"9999")+(b.data||"")));
+    const el = document.createElement("div"); el.className = "col"; el.style.setProperty("--c", `var(${col.c})`);
+    let html = `<div class="col__faixa"></div><div class="col__head"><div><div class="col__t">${col.g} ${col.rot}</div><p class="col__ajuda">${col.ajuda}</p></div><div class="col__n">${daCol.length}</div></div><div class="cards">`;
+    if (!daCol.length) html += `<p class="meta" style="padding:6px">nada aqui.</p>`;
+    for (const k of [...Object.keys(tipos), "sem"]){
+      const grupo = daCol.filter(t => t.tipo===k); if (!grupo.length) continue;
+      const ti = info(k);
+      html += `<div class="gh" style="--c:var(${ti.cor})"><span>${esc(ti.rotulo)}</span><span>${grupo.length}</span></div>`;
+      for (const t of grupo){
+        const vencido = t.prazo && t.prazo < hoje && col.k!=="feita";
+        const quando = col.k==="feita" ? `fechada ${diaBR(t.data)}` : (t.prazo ? `${vencido?"⚠ ":""}prazo ${diaBR(t.prazo)}` : "");
+        html += `<div class="c${t.status==="cancelada"?" cancelada":""}${daPessoa(t)?" e-minha":""}" style="--c:var(${ti.cor});--cbg:var(${ti.cor}-bg)">
+          <div class="c__top"><span class="tag">${esc(ti.rotulo)}</span>${daPessoa(t) ? `<span class="minha" title="só depende de você">★ é minha</span>` : ""}
+          <button class="orig" type="button" data-pasta="${esc(t.pasta)}" title="abrir a pasta">${t.solta ? (t.do_log ? "módulo · " : "solta · ")+esc(t.modulo) : esc(t.origem)} ↗</button>
+          <span class="c__data${vencido?" vencido":""}">${quando}</span></div>
+          <p class="c__t">${esc(t.txt)}</p>
+          <p class="c__meta">${esc(t.id)}${t.status==="cancelada"?" · cancelada":""}${t.tag && k==="sem" ? " · tag antiga: "+esc(t.tag) : ""}</p></div>`;
+      }
+    }
+    el.innerHTML = html + `</div>`;
+    board.appendChild(el);
+  }
+  for (const b of board.querySelectorAll(".orig")) b.onclick = () => abrirPasta(b.dataset.pasta);
+}
+
+async function carregar(){
+  if (window.pywebview && window.pywebview.api) DADOS = await window.pywebview.api.dados();
+  else if (window.DADOS_PREVIA) DADOS = window.DADOS_PREVIA;
+  desenhar();
+}
+window.addEventListener("pywebviewready", carregar);
+document.getElementById("atualizar").onclick = carregar;
+function astro(){ const b = document.getElementById("tema"), dia = document.documentElement.dataset.theme==="day";
+  b.textContent = dia ? "☀" : "☾"; b.title = dia ? "trocar pra noite" : "trocar pro dia"; }
+document.getElementById("tema").onclick = () => {
+  const r = document.documentElement; r.dataset.theme = r.dataset.theme==="night" ? "day" : "night";
+  try { localStorage.setItem("cosmos-tema", r.dataset.theme); } catch(e) {}
+  astro();
+  if (DADOS) desenhar();   // os retratos trocam junto com o tema
+};
+try { const t = localStorage.getItem("cosmos-tema"); if (t) document.documentElement.dataset.theme = t; } catch(e) {}
+astro();
+try { const v = localStorage.getItem("cosmos-aba"); if (v) view = v; } catch(e) {}
+if (window.DADOS_PREVIA) carregar();
+</script>
+</body>
+</html>

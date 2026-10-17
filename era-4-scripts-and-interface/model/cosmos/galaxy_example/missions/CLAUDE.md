@@ -28,5 +28,5 @@ Sai em `output` → a pessoa (ou o thinker) revisa → o aprovado vai pra `stora
 ## As ações que mantêm o histórico vivo
 - **Pendência nova** vira `tarefa` com `--tag` (o tipo de trabalho, de `tools\tipos.json`); fora de mission, `--pendencia` no módulo.
 - **O ciclo:** `aberta` → `fazendo` → `feita` ou `cancelada`. Mudou, registra na hora (`--id tN --status ...`).
-- **O que só a pessoa faz** leva `--quem` com o nome dela.
+- **O que só a pessoa faz** leva `--quem pessoa` (é o filtro "★ é minha" do app).
 - **Ao fechar o dia:** um `resumo` em cada mission tocada.
