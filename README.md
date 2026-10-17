@@ -38,7 +38,7 @@ The hypothesis behind it: the structure around the model (the context it receive
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/context-flow-night.svg">
-  <img alt="Context flow: from the providers to the cycle of the three agents, and back to you" src="assets/context-flow-day.svg">
+  <img alt="Context flow: from any provider to the galaxy context, to the agents configured by the three skills, and to the mission, log and module context; the result comes back to you, and the thinker decides with you and leads the manager and workers" src="assets/context-flow-day.svg">
 </picture>
 
 ## The eras

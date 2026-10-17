@@ -1,0 +1,38 @@
+{
+  "agent": "thinker",
+  "permissions": {
+    "deny": [
+      "Bash(rm:*)",
+      "Bash(rmdir:*)",
+      "Bash(del:*)",
+      "Bash(Remove-Item:*)",
+      "Bash(git push:*)"
+    ],
+    "ask": [
+      "Bash(git commit:*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_example/station/module_thinker/hooks/ultimo_estado.py\""
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"{PYTHON}\" \"{COSMOS}/galaxy_example/station/module_thinker/hooks/nao_apagar.py\""
+          }
+        ]
+      }
+    ]
+  }
+}
