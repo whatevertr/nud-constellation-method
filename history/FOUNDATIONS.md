@@ -15,7 +15,7 @@ Eu não estou inventando disciplina nova, estou **traduzindo** prática velha de
 - **Poka-Yoke**: evitar o erro pela estrutura, não pela energia do sistema.
 - **PDCA**: melhorar checando o resultado analítica e auditivamente, antes da próxima ação.
 
-Sobre a ideia de que "a estrutura em volta do modelo move o resultado", há medição registrando o mesmo modelo variando dezenas de pontos de uma estrutura para outra ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), preprint). E a bajulação é produto do treino por preferência humana ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), cresce com escala e RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), e um perfil do usuário na memória a amplifica (até +45% no caso medido, com casos sem mudança significativa; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)). Talvez a bajulação não tenha que ser eliminada e sim direcionada para diminuir as chances de erro.
+Sobre a ideia de que "a estrutura em volta do modelo move o resultado", há medição registrando o mesmo modelo variando até 16 pontos percentuais de uma estrutura para outra (13,5 no caso destacado pelos autores; cada combinação rodou uma vez) ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), preprint). E a bajulação é produto do treino por preferência humana ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), cresce com escala e RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), e um perfil do usuário na memória a amplifica (até +45% no caso medido, com casos sem mudança significativa; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)). Talvez a bajulação não tenha que ser eliminada e sim direcionada para diminuir as chances de erro.
 
 ## Leituras
 
