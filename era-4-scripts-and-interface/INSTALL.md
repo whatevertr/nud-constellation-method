@@ -16,7 +16,7 @@ cosmos\                         the root: rules that apply to every agent
    │                            .claude\settings.json (the hooks)
    ├─ missions\                 the work: my-first-mission (yours) and exemplo-lancar-um-blog (an example)
    ├─ matrix\                   the skills (context and craft skills; one example comes in)
-   ├─ tools\                    registrar, reader, the 3 hooks, slicer and searcher (the galley)
+   ├─ tools\                    registrar, reader, the 3 hooks, the guard, slicer and searcher (the galley)
    ├─ _to_delete\               the trash (only the person empties it)
    └─ _archived\                what is finished, kept
 ```
@@ -53,6 +53,8 @@ cosmos\                         the root: rules that apply to every agent
    To open it: `"{PYTHON}" "{COSMOS}\app\painel.py"` (on Windows, the `pythonw.exe` in the same folder opens it without the black window; a desktop shortcut can run that command). The dashboard only reads: nothing it shows is edited through it.
 8. **The examples.** `exemplo-lancar-um-blog` (a mission) and `exemplo-revisar-texto` (a skill) come with made-up data, so the dashboard doesn't open empty: show them to the person. When they want to start for real, move both folders, whole, to the galaxy's `_to_delete\`. Nothing in the log is deleted by hand.
 
+**The guard** (`tools\guarda.py`, with `guarda.json` and `teste_guarda.py`): runs before every tool. The thinker goes free; each agent stays out of the homes of those above it (the manager out of the thinker's; the worker out of both); an agent it doesn't know stays out of all of them; git that changes things is the thinker's only; and nobody deletes for real. Run `"{PYTHON}" "{COSMOS}\galaxy_example\tools\teste_guarda.py"`: it must be all OK. **What it is:** a speed bump, not a wall. It reads what is written in the request: it stops accidents and naive access, but if it breaks it lets things through, a program the agent runs can read anything, and none of it prevents prompt injection. The real wall is running the agent in a sandbox or container.
+
 ## How to know it worked
 1. Open a new Claude Code session **with the home folder** (`module_thinker`) as the working folder.
 2. In its first reply, the thinker must mention the **`=== CHEGADA (hook, Era 4) ===`** block (arrival) and the **`=== ALMA ===`** block (soul). If they came, continued memory is on.
@@ -64,7 +66,6 @@ cosmos\                         the root: rules that apply to every agent
 
 ## What this package doesn't bring
 - **The agent profile** (`.claude\agents\<name>.md`, the soul that goes along into every session), **on purpose**: the profile is born from the Triad, written with the person, from how they work. A ready-made profile would belong to someone else.
-- **The guard** (a hook that keeps each agent out of areas that aren't its own): every person has their own areas; a generic version comes later.
 
 ## One last thing
 If, after talking, you think the method doesn't serve this person, say so. That is the method working too.

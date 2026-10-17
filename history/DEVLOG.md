@@ -4,6 +4,16 @@ O que muda aqui, quando e por quê. Inclui o que a conferência derrubou, inclus
 
 ---
 
+## 17/10/2026 — a guarda entra na Era 4
+
+**Mudou:** o modelo ganhou a guarda (`tools/guarda.py`), um hook que roda antes de toda ferramenta, ligado no `settings.json` da casa. Ela segue a hierarquia da Tríade, escrita no `guarda.json`: o thinker passa livre; cada agente fica fora das casas de quem está acima dele (o manager fora da do thinker; o worker fora das duas); um agente que ela não conhece fica fora de todas; git que muda coisa é só do thinker; ninguém apaga de verdade; e apagar recursivo numa junção ou link é barrado sempre. Se o `guarda.json` faltar, vale o mais seguro: todo agente fica fora de todas as casas. Vem com o pipe-test (`teste_guarda.py`, 20 casos): agente novo entra no `guarda.json` e no teste antes de ser ligado.
+
+**Por quê:** subagente herda o acesso de quem o chama; sem guarda, qualquer um lê qualquer casa. A versão pública protege por casa, e não por uma lista de áreas sensíveis, porque a hierarquia já é pública (é a Tríade) e uma lista contaria como cada pessoa se organiza.
+
+**O que ela não é:** uma parede. Ela lê o que está escrito no pedido da ferramenta: segura o acidente e o acesso ingênuo, mas se quebrar deixa passar, um programa que o agente roda pode ler o que quiser, e nada disso evita prompt injection. A parede de verdade é sandbox ou container.
+
+*EN: the model gets the guard (`tools/guarda.py`), a hook that runs before every tool. It follows the Triad's hierarchy, written in `guarda.json`: the thinker goes free; each agent stays out of the homes of those above it; an unknown agent stays out of all homes; git that changes things is the thinker's only; nobody deletes for real; a recursive delete on a junction or link is always blocked. If `guarda.json` is missing, the safest rule applies: every agent stays out of every home. It ships with a pipe-test (20 cases); a new agent goes into `guarda.json` and the test before it is switched on. What it is not: a wall. It reads what is written in the request; it stops accidents and naive access, but fails open, a program the agent runs can read anything, and none of it prevents prompt injection. The real wall is a sandbox or container.*
+
 ## 17/10/2026 — o fluxo de contexto da Era 4 e as pastas de exemplo das Eras 2 e 3
 
 **Mudou:** o desenho do fluxo de contexto (`assets/context-flow-*.svg`) passou a mostrar a Era 4: de qualquer provedor ao contexto da galaxy, aos agentes configurados pelas três skills e ao contexto da mission, do log e do módulo; o resultado volta pra pessoa, e o thinker decide com ela e conduz o manager e os workers. As Eras 2 e 3 ganharam as pastas de exemplo, com os nomes da Era 4 (galaxy, station, module, missions, diary, `_to_delete`), pra que subir de uma era pra outra seja só acrescentar: a Era 2 com o manual, a porta, um estado, um diário e o ritual feito à mão; a Era 3 com a mesma pasta virando configuração (os `CLAUDE.md`, o `settings.json` da casa, o perfil do agente) e dois hooks testados, um que entrega o último estado ao abrir e outro que barra o apagar. O mapa da Era 1 ganhou um aviso: é o mapa do surgimento do método, e as datas são aproximadas.

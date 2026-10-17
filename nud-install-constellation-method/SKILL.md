@@ -48,7 +48,7 @@ Na dúvida sobre o objetivo de alguma peça, volte aqui. Cada era usa as anterio
 5. **As galaxies.** Uma por área que a pessoa escolher (comece com uma), cada uma com o seu thinker.
 6. **As missions.** Cada trabalho vira uma mission em `missions\nome-da-mission\`. Se a pessoa trabalha principalmente com repositórios, **o repositório mora dentro da mission** (`missions\nome\repo-nome\`). A `lab\` (materiais, rascunhos, o que ainda não foi revisado) não é obrigatória, mas ajuda a organizar: sugira.
 7. **O painel e os exemplos.** Ofereça o painel (`cosmos\app\`, passo 7 do guia): ele precisa do `pywebview`, instalado só com o sim da pessoa. Mostre a mission e a skill de exemplo (dados fictícios, pro painel não abrir vazio) e explique que, quando ela quiser começar de verdade, as duas pastas vão inteiras pro `_to_delete`.
-8. **Teste** como manda o guia ("Como saber que deu certo").
+8. **Teste** como manda o guia ("Como saber que deu certo"), e rode o teste da guarda (`tools/teste_guarda.py`): tem que dar tudo OK. Explique pra pessoa, com honestidade, que a guarda é um quebra-molas (segura acidente e acesso ingênuo), não uma parede. Se ela for usar manager ou worker, cada agente novo entra no `guarda.json` e no teste antes de ser ligado.
 9. **Diga como continuar:** abrir a conversa sempre na pasta da casa do thinker; fechar o dia com um resumo (e o diário, se ela quiser); nada se apaga de vez (vai pro `_to_delete`, e só ela esvazia).
 
 ## Pra quem quer fazer à mão
