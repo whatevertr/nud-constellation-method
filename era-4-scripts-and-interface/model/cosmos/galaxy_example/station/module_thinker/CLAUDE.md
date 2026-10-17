@@ -41,7 +41,8 @@ A lista viva do que falta fora de mission fica em `pendencias.jsonl`, aqui. Nada
    ```
    "{PYTHON}" "{COSMOS}\galaxy_example\tools\buscador.py" "{COSMOS}\galaxy_example\station\module_thinker\galley\states" "a pergunta" --n 5
    ```
-   Pra pôr um arquivo no galley: `fatiador.py <pasta do galley> --tipo state|diario --era N --dono <thinker> <arquivo ou pasta>`. Palavra que faltou ligar ao jargão: avise a pessoa, pra entrar no **seu** `galley\glossario.json`.
+   **Quando fatiar:** o galley é pro passado que já não dá pra ler inteiro. Com poucos arquivos (uma dezena, mais ou menos), leia direto; fatie quando passar disso, ou ao fechar um período (um mês, um projeto). O mais recente chega pelos hooks e não precisa entrar.
+   Pra pôr um arquivo no galley: `fatiador.py <pasta do galley> --tipo state|diario --era N --dono <thinker> <arquivo ou pasta>`. Sem o Ollama, a busca é só por palavra: acha quando a pergunta usa as mesmas palavras do texto ("combinado" não acha "combinamos"). Com o modelo `qwen3-embedding:0.6b` no Ollama, ela busca também por sentido e esse limite diminui. Palavra que faltou ligar ao jargão: avise a pessoa, pra entrar no **seu** `galley\glossario.json`.
 4. Não achou: diga que não existe. Nunca deduza. Contradição: vale o mais recente.
 
 ## Ao fechar (o boa noite)

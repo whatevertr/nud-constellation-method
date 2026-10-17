@@ -1,5 +1,6 @@
 r"""
 fatiador.py · corta textos antigos (states, diários) em pedaços, etiqueta e gera os números de sentido.
+v0.2.1 · 16/10/2026 (sem Ollama, guarda os pedaços e avisa, em vez de quebrar).
 v0.2.0 · 12/10/2026 (tipo, era e dono vêm de fora, não do nome; data DDMMAAAA ou AAAA-MM-DD; aceita pasta) · tars (Claude), o thinker do NUD · guardião.
 v0.1.0 · 03/10/2026.
 
@@ -155,7 +156,12 @@ def main():
                 novos.append({"id": f"{base}#{len(novos) + 1:02d}", "fonte": nome, "caminho": caminho,
                               "secao": titulo, "parte": i, "data": data_do_nome(nome), "tipo": opc["tipo"],
                               "era": opc["era"], "dono": opc["dono"], "texto": t})
-        nums = embed([f"{p['secao']}\n{p['texto']}" for p in novos]) if novos else []
+        try:
+            nums = embed([f"{p['secao']}\n{p['texto']}" for p in novos]) if novos else []
+        except OSError:   # sem Ollama: guarda os pedaços mesmo assim (a busca por palavra já funciona)
+            nums = []
+            print(f"{nome}: o Ollama não respondeu; pedaços guardados sem os números de sentido. "
+                  "Pra ganhar a busca por sentido, ligue o Ollama e fatie este arquivo de novo.")
         for p, v in zip(novos, nums):
             vetores[p["id"]] = {"id": p["id"], "modelo": MODELO, "vetor": [round(x, 5) for x in v]}
         pedacos += novos

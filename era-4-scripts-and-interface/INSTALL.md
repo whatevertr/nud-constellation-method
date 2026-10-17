@@ -28,7 +28,7 @@ cosmos\                         the root: rules that apply to every agent
 - **soul** (`hook_alma.py`): it delivers the last diary entry. "Soul" is the method's name for this: what the agent receives on waking about who it is and how you two work together. It is text, written and read; it is not a promise of consciousness;
 - **mission** (`hook_mission.py`): when the agent touches a mission, it delivers that mission's summary.
 
-**The galley:** the search into the past (old diaries and records). It works **with nothing installed** (keyword search). With [Ollama](https://ollama.com) and the `qwen3-embedding:0.6b` model, it also searches by meaning, and results improve. If Ollama doesn't answer, it falls back to keyword search on its own.
+**The galley:** the search into the past (old diaries and records). It works **with nothing installed**, by keyword: it finds a passage when the question uses the same words as the text (in the Portuguese template, "combinado" doesn't find "combinamos"). That limit shrinks with [Ollama](https://ollama.com) and the `qwen3-embedding:0.6b` model: then the search is also by meaning. The model doesn't come in the package; the person installs it if they want. If Ollama doesn't answer, the galley falls back to keyword search on its own. Slicing the past is only worth it once it no longer fits a full read (around a dozen files).
 
 ## Step by step
 1. **Where it lives.** The recommended place is `C:\Users\<person's name>\cosmos` (on Mac or Linux, `~/cosmos`): inside the person's own folder, outside synced folders (OneDrive and the like sync in the middle of the work and confuse the agents), with no spaces or accents in the path. Copy the `model\cosmos\` folder there.

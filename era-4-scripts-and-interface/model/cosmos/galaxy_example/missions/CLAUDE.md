@@ -20,6 +20,7 @@
 - `lab\output\`: o resultado que **ainda não foi revisado**.
 - `lab\tasks\`: os pedidos pra um manager/worker.
 - `repo-[nome]\`: só quando o trabalho vira repositório publicado.
+- **Quem trabalha principalmente com repositórios:** o repositório mora dentro da mission. A `lab\` não é obrigatória, mas ajuda a organizar os materiais, os rascunhos e o que ainda não foi revisado.
 
 ## O fluxo
 Sai em `output` → a pessoa (ou o thinker) revisa → o aprovado vai pra `storage` ou pro `repo-[nome]`.

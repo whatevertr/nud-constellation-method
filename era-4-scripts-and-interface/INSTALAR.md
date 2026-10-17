@@ -28,7 +28,7 @@ cosmos\                         a raiz: regras que valem pra todo agente
 - **o da alma:** entrega o último diário. "Alma" é o nome que o método dá a isto: o que o agente recebe ao acordar sobre quem ele é e como vocês trabalham juntos. É texto, escrito e lido; não é promessa de consciência;
 - **o de mission:** ao tocar numa mission, entrega o resumo dela.
 
-**O galley:** a busca no passado (nos diários e nos registros antigos). Funciona **sem nada instalado** (busca por palavra). Com o [Ollama](https://ollama.com) e o modelo `qwen3-embedding:0.6b`, busca também por sentido, e o resultado melhora. Se o Ollama não responder, ele cai sozinho na busca por palavra.
+**O galley:** a busca no passado (nos diários e nos registros antigos). Funciona **sem nada instalado**, por palavra: acha quando a pergunta usa as mesmas palavras do texto ("combinado" não acha "combinamos"). Esse limite diminui com o [Ollama](https://ollama.com) e o modelo `qwen3-embedding:0.6b`: aí a busca é também por sentido. O modelo não vem no pacote; a pessoa instala, se quiser. Se o Ollama não responder, o galley cai sozinho na busca por palavra. Fatiar o passado só vale quando ele já não dá pra ler inteiro (uma dezena de arquivos, mais ou menos).
 
 ## Passo a passo
 1. **Onde mora.** O lugar recomendado é `C:\Users\<nome da pessoa>\cosmos` (no Mac ou Linux, `~/cosmos`): fica na pasta da pessoa, fora de pastas sincronizadas (OneDrive e afins sincronizam no meio do trabalho e confundem os agentes), sem espaço nem acento no caminho. Copie a pasta `model\cosmos\` pra lá.
