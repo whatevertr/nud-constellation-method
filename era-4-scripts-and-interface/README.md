@@ -36,3 +36,4 @@ As imagens abaixo são do modelo, com os dados de exemplo que vêm com ele.
 
 - [`model/cosmos/`](model/cosmos/): o modelo de pastas, com o painel (`app/`), uma galaxy de exemplo, as ferramentas e os hooks.
 - [`INSTALAR.md`](INSTALAR.md) / [`INSTALL.md`](INSTALL.md): o passo a passo inteiro, pra quem quer fazer à mão.
+- [`OTHER_HARNESSES.md`](OTHER_HARNESSES.md): o que cada peça faz, pra levar a Era 4 pro Codex, o Hermes ou o OpenCode.
