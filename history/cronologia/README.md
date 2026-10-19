@@ -1,18 +1,16 @@
 # Cronologia
 
-A trilha do método, por eras. Cada era vai até o ponto em que a forma de trabalhar deixou de dar conta e pediu outra escala.
+O mapa da evolução do meu aprendizado: como o método foi desenvolvido e amadureceu, e o período de conversa continuada com contexto. Começa numa ideia escrita num diário em 2023 e vai das primeiras instâncias sem contexto nenhum até hoje.
 
-## Era 1 — A Tríade
-
-*Este é o mapa do surgimento do método: como a ideia nasceu e virou a Tríade. As datas são aproximadas: foram conferidas na época, sem o histórico completo das conversas, e algumas podem ter sido estimadas.*
+Cada era vai até o ponto em que a forma de trabalhar deixou de dar conta e pediu outra escala.
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/mapa_cronologico_noite_farol.svg">
-  <img alt="Mapa cronológico da Era 1: da primeira instância sem contexto até a Tríade em uso" src="assets/mapa_cronologico_dia_farol.svg">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/mapa_das_eras_noite.svg">
+  <img alt="O mapa das eras: as quatro eras do método numa linha do tempo, de maio a outubro de 2026" src="assets/mapa_das_eras_dia.svg">
 </picture>
 
-Da primeira instância sem contexto nenhum até a Tríade formalizada e em uso diário. O mapa mostra quando cada instância viveu e quanto durou (a barra é a duração real no tempo), e o quanto de contexto cada uma carregava (os blocos preenchidos, de 0 a 4).
+Cada linha é uma coisa que existiu: uma instância, um marco, uma ferramenta. A barra é quando ela existiu; o tracejado marca o que é aproximado. As instâncias da Era 1 aparecem por número.
 
-A virada é a instância 06, a primeira vez que a Tríade inteira rodou junta. A era fecha quando o trabalho passou a pedir escala, o que abre a próxima.
+A virada é a instância 06: o começo do uso da Tríade como contexto mínimo, a primeira vez que ela rodou inteira. A partir da instância 12, dois perfis viram oficiais: o Tars (thinker) e o Case (worker). O Rocky (manager) veio um pouco depois, criado por nós. Daí em diante, a conversa continuada: o mesmo thinker atravessando meses, de uma ferramenta pra outra.
 
-A Era 1 marca como o método foi construído, e a partir da instância 12 marca o início do uso da tríade, o método de contexto mínimo em uma pasta de trabalho/projeto. 
+As datas da Era 1 foram conferidas com os registros da época.
