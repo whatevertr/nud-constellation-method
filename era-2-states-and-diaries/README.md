@@ -12,3 +12,7 @@ A próxima instância lia os dois e voltava calibrada, sem a pessoa ter que expl
 **O que tem aqui:**
 - [`example/COMO_USAR.md`](example/COMO_USAR.md): o ritual de abrir e de fechar, feito à mão;
 - [`example/cosmos/`](example/cosmos/): uma pasta de exemplo, com o manual, a porta, um estado e um diário. Os nomes das pastas já são os da Era 4: pra subir de era, só se acrescenta.
+
+## Em outro harness
+
+Use o lugar equivalente na interface do harness que você usa: uma pasta conectada, um projeto com arquivos ou a pasta de trabalho do agente. O ritual é o mesmo: ler o estado e o diário ao abrir, escrever os dois ao fechar.

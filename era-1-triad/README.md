@@ -31,3 +31,7 @@ Num projeto do app do provedor: os três documentos entram na configuração do 
 
 - [`skills/`](skills/): as três skills que geram o contexto mínimo, uma por documento (`nud-como-trabalhar-comigo`, `nud-comece-aqui`, `nud-agentes`), cada uma como pasta aberta e como `.zip`.
 - [`METHOD.md`](METHOD.md): o piso epistêmico e as duas regras que carregam a honestidade.
+
+## Em outro harness
+
+Os três documentos são texto, então funcionam em qualquer lugar que deixe a instância ler instruções: o projeto de qualquer app de provedor, o `AGENTS.md` do Codex e do OpenCode, o arquivo de alma de um perfil do Hermes. O nome do campo muda; a camada é a mesma.
