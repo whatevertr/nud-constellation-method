@@ -70,7 +70,7 @@
   .pj[open]{z-index:6;border-radius:0 12px 0 0}
   .pj[open] summary{border-bottom:1px solid var(--rule)}
   /* aberto, o corpo SOBREPÕE os de baixo (não empurra a grade); pra ver o de baixo, recolhe o de cima */
-  .pj .corpo{position:absolute;top:100%;left:-1px;right:-1px;padding:8px 14px 12px;background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--c);border-top:none;border-radius:0 0 12px 0;max-height:65vh;overflow-y:auto;box-shadow:0 14px 28px rgba(0,0,0,.35)}
+  .pj .corpo{overflow-wrap:anywhere;overflow-x:hidden;position:absolute;top:100%;left:-1px;right:-1px;padding:8px 14px 12px;background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--c);border-top:none;border-radius:0 0 12px 0;max-height:65vh;overflow-y:auto;box-shadow:0 14px 28px rgba(0,0,0,.35)}
   .pj{background:var(--card);border:1px solid var(--rule);border-left:5px solid var(--c);border-radius:0 12px 12px 0;padding:14px 16px}
   .pj h3{margin:0;color:var(--ink);font-weight:400;font-size:16px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
   .abrir{background:none;border:1px solid var(--rule);color:var(--muted);border-radius:6px;padding:2px 8px;font:inherit;font-size:12px;cursor:pointer;white-space:nowrap}
@@ -107,8 +107,9 @@
   .minha{font-size:10.5px;padding:1px 8px;border-radius:999px;color:var(--violet);background:var(--violet-bg);border:1px solid var(--violet)}
   .c.e-minha{box-shadow:inset 0 0 0 1px var(--violet)}
   /* ===== fichas (RPG de leve: classe, habilidades = skills, itens = ferramentas, conquistas) ===== */
-  .fichas{column-width:420px;column-gap:16px}
-  .fichas .ficha{break-inside:avoid;margin:0 0 16px}
+  /* grade fixa: cada ficha tem o seu lugar; abrir uma abinha só faz ela crescer pra baixo */
+  .fichas{display:grid;grid-template-columns:repeat(auto-fill,minmax(400px,1fr));gap:16px;align-items:start}
+  .fichas .ficha{margin:0}
   .ficha{background:var(--card);border:1px solid var(--rule);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:12px}
   .f__topo{display:flex;gap:16px;align-items:center}
   .retrato{width:104px;height:104px;flex:none;border:1px solid var(--rule);border-radius:12px;background:var(--paper);display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--violet);font-size:30px}

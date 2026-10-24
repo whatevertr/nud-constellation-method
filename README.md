@@ -23,6 +23,8 @@ Install the **`nud-install-constellation-method`** skill on your agent and ask: 
 
 A thinker's profile card in the dashboard that comes with it, with the example data ([the other views](era-4-scripts-and-interface/)):
 
+> 🚧 **Work in progress:** the dashboard is being built in public and changes often, so what you see here may differ from the latest version.
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="assets/ficha_anotada_en_noite.png">
   <img alt="The thinker's profile card in the dashboard, annotated: who it is, where you left off, achievements, what it knows and uses, and its configuration in sight" src="assets/ficha_anotada_en_dia.png">

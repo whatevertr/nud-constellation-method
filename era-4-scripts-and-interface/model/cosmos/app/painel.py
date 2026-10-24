@@ -90,6 +90,35 @@ if __name__ == "__main__":
         print(json.dumps(ler_tudo(), ensure_ascii=False, indent=1))
         sys.exit(0)
     import webview
-    webview.create_window("cosmos · painel", os.path.join(AQUI, "painel.html"), js_api=Api(),
-                          width=1200, height=820, min_size=(720, 520))
-    webview.start()
+    ICONE = os.path.join(AQUI, "icone_cosmos.ico")
+    TITULO = "cosmos · painel"
+
+    # Windows: um ID próprio faz a barra de tarefas tratar o painel como app separado (não como o Python)
+    try:
+        import ctypes
+        ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("nud.cosmos.painel")
+    except Exception:
+        pass
+
+    def por_icone():
+        """Põe o ícone do cosmos na janela (WM_SETICON). Sem ícone, o app abre igual."""
+        try:
+            import ctypes, time
+            u = ctypes.windll.user32
+            for _ in range(50):
+                hwnd = u.FindWindowW(None, TITULO)
+                if hwnd:
+                    break
+                time.sleep(0.1)
+            if hwnd and os.path.isfile(ICONE):
+                for tam, tipo in ((16, 0), (48, 1)):
+                    h = u.LoadImageW(None, ICONE, 1, tam, tam, 0x10)
+                    if h:
+                        u.SendMessageW(hwnd, 0x0080, tipo, h)
+        except Exception:
+            pass
+
+    # zoomable: Ctrl + rodinha / Ctrl + e Ctrl - aumentam e diminuem a tela
+    webview.create_window(TITULO, os.path.join(AQUI, "painel.html"), js_api=Api(),
+                          width=1200, height=820, min_size=(720, 520), zoomable=True)
+    webview.start(por_icone, icon=ICONE)
