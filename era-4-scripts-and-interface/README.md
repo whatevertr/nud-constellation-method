@@ -9,6 +9,8 @@
 
 ## O painel
 
+> 🚧 **Em andamento** (*work in progress*): o painel está sendo construído em público e muda com frequência. O que aparece aqui pode estar diferente da versão mais nova.
+
 As imagens abaixo são do modelo, com os dados de exemplo que vêm com ele.
 
 **Missions:** cada mission se descreve sozinha; o estado vem do cabeçalho do `CLAUDE.md` dela, o resto vem do log.
