@@ -15,10 +15,13 @@ Eu não estou inventando disciplina nova, estou **traduzindo** prática velha de
 - **Poka-Yoke**: evitar o erro pela estrutura, não pela energia do sistema.
 - **PDCA**: melhorar checando o resultado analítica e auditivamente, antes da próxima ação.
 
+A **filosofia hermética** é inspiração para as grandezas taxonômicas do método: a estrutura das pastas busca espelhar a estrutura do pensamento; a capacidade do agente espelha a capacidade do contexto que ele recebe; a taça permite a polaridade; e o jogo da moeda é causa e efeito.
+
 Sobre a ideia de que "a estrutura em volta do modelo move o resultado", há medição registrando o mesmo modelo variando até 16 pontos percentuais de uma estrutura para outra (13,5 no caso destacado pelos autores; cada combinação rodou uma vez) ([Harness-Bench, 2026](https://arxiv.org/abs/2605.27922), preprint). E a bajulação é produto do treino por preferência humana ([Sharma et al., 2023](https://arxiv.org/abs/2310.13548)), cresce com escala e RLHF ([Perez et al., 2022](https://arxiv.org/abs/2212.09251)), e um perfil do usuário na memória a amplifica (até +45% no caso medido, com casos sem mudança significativa; [Jain et al., CHI 2026](https://doi.org/10.1145/3772318.3791915)). Talvez a bajulação não tenha que ser eliminada e sim direcionada para diminuir as chances de erro.
 
 ## Leituras
 
+- Três Iniciados, *O Caibalion* (1908), [sacred-texts.com](https://sacred-texts.com/eso/kyb/index.htm): síntese moderna; a fonte clássica é o *Corpus Hermeticum*.
 - Anthropic, *Effective context engineering for AI agents* (2025).
 - Liu et al., *Lost in the Middle* (2023), [arXiv:2307.03172](https://arxiv.org/abs/2307.03172).
 - Yao et al., *Harness-Bench* (2026, preprint), [arXiv:2605.27922](https://arxiv.org/abs/2605.27922).
