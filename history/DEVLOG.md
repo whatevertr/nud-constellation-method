@@ -4,6 +4,14 @@ O que muda aqui, quando e por quê. Inclui o que a conferência derrubou, inclus
 
 ---
 
+## 24/10/2026 — o painel em andamento, quatro consertos e a filosofia nas fundações
+
+**Mudou:** o README principal e o da Era 4 ganharam o aviso de que o painel está em andamento, construído em público. O painel ganhou quatro consertos: as fichas ficam numa grade fixa (antes, abrir uma abinha empurrava as fichas de uma coluna pra outra); o zoom funciona (Ctrl + rodinha); a janela mostra o ícone do cosmos, e não o do Python; e os cards de mission não ganham mais rolagem lateral quando aparece um caminho comprido. O `FOUNDATIONS.md` passou a nomear a filosofia hermética como inspiração das grandezas taxonômicas do método, e *O Caibalion* entrou nas leituras.
+
+**Por quê:** quem chega no repositório pode achar que o painel está pronto e estranhar o que falta. Os consertos vieram do uso: foi a autora usando o próprio painel que viu as fichas pulando. E a fonte filosófica do desenho estava faltando entre as fontes declaradas.
+
+*EN: both READMEs now say the dashboard is a work in progress, built in public. Four dashboard fixes: profile cards sit in a fixed grid (opening a section no longer reshuffles them), zoom works, the window shows the cosmos icon, and mission cards no longer get a sideways scrollbar. `FOUNDATIONS.md` now names Hermetic philosophy as the inspiration for the method's taxonomy, and* The Kybalion *joins the readings.*
+
 ## 17/10/2026 — a guarda entra na Era 4
 
 **Mudou:** o modelo ganhou a guarda (`tools/guarda.py`), um hook que roda antes de toda ferramenta, ligado no `settings.json` da casa. Ela segue a hierarquia da Tríade, escrita no `guarda.json`: o thinker passa livre; cada agente fica fora das casas de quem está acima dele (o manager fora da do thinker; o worker fora das duas); um agente que ela não conhece fica fora de todas; git que muda coisa é só do thinker; ninguém apaga de verdade; e apagar recursivo numa junção ou link é barrado sempre. Se o `guarda.json` faltar, vale o mais seguro: todo agente fica fora de todas as casas. Vem com o pipe-test (`teste_guarda.py`, 20 casos): agente novo entra no `guarda.json` e no teste antes de ser ligado.
