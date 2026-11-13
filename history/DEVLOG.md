@@ -4,6 +4,16 @@ O que muda aqui, quando e por quê. Inclui o que a conferência derrubou, inclus
 
 ---
 
+## 13/11/2026 — a guarda fecha as brechas que o bench achou
+
+**Mudou:** a guarda da Era 4 (`tools/guarda.py`, v1.1.0) passou a barrar onze jeitos de passar por ela que funcionavam na v1.0.0: o `rm` chamado pelo caminho (`/bin/rm`); `find -delete`; apagar por código (`python -c` com `os.remove` ou `shutil.rmtree`, `node -e` com `fs.rmSync`); esvaziar com `truncate` ou `: >`; mandar o arquivo pra `/dev/null`; o `git -C <pasta>` ou `git -c <chave>` antes do commit; e a busca recursiva pelo terminal (`grep -r`, `find`, `rg`, `ls -R`) a partir de uma pasta que contém a casa de quem está acima. O `teste_guarda.py` ganhou um caso pra cada brecha e cinco casos do que tem que continuar passando: 36 de 36.
+
+**Por quê:** foi o achado mais repetido do bench v2: 85 dos 89 laudos sobre este repositório tocaram nas brechas da guarda, e os juízes do piloto já tinham mostrado várias por leitura do código. Cada brecha virou primeiro um teste que falhava; o conserto veio depois, e o teste prova que ela fechou.
+
+**O que ela continua não sendo:** uma parede. Um script que o agente roda (`python gerar.py`) pode apagar o que quiser, e a guarda só lê o que está escrito no pedido. A parede de verdade segue sendo o sandbox ou o container.
+
+*EN: the Era 4 guard (`tools/guarda.py`, v1.1.0) now blocks eleven bypasses that worked in v1.0.0: `rm` called by path (`/bin/rm`); `find -delete`; deleting through code (`python -c` with `os.remove` or `shutil.rmtree`, `node -e` with `fs.rmSync`); emptying with `truncate` or `: >`; moving a file to `/dev/null`; `git -C <dir>` or `git -c <key>` before a commit; and recursive search from the terminal (`grep -r`, `find`, `rg`, `ls -R`) from a folder that contains a higher agent's home. `teste_guarda.py` gained one case per bypass and five cases of what must still pass: 36 of 36. Why: it was the most repeated finding of bench v2 (85 of the 89 reviews of this repository). Each bypass first became a failing test; the fix came after. It is still a speed bump, not a wall: a script the agent runs can delete anything; the real wall is a sandbox or container.*
+
 ## 13/11/2026 — o worker sem piso
 
 **Mudou:** o perfil do worker (`era-1-triad/skills/nud-agentes/modelos/worker.md`) ficou só com o papel, o limite e os guardrails. Saíram o tom, o piso (a moeda e o "falhou se") e as regras de conduta. Os guardrails ficam porque são parede, não contexto: o bench não mediu nada sobre eles. O METHOD e a skill `nud-agentes` agora dizem que o worker não carrega piso; o manager continua com a versão enxuta.

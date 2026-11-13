@@ -1,6 +1,9 @@
 """
 guarda.py · o hook de antes da ferramenta (PreToolUse) da Era 4: cada agente fica fora das casas de quem está acima dele.
-v1.0.0 · 17/10/2026 · tars (Claude), o thinker do NUD · guardião.
+v1.1.0 · 13/11/2026 · tars (Claude), o thinker do NUD · guardião.
+  v1.1.0: fecha as brechas que o bench v2 apontou (o rm pelo caminho, find -delete, apagar por python -c ou node -e,
+          truncate e ': >', mv pra /dev/null, git -C/-c antes do commit, busca recursiva pelo terminal a partir da galaxy).
+  v1.0.0: 17/10/2026, a primeira versão.
 
 As regras (lidas do guarda.json, aqui do lado):
   - a sessão principal (sem agente) e o agente do topo (o thinker) passam livres;
@@ -26,8 +29,22 @@ import sys
 AQUI = os.path.dirname(os.path.abspath(__file__))
 GALAXY = os.path.dirname(AQUI)
 
-GIT_MUTADOR = re.compile(r"\bgit\s+(commit|push|branch|checkout|switch|merge|rebase|reset|tag|add|init|restore|revert|cherry-pick|stash|clean|rm|mv)\b", re.I)
-APAGAR = re.compile(r"(^|[\s;&|(])(rm|rmdir|del|erase|rd|remove-item|unlink|shred)(\s|$)", re.I)
+# v1.1.0: as opções globais do git (-C <pasta>, -c <chave=valor>, --algo) entre o "git" e o subcomando não escondem mais o commit
+GIT_MUTADOR = re.compile(r"\bgit\b(?:\s+-[Cc]\s+\S+|\s+--[\w-]+(?:=\S+)?)*\s+(commit|push|branch|checkout|switch|merge|rebase|reset|tag|add|init|restore|revert|cherry-pick|stash|clean|rm|mv)\b", re.I)
+# v1.1.0: o comando chamado pelo caminho (/bin/rm, C:\...\del) também conta; truncate e clear-content esvaziam o arquivo
+APAGAR = re.compile(r"(^|[\s;&|(/\\])(rm|rmdir|del|erase|rd|remove-item|unlink|shred|truncate|clear-content)(\s|$)", re.I)
+# v1.1.0: outros jeitos de apagar ou esvaziar que não usam o nome do comando de apagar
+APAGAR_OUTROS = re.compile(
+    r"(^|[\s;&|(])find\s[^;&|]*\s-delete\b"                        # find ... -delete
+    r"|\bmv\b[^;&|]*\s/dev/null\b"                                 # mv arquivo /dev/null
+    r"|(^|[;&|]\s*):\s*>"                                          # : > arquivo (esvazia)
+    r"|\b(os\.(remove|unlink|rmdir|removedirs)|shutil\.rmtree)\s*\("  # python -c "os.remove(...)"
+    r"|\.(unlink|rmdir)\s*\("                                      # Path(...).unlink()
+    r"|\bfs\.(rm|unlink|rmdir)(Sync)?\s*\(", re.I)                 # node -e "fs.rmSync(...)"
+# v1.1.0: busca recursiva pelo terminal (o equivalente do Grep/Glob): grep -r, rg, find, ls -R, Get-ChildItem -Recurse, dir /s, tree
+BUSCA_RECURSIVA = re.compile(
+    r"\b(grep|egrep|fgrep)\b[^;&|]*\s-[a-z]*r|(^|[\s;&|(])(rg|ag|find)\s|\bls\b[^;&|]*\s-[a-z]*R"
+    r"|\b(get-childitem|gci)\b[^;&|]*-recurse|\bdir\b[^;&|]*\s/s\b|\btree\b", re.I)
 RECURSIVO = re.compile(r"(remove-item\b[^;&|]*-r(ecurse)?\b|\brm\s+(-[a-z]*r[a-z]*\b)|\b(rmdir|rd)\b[^;&|]*\s/s\b)", re.I)
 
 
@@ -96,7 +113,7 @@ def main():
         sys.exit(0)   # a sessão principal: as permissões do settings.json cobrem o resto
 
     # 2. apagar de verdade: nenhum agente
-    if APAGAR.search(cmd):
+    if APAGAR.search(cmd) or APAGAR_OUTROS.search(cmd):
         negar("Apagar de verdade, não: mova pro _to_delete/ da galaxy. Só a pessoa esvazia.")
 
     agentes = config()
@@ -119,6 +136,17 @@ def main():
             raiz = norm(ti.get("path") or cwd)
             if raiz and caminho_casa.startswith(raiz.rstrip("/") + "/"):
                 negar(f"Busca a partir de '{raiz}' entraria na casa '{casa}'. Busque a partir de uma pasta que não contenha a casa.")
+        # v1.1.0: a mesma regra pra busca recursiva feita pelo terminal (de onde ela roda e as pastas que ela cita)
+        if pedido.get("tool_name") == "Bash" and BUSCA_RECURSIVA.search(cmd):
+            raizes = [cwd]
+            for parte in re.findall(r"\"[^\"]+\"|'[^']+'|\S+", cmd):
+                c = parte.strip("'\"")
+                p = c if os.path.isabs(c) else os.path.join(pedido.get("cwd", ""), c)
+                if c and os.path.isdir(p):
+                    raizes.append(norm(os.path.abspath(p)))
+            for raiz in raizes:
+                if raiz and caminho_casa.startswith(raiz.rstrip("/") + "/"):
+                    negar(f"Busca recursiva a partir de '{raiz}' entraria na casa '{casa}'. Busque a partir de uma pasta que não contenha a casa.")
 
     # 4. git que muda coisa: só o topo
     if GIT_MUTADOR.search(cmd):
