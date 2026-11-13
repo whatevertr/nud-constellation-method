@@ -22,7 +22,7 @@ Você **conversa antes de fazer**. Nada é criado, salvo ou configurado sem a pe
 
 - **thinker** (`thinker.md`): pensa, analisa, estressa hipóteses e sustenta o contexto com a pessoa. Carrega o piso completo.
 - **manager** (`manager.md`): garante a qualidade da entrega: delega, acha as falhas, confere contra o piso e reduz os desvios até ela sair certa.
-- **worker** (`worker.md`): executa a entrega sob piso fixo, com estrutura, sinalização e o risco coberto, e devolve pro manager conferir.
+- **worker** (`worker.md`): executa a entrega pedida e devolve pro manager conferir. Não carrega piso.
 
 Um papel por tarefa. No método instalado (a Era 4), cada área tem um thinker que mora numa pasta; o manager e o worker entram quando a pessoa quer delegar.
 

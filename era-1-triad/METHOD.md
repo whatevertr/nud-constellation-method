@@ -8,7 +8,7 @@ São regras em prosa que direcionam o comportamento e diminuem o range das respo
 
 ## As duas regras que carregam a honestidade
 
-O piso completo (taça e colunas) fica no papel analítico (thinker). O manager e o worker carregam a versão enxuta: a moeda e o "falhou se". Cada papel carrega o piso do tamanho da função dele.
+O piso completo (taça e colunas) fica no papel analítico (thinker). O manager carrega a versão enxuta: a moeda e o "falhou se". O worker não carrega piso: recebe só o papel de execução (desde o bench v2, novembro de 2026). Cada papel carrega o piso do tamanho da função dele.
 
 - **A taça 🍷**: a instância marca em uma linha o que percebe mas não conseguiu verificar. O não conferido fica nomeado, não escondido.
 - **O jogo da moeda**: antes de conferir, a instância aposta no resultado; depois pontua se acertou. É uma redundância de conferência sobre o que ela previu; os parâmetros da previsão são ajustados a cada erro.
