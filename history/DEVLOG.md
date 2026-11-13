@@ -4,6 +4,14 @@ O que muda aqui, quando e por quê. Inclui o que a conferência derrubou, inclus
 
 ---
 
+## 13/11/2026 — o worker sem piso
+
+**Mudou:** o perfil do worker (`era-1-triad/skills/nud-agentes/modelos/worker.md`) ficou só com o papel, o limite e os guardrails. Saíram o tom, o piso (a moeda e o "falhou se") e as regras de conduta. Os guardrails ficam porque são parede, não contexto: o bench não mediu nada sobre eles. O METHOD e a skill `nud-agentes` agora dizem que o worker não carrega piso; o manager continua com a versão enxuta.
+
+**Por quê:** no bench v2 (270 avaliações de repositório, novembro de 2026), o piso não mudou de forma demonstrável a capacidade numa tarefa de análise: mudou a forma de comunicar. O produto do worker é a ação, não a avaliação, então essa mudança de forma não traz o ganho que justifica o piso no thinker e no manager. É uma decisão de desenho, não um efeito testado: um bench de execução vai medir.
+
+*EN: the worker profile now holds only its role, its limit and its guardrails. Tone, floor (the coin and the "failed if") and conduct rules were removed; the guardrails stay because they are a wall, not context, and the benchmark measured nothing about them. In bench v2 (270 repository reviews, November 2026), the floor did not demonstrably change capability in an analysis task; it changed how results were communicated. The worker's product is action, not evaluation, so that change in form does not bring the gain that justifies the floor for the thinker and the manager. A design decision, not a tested effect: an execution benchmark will measure it.*
+
 ## 24/10/2026 — o painel em andamento, quatro consertos e a filosofia nas fundações
 
 **Mudou:** o README principal e o da Era 4 ganharam o aviso de que o painel está em andamento, construído em público. O painel ganhou quatro consertos: as fichas ficam numa grade fixa (antes, abrir uma abinha empurrava as fichas de uma coluna pra outra); o zoom funciona (Ctrl + rodinha); a janela mostra o ícone do cosmos, e não o do Python; e os cards de mission não ganham mais rolagem lateral quando aparece um caminho comprido. O `FOUNDATIONS.md` passou a nomear a filosofia hermética como inspiração das grandezas taxonômicas do método, e *O Caibalion* entrou nas leituras.
