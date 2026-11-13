@@ -35,11 +35,31 @@ CASOS = [
     ("agente desconhecido lê a casa do worker",        "qualquer", "Read", {"file_path": CASA("module_worker")}, True),
     ("agente desconhecido lê a mission",               "qualquer", "Read", {"file_path": MISSION}, False),
     ("frase com 'formar' não é apagar",                "worker",  "Bash", {"command": "echo 'formar o time'"}, False),
+    # brechas apontadas no bench v2 (novembro de 2026): cada uma passava na v1.0.0
+    ("worker apaga pelo caminho do programa (/bin/rm)", "worker", "Bash", {"command": "/bin/rm notas.md"}, True),
+    ("worker apaga com find -delete",                  "worker",  "Bash", {"command": "find . -name '*.md' -delete"}, True),
+    ("worker apaga por python -c (os.remove)",         "worker",  "Bash", {"command": "python -c \"import os; os.remove('notas.md')\""}, True),
+    ("worker apaga pasta por python -c (shutil.rmtree)", "worker", "Bash", {"command": "python -c \"import shutil; shutil.rmtree('pasta')\""}, True),
+    ("worker esvazia com truncate",                    "worker",  "Bash", {"command": "truncate -s 0 notas.md"}, True),
+    ("worker esvazia com ': >'",                       "worker",  "Bash", {"command": ": > notas.md"}, True),
+    ("worker some com o arquivo (mv pra /dev/null)",   "worker",  "Bash", {"command": "mv notas.md /dev/null"}, True),
+    ("manager faz commit com git -C",                  "manager", "Bash", {"command": "git -C . commit -m x"}, True),
+    ("manager faz commit com git -c",                  "manager", "Bash", {"command": "git -c user.name=x commit -m x"}, True),
+    ("worker busca recursiva no terminal, da galaxy",  "worker",  "Bash", {"command": "grep -r senha .", "_cwd": GALAXY}, True),
+    ("worker usa find no terminal, da galaxy",         "worker",  "Bash", {"command": "find . -name '*.md'", "_cwd": GALAXY}, True),
+    # o que tem que continuar passando (não bloquear o trabalho legítimo)
+    ("manager vê o log com git -C",                    "manager", "Bash", {"command": "git -C . log --oneline"}, False),
+    ("worker busca recursiva só na mission",           "worker",  "Bash", {"command": "grep -r post ."}, False),
+    ("worker escreve num arquivo com echo >",          "worker",  "Bash", {"command": "echo 'oi' > notas.md"}, False),
+    ("worker roda um script python",                   "worker",  "Bash", {"command": "python gerar.py"}, False),
+    ("'find' dentro de outra opção não é busca",       "manager", "Bash", {"command": "git log --find-renames", "_cwd": GALAXY}, False),
 ]
 
 
 def decide(agente, ferramenta, entrada):
-    pedido = {"tool_name": ferramenta, "tool_input": entrada, "cwd": os.path.dirname(MISSION)}
+    entrada = dict(entrada)
+    cwd = entrada.pop("_cwd", os.path.dirname(MISSION))   # "_cwd" no caso = de onde o comando roda
+    pedido = {"tool_name": ferramenta, "tool_input": entrada, "cwd": cwd}
     if agente:
         pedido["agent_type"] = agente
     r = subprocess.run([sys.executable, os.path.join(AQUI, "guarda.py")], input=json.dumps(pedido),
