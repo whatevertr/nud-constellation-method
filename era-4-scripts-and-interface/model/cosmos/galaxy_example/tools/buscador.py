@@ -1,6 +1,6 @@
 r"""
 buscador.py · busca no galley por SENTIDO (e mostra a fonte de cada pedaço achado).
-v0.5.0 · 12/10/2026 (peso por tipo: seção de decisão/regra/lição desempata) · tars (Claude), o thinker do NUD · guardião.
+v0.5.0 · 12/10/2026 (peso por tipo: seção de decisão/regra/lição desempata) · tars (Claude), o thinker do NUD.
 v0.4.0 · 12/10/2026 (a busca por palavra vira BM25: palavra rara pesa mais).
 v0.3.0 · 12/10/2026 (busca HÍBRIDA: sentido + palavra juntos, por fusão de ranking).
 v0.2.0 · 12/10/2026 (glossário na raiz do galley; plano B por palavra quando o Ollama não responde).

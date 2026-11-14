@@ -1,6 +1,6 @@
 """
 registrar.py · a ÚNICA porta de escrita do log (Era 4).
-v0.4.0 · 10/10/2026 (--quem: quem FAZ a tarefa, separado de quem escreve; --canal: onde a peça vai ao ar) · tars (Claude), o thinker do NUD · guardião.
+v0.4.0 · 10/10/2026 (--quem: quem FAZ a tarefa, separado de quem escreve; --canal: onde a peça vai ao ar) · tars (Claude), o thinker do NUD.
 v0.3.0 · 04/10/2026 (aviso de tipo: toda tarefa nova leva um --tag da lista tipos.json).
 
 Ninguém escreve no log à mão: agente e app chamam este script, que confere o formato e
@@ -65,7 +65,7 @@ def ler(arquivo):
 def main():
     ap = argparse.ArgumentParser(description="Acrescenta uma linha validada no log.jsonl de uma pasta.")
     ap.add_argument("pasta")
-    ap.add_argument("--por", required=True, help="quem escreve (ex.: thinker, sentinela). 'pessoa' só pelo app.")
+    ap.add_argument("--por", required=True, help="quem escreve (ex.: thinker, manager). 'pessoa' só pelo app.")
     ap.add_argument("--tipo", required=True, choices=TIPOS)
     ap.add_argument("--txt", default="")
     ap.add_argument("--tag", default="")

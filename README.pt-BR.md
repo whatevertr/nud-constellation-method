@@ -16,7 +16,7 @@ Método de gerenciar várias áreas e projetos a partir de um contexto mínimo q
 Instale a skill **`nud-install-constellation-method`** no seu agente e peça: *"instala o Método Constelação pra mim"*. Ele conversa com você, explica o que o método pede e instala a versão atual no seu computador.
 
 - **Baixar:** [`nud-install-constellation-method.zip`](nud-install-constellation-method.zip), pra subir no app, ou a [pasta aberta](nud-install-constellation-method/), pra copiar pro diretório de skills (ex.: `.claude/skills/` no Claude Code).
-- **Onde roda:** testado no Claude Code, com Python 3.10 ou mais novo.
+- **Onde roda:** testado no Claude Code no Windows, com Python 3.10 ou mais novo.
 - **Prefere fazer à mão?** O passo a passo inteiro está no [`INSTALAR.md`](era-4-scripts-and-interface/INSTALAR.md).
 
 A ficha de um thinker no painel que vem junto, com os dados de exemplo ([as outras vistas](era-4-scripts-and-interface/)):

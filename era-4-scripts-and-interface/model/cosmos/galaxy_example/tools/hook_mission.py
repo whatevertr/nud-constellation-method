@@ -3,7 +3,7 @@ hook_mission.py · hook PostToolUse (Era 4). Na PRIMEIRA vez, nesta sessão, que
 num arquivo de uma mission (missions/<nome>/...), injeta o resumo do log daquela mission.
 Imita o CLAUDE.md de subpasta, que o Claude Code carrega quando o agente toca um arquivo de lá.
 Só lê o log; anota em %TEMP% quais missions já entraram nesta sessão.
-v0.1.0 · 02/10/2026 · tars (Claude), o thinker do NUD · guardião.
+v0.1.0 · 02/10/2026 · tars (Claude), o thinker do NUD.
 """
 import json
 import os

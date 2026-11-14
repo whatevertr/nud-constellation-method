@@ -1,7 +1,7 @@
 """
 nao_apagar.py · hook de antes da ferramenta (PreToolUse) da Era 3: barra o comando de apagar antes de ele acontecer.
 Lê o pedido da ferramenta (JSON na entrada). Se o comando apaga, sai com código 2 e explica: o agente recebe o recado
-e move pro _to_delete em vez de apagar. Só biblioteca padrão. · tars (Claude), o thinker do NUD · guardião.
+e move pro _to_delete em vez de apagar. Só biblioteca padrão. · tars (Claude), o thinker do NUD.
 """
 import json, re, sys
 

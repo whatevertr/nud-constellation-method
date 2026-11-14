@@ -1,6 +1,6 @@
 """
 guarda.py · o hook de antes da ferramenta (PreToolUse) da Era 4: cada agente fica fora das casas de quem está acima dele.
-v1.1.0 · 13/11/2026 · tars (Claude), o thinker do NUD · guardião.
+v1.1.0 · 13/11/2026 · tars (Claude), o thinker do NUD.
   v1.1.0: fecha as brechas que o bench v2 apontou (o rm pelo caminho, find -delete, apagar por python -c ou node -e,
           truncate e ': >', mv pra /dev/null, git -C/-c antes do commit, busca recursiva pelo terminal a partir da galaxy).
   v1.0.0: 17/10/2026, a primeira versão.
