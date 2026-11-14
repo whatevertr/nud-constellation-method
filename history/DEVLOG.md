@@ -4,6 +4,16 @@ O que muda aqui, quando e por quê. Inclui o que a conferência derrubou, inclus
 
 ---
 
+## 14/11/2026 — o bench v2 publicado
+
+**Mudou:** o estudo do bench v2 foi publicado no Zenodo ([DOI 10.5281/zenodo.24216027](https://doi.org/10.5281/zenodo.24216027)), e o mesmo pacote entrou em `history/bench-v2/`. O FOUNDATIONS registra o resultado no degrau do método.
+
+**Por quê:** o artigo promete o pacote neste repositório, e o degrau precisava da primeira medição: numa tarefa de revisão de repositório, o contexto mínimo não mostrou diferença demonstrável na capacidade de avaliação. O terceiro degrau continua aberto.
+
+**Antes de sair:** o pacote foi conferido por um agente de revisão sem o contexto do projeto. A versão publicada declara o que foi retirado, e os originais estão carimbados.
+
+*EN: the bench v2 study was published on Zenodo ([DOI 10.5281/zenodo.24216027](https://doi.org/10.5281/zenodo.24216027)), and the same package is in `history/bench-v2/`. The article promises the package in this repository, and the ladder needed its first measurement. FOUNDATIONS now records the result on the method's ladder: in a repository review task, the minimal context showed no demonstrable difference in review capability; the third step stays open. Before release, the package was checked by a review agent without project context; the published version declares what was removed, and the originals are timestamped.*
+
 ## 13/11/2026 — a guarda fecha as brechas que o bench achou
 
 **Mudou:** a guarda da Era 4 (`tools/guarda.py`, v1.1.0) passou a barrar onze jeitos de passar por ela que funcionavam na v1.0.0: o `rm` chamado pelo caminho (`/bin/rm`); `find -delete`; apagar por código (`python -c` com `os.remove` ou `shutil.rmtree`, `node -e` com `fs.rmSync`); esvaziar com `truncate` ou `: >`; mandar o arquivo pra `/dev/null`; o `git -C <pasta>` ou `git -c <chave>` antes do commit; e a busca recursiva pelo terminal (`grep -r`, `find`, `rg`, `ls -R`) a partir de uma pasta que contém a casa de quem está acima. O `teste_guarda.py` ganhou um caso pra cada brecha e cinco casos do que tem que continuar passando: 36 de 36.
