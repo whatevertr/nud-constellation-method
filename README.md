@@ -59,6 +59,7 @@ The method grew in eras. Each era goes up to the point where the way of working 
 - [`nud-install-constellation-method/`](nud-install-constellation-method/): the skill that installs the method.
 - `era-1-triad/` to `era-4-scripts-and-interface/`: one folder per era, each with only what it adds.
 - [`history/`](history/): the [chronology](history/cronologia/), [`FOUNDATIONS`](history/FOUNDATIONS.md) and the [`DEVLOG`](history/DEVLOG.md) (what changed, when, and what the check knocked down).
+- [`history/bench-v2/`](history/bench-v2/): the bench v2 study (does the minimal context change how a model reviews?), also on Zenodo: [DOI 10.5281/zenodo.24216027](https://doi.org/10.5281/zenodo.24216027).
 - [`MANIFESTO`](MANIFESTO.md): where this came from.
 
 ## License

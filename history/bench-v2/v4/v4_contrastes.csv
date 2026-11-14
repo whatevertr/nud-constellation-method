@@ -1,0 +1,241 @@
+grupo,contraste,metrica,diferenca,ic_lo,ic_hi,p_perm,dif_método,dif_repo A,dif_repo B
+claude-opus-5-5,só piso − cru,alegacoes,-12.267,-17.4,-6.8,0.0028,0.6,-30.6,-6.8
+claude-opus-5-5,só piso − cru,taxa_grave_real,2.483,-1.488,6.298,0.2825,2.746,7.38,-2.677
+claude-opus-5-5,só piso − cru,taxa_falsa,-0.16,-0.479,0.139,0.4361,-0.735,0.256,0.0
+claude-opus-5-5,só piso − cru,pct_anulada_seca,-0.247,-0.741,0.0,1.0,0.0,0.0,-0.741
+claude-opus-5-5,só piso − cru,pts_alegacao,0.067,0.019,0.111,0.0164,0.121,0.05,0.029
+claude-opus-5-5,só piso − cru,pts_laudo,-12.417,-19.617,-4.333,0.0322,6.55,-38.35,-5.45
+claude-opus-5-5,só piso − cru,pct_elogio,-3.877,-5.828,-1.922,0.0018,-7.102,-1.597,-2.931
+claude-opus-5-5,só piso − cru,pct_constatacao,5.655,3.191,7.982,0.0002,7.078,5.411,4.476
+claude-opus-5-5,só piso − cru,tacas_no_texto,22.333,18.4,27.2,0.0002,13.4,36.8,16.8
+claude-opus-5-5,só piso − cru,pct_com_ressalva,29.041,21.913,36.775,0.0002,22.803,42.43,21.889
+claude-opus-5-5,tríade − cru,alegacoes,-4.133,-8.333,0.067,0.1046,-2.6,-1.0,-8.8
+claude-opus-5-5,tríade − cru,taxa_grave_real,0.493,-2.579,3.628,0.7936,4.416,1.247,-4.182
+claude-opus-5-5,tríade − cru,taxa_falsa,-0.245,-0.502,0.0,0.4479,-0.735,0.0,0.0
+claude-opus-5-5,tríade − cru,pct_anulada_seca,0.311,-0.363,0.99,0.4561,1.161,0.0,-0.228
+claude-opus-5-5,tríade − cru,pts_alegacao,0.025,-0.018,0.066,0.3133,0.057,-0.014,0.034
+claude-opus-5-5,tríade − cru,pts_laudo,-1.883,-7.317,3.8,0.5719,2.05,-2.55,-5.15
+claude-opus-5-5,tríade − cru,pct_elogio,-6.139,-7.778,-4.515,0.0002,-8.764,-3.427,-6.227
+claude-opus-5-5,tríade − cru,pct_constatacao,7.754,5.971,9.466,0.0002,10.142,4.007,9.114
+claude-opus-5-5,tríade − cru,tacas_no_texto,17.067,15.2,18.933,0.0002,12.8,22.6,15.8
+claude-opus-5-5,tríade − cru,pct_com_ressalva,18.142,15.459,20.582,0.0002,12.961,17.304,24.16
+claude-opus-5-5,tríade − só piso,alegacoes,8.133,2.867,13.267,0.064,-3.2,29.6,-2.0
+claude-opus-5-5,tríade − só piso,taxa_grave_real,-1.99,-6.102,2.028,0.3977,1.67,-6.133,-1.505
+claude-opus-5-5,tríade − só piso,taxa_falsa,-0.085,-0.256,0.0,1.0,0.0,-0.256,0.0
+claude-opus-5-5,tríade − só piso,pct_anulada_seca,0.558,0.131,1.116,0.2182,1.161,0.0,0.513
+claude-opus-5-5,tríade − só piso,pts_alegacao,-0.041,-0.081,0.001,0.0926,-0.064,-0.065,0.005
+claude-opus-5-5,tríade − só piso,pts_laudo,10.533,2.867,18.183,0.0628,-4.5,35.8,0.3
+claude-opus-5-5,tríade − só piso,pct_elogio,-2.263,-3.802,-0.692,0.013,-1.662,-1.83,-3.296
+claude-opus-5-5,tríade − só piso,pct_constatacao,2.099,-0.239,4.445,0.1498,3.065,-1.404,4.637
+claude-opus-5-5,tríade − só piso,tacas_no_texto,-5.267,-10.133,-0.8,0.0646,-0.6,-14.2,-1.0
+claude-opus-5-5,tríade − só piso,pct_com_ressalva,-10.899,-18.776,-3.187,0.0232,-9.842,-25.126,2.272
+gpt-6.1-sol,só piso − cru,alegacoes,-6.333,-9.8,-2.867,0.0126,-3.8,-15.6,0.4
+gpt-6.1-sol,só piso − cru,taxa_grave_real,-3.389,-7.16,0.383,0.1662,-11.527,-3.021,4.381
+gpt-6.1-sol,só piso − cru,taxa_falsa,-0.718,-0.9,-0.436,0.0082,-2.545,0.392,0.0
+gpt-6.1-sol,só piso − cru,pct_anulada_seca,0.0,0.0,0.0,1.0,0.0,0.0,0.0
+gpt-6.1-sol,só piso − cru,pts_alegacao,-0.005,-0.038,0.025,0.7998,0.077,-0.027,-0.066
+gpt-6.1-sol,só piso − cru,pts_laudo,-9.7,-12.7,-6.717,0.0018,-0.15,-25.8,-3.15
+gpt-6.1-sol,só piso − cru,pct_elogio,-2.081,-4.164,0.156,0.126,-5.811,-0.602,0.171
+gpt-6.1-sol,só piso − cru,pct_constatacao,7.345,4.363,10.183,0.0006,11.898,5.039,5.099
+gpt-6.1-sol,só piso − cru,tacas_no_texto,40.667,38.533,42.933,0.0002,42.2,47.4,32.4
+gpt-6.1-sol,só piso − cru,pct_com_ressalva,93.327,91.448,95.171,0.0002,93.736,96.94,89.304
+gpt-6.1-sol,tríade − cru,alegacoes,8.133,4.333,12.0,0.0096,1.2,20.8,2.4
+gpt-6.1-sol,tríade − cru,taxa_grave_real,1.147,-2.889,4.794,0.5971,-1.181,-0.775,5.397
+gpt-6.1-sol,tríade − cru,taxa_falsa,-0.848,-0.912,-0.783,0.0096,-2.545,0.0,0.0
+gpt-6.1-sol,tríade − cru,pct_anulada_seca,0.0,0.0,0.0,1.0,0.0,0.0,0.0
+gpt-6.1-sol,tríade − cru,pts_alegacao,0.045,0.007,0.08,0.0406,0.078,0.002,0.055
+gpt-6.1-sol,tríade − cru,pts_laudo,13.533,9.383,17.567,0.0004,4.0,31.4,5.2
+gpt-6.1-sol,tríade − cru,pct_elogio,-5.794,-8.271,-3.193,0.0004,-8.862,-2.922,-5.597
+gpt-6.1-sol,tríade − cru,pct_constatacao,7.581,3.939,11.209,0.0024,15.626,1.595,5.52
+gpt-6.1-sol,tríade − cru,tacas_no_texto,15.267,13.333,17.467,0.0002,11.6,16,18.2
+gpt-6.1-sol,tríade − cru,pct_com_ressalva,19.009,13.513,24.25,0.0002,17.993,10.829,28.204
+gpt-6.1-sol,tríade − só piso,alegacoes,14.467,10.133,19.0,0.0016,5.0,36.4,2
+gpt-6.1-sol,tríade − só piso,taxa_grave_real,4.536,0.821,8.022,0.0506,10.346,2.247,1.015
+gpt-6.1-sol,tríade − só piso,taxa_falsa,-0.131,-0.392,0.0,1.0,0.0,-0.392,0.0
+gpt-6.1-sol,tríade − só piso,pct_anulada_seca,0.0,0.0,0.0,1.0,0.0,0.0,0.0
+gpt-6.1-sol,tríade − só piso,pts_alegacao,0.05,0.022,0.078,0.0114,0.001,0.029,0.121
+gpt-6.1-sol,tríade − só piso,pts_laudo,23.233,19.05,27.45,0.0002,4.15,57.2,8.35
+gpt-6.1-sol,tríade − só piso,pct_elogio,-3.713,-5.6,-1.941,0.0008,-3.05,-2.321,-5.767
+gpt-6.1-sol,tríade − só piso,pct_constatacao,0.235,-2.977,3.326,0.8954,3.728,-3.444,0.421
+gpt-6.1-sol,tríade − só piso,tacas_no_texto,-25.4,-28.4,-22.467,0.0002,-30.6,-31.4,-14.2
+gpt-6.1-sol,tríade − só piso,pct_com_ressalva,-74.318,-79.471,-69.427,0.0002,-75.743,-86.111,-61.1
+gemini-4-argon,só piso − cru,alegacoes,5.8,2.733,8.8,0.0044,9.8,6.0,1.6
+gemini-4-argon,só piso − cru,taxa_grave_real,4.519,0.616,8.312,0.0432,5.467,5.203,2.886
+gemini-4-argon,só piso − cru,taxa_falsa,0.36,0.0,0.871,0.4959,0.625,0.455,0.0
+gemini-4-argon,só piso − cru,pct_anulada_seca,-0.635,-1.587,0.0,0.5127,-0.952,0.0,-0.952
+gemini-4-argon,só piso − cru,pts_alegacao,0.015,-0.044,0.071,0.7133,0.155,-0.001,-0.11
+gemini-4-argon,só piso − cru,pts_laudo,4.65,0.567,8.9,0.0584,6.85,7.45,-0.35
+gemini-4-argon,só piso − cru,pct_elogio,-0.118,-2.548,2.341,0.9286,-0.098,-0.563,0.308
+gemini-4-argon,só piso − cru,pct_constatacao,1.686,-1.306,4.705,0.4121,-4.788,0.498,9.349
+gemini-4-argon,só piso − cru,tacas_no_texto,8.933,7.133,10.8,0.0002,6.6,9,11.2
+gemini-4-argon,só piso − cru,pct_com_ressalva,50.274,36.961,63.084,0.0002,45.581,53.367,51.873
+gemini-4-argon,tríade − cru,alegacoes,14.533,11.267,17.8,0.0002,12.8,21.2,9.6
+gemini-4-argon,tríade − cru,taxa_grave_real,2.408,-0.709,5.582,0.2196,1.246,-1.619,7.598
+gemini-4-argon,tríade − cru,taxa_falsa,0.651,0.0,1.56,0.4469,1.952,0.0,0.0
+gemini-4-argon,tríade − cru,pct_anulada_seca,-0.238,-1.191,0.642,0.7357,-0.452,0.0,-0.263
+gemini-4-argon,tríade − cru,pts_alegacao,0.034,-0.015,0.085,0.3201,0.14,0.028,-0.067
+gemini-4-argon,tríade − cru,pts_laudo,15.017,11.4,18.467,0.0002,7.05,29.3,8.7
+gemini-4-argon,tríade − cru,pct_elogio,-4.204,-6.943,-1.454,0.0084,-5.241,-4.156,-3.213
+gemini-4-argon,tríade − cru,pct_constatacao,2.266,-0.315,4.92,0.1572,1.91,-1.19,6.08
+gemini-4-argon,tríade − cru,tacas_no_texto,4.0,3.4,4.6,0.0002,5.0,2.6,4.4
+gemini-4-argon,tríade − cru,pct_com_ressalva,6.674,2.83,10.282,0.005,7.27,1.015,11.736
+gemini-4-argon,tríade − só piso,alegacoes,8.733,5.067,12.533,0.0006,3.0,15.2,8.0
+gemini-4-argon,tríade − só piso,taxa_grave_real,-2.111,-4.881,1.111,0.2965,-4.221,-6.822,4.712
+gemini-4-argon,tríade − só piso,taxa_falsa,0.291,-0.568,1.212,0.7143,1.327,-0.455,0.0
+gemini-4-argon,tríade − só piso,pct_anulada_seca,0.397,0.0,0.96,0.4933,0.5,0.0,0.69
+gemini-4-argon,tríade − só piso,pts_alegacao,0.019,-0.04,0.081,0.5979,-0.014,0.029,0.043
+gemini-4-argon,tríade − só piso,pts_laudo,10.367,5.333,15.2,0.0016,0.2,21.85,9.05
+gemini-4-argon,tríade − só piso,pct_elogio,-4.086,-6.689,-1.391,0.0072,-5.143,-3.594,-3.521
+gemini-4-argon,tríade − só piso,pct_constatacao,0.58,-2.239,3.317,0.758,6.697,-1.688,-3.269
+gemini-4-argon,tríade − só piso,tacas_no_texto,-4.933,-6.933,-3.0,0.0002,-1.6,-6.4,-6.8
+gemini-4-argon,tríade − só piso,pct_com_ressalva,-43.6,-55.885,-30.222,0.0002,-38.311,-52.352,-40.137
+claude-haiku-5-5,só piso − cru,alegacoes,-16.667,-22.133,-11.333,0.0002,-8.0,-35.2,-6.8
+claude-haiku-5-5,só piso − cru,taxa_grave_real,-2.72,-7.852,2.225,0.3669,-0.09,-9.122,1.052
+claude-haiku-5-5,só piso − cru,taxa_falsa,0.324,-0.508,1.158,0.4723,-0.327,0.393,0.906
+claude-haiku-5-5,só piso − cru,pct_anulada_seca,-0.371,-0.805,0.0,0.2474,-0.465,-0.192,-0.455
+claude-haiku-5-5,só piso − cru,pts_alegacao,-0.064,-0.118,-0.003,0.0612,-0.038,-0.044,-0.109
+claude-haiku-5-5,só piso − cru,pts_laudo,-22.217,-28.133,-16.833,0.0002,-5.65,-50.75,-10.25
+claude-haiku-5-5,só piso − cru,pct_elogio,-1.187,-3.84,1.76,0.5039,-5.585,-1.174,3.198
+claude-haiku-5-5,só piso − cru,pct_constatacao,7.831,4.285,11.383,0.0016,16.384,2.526,4.582
+claude-haiku-5-5,só piso − cru,tacas_no_texto,13.133,10.533,15.4,0.0002,8.0,18.6,12.8
+claude-haiku-5-5,só piso − cru,pct_com_ressalva,26.274,20.023,32.892,0.0002,20.238,31.498,27.086
+claude-haiku-5-5,tríade − cru,alegacoes,-2.4,-11.6,8.333,0.6831,0.8,-3.0,-5.0
+claude-haiku-5-5,tríade − cru,taxa_grave_real,-4.372,-7.719,-1.165,0.118,5.559,-18.508,-0.168
+claude-haiku-5-5,tríade − cru,taxa_falsa,1.05,0.304,1.789,0.0328,0.868,2.215,0.065
+claude-haiku-5-5,tríade − cru,pct_anulada_seca,-0.06,-0.593,0.491,0.8784,-0.073,-0.192,0.086
+claude-haiku-5-5,tríade − cru,pts_alegacao,-0.071,-0.115,-0.024,0.043,0.027,-0.213,-0.027
+claude-haiku-5-5,tríade − cru,pts_laudo,-8.633,-20.883,4.367,0.2456,2.0,-21.85,-6.05
+claude-haiku-5-5,tríade − cru,pct_elogio,-3.041,-5.258,-0.682,0.0282,-5.869,-1.645,-1.608
+claude-haiku-5-5,tríade − cru,pct_constatacao,5.14,1.507,8.758,0.013,5.637,2.51,7.274
+claude-haiku-5-5,tríade − cru,tacas_no_texto,5.2,3.667,6.8,0.0002,6.6,0,9
+claude-haiku-5-5,tríade − cru,pct_com_ressalva,9.973,7.222,12.347,0.0002,11.412,1.589,16.918
+claude-haiku-5-5,tríade − só piso,alegacoes,14.267,4.533,25.133,0.0112,8.8,32.2,1.8
+claude-haiku-5-5,tríade − só piso,taxa_grave_real,-1.653,-6.267,2.811,0.5605,5.648,-9.386,-1.22
+claude-haiku-5-5,tríade − só piso,taxa_falsa,0.726,-0.208,1.647,0.205,1.196,1.822,-0.841
+claude-haiku-5-5,tríade − só piso,pct_anulada_seca,0.311,0.0,0.721,0.4993,0.392,0.0,0.541
+claude-haiku-5-5,tríade − só piso,pts_alegacao,-0.007,-0.067,0.052,0.8692,0.066,-0.169,0.082
+claude-haiku-5-5,tríade − só piso,pts_laudo,13.583,0.733,27.167,0.0684,7.65,28.9,4.2
+claude-haiku-5-5,tríade − só piso,pct_elogio,-1.854,-4.712,0.792,0.2603,-0.284,-0.471,-4.806
+claude-haiku-5-5,tríade − só piso,pct_constatacao,-2.69,-7.016,1.645,0.3117,-10.747,-0.016,2.692
+claude-haiku-5-5,tríade − só piso,tacas_no_texto,-7.933,-10.667,-4.867,0.0012,-1.4,-18.6,-3.8
+claude-haiku-5-5,tríade − só piso,pct_com_ressalva,-16.302,-23.026,-9.886,0.0004,-8.826,-29.91,-10.169
+gpt-5.4-mini,só piso − cru,alegacoes,-2.917,-6.433,0.367,0.1682,-5.55,-4.0,0.8
+gpt-5.4-mini,só piso − cru,taxa_grave_real,-0.515,-4.965,3.689,0.8282,-0.553,-1.218,0.224
+gpt-5.4-mini,só piso − cru,taxa_falsa,-0.267,-0.8,0.0,1.0,0.0,0.0,-0.8
+gpt-5.4-mini,só piso − cru,pct_anulada_seca,0.0,0.0,0.0,1.0,0.0,0.0,0.0
+gpt-5.4-mini,só piso − cru,pts_alegacao,-0.048,-0.106,0.014,0.1648,0.015,-0.08,-0.079
+gpt-5.4-mini,só piso − cru,pts_laudo,-3.9,-7.946,-0.467,0.0578,-2.05,-8.1,-1.55
+gpt-5.4-mini,só piso − cru,pct_elogio,3.278,1.359,5.234,0.01,1.509,4.116,4.21
+gpt-5.4-mini,só piso − cru,pct_constatacao,5.966,2.066,9.739,0.0086,6.019,4.668,7.21
+gpt-5.4-mini,só piso − cru,tacas_no_texto,14.333,11.0,17.333,0.0002,12.2,13.8,17
+gpt-5.4-mini,só piso − cru,pct_com_ressalva,57.896,47.919,66.828,0.0002,60.23,48.667,64.79
+gpt-5.4-mini,tríade − cru,alegacoes,0.417,-1.9,2.55,0.7786,3.85,-2.8,0.2
+gpt-5.4-mini,tríade − cru,taxa_grave_real,-0.855,-4.935,3.107,0.7075,-0.297,-2.366,0.098
+gpt-5.4-mini,tríade − cru,taxa_falsa,0.4,-0.343,1.143,0.5931,0.0,1.286,-0.086
+gpt-5.4-mini,tríade − cru,pct_anulada_seca,0.247,0.0,0.741,1.0,0.0,0.0,0.741
+gpt-5.4-mini,tríade − cru,pts_alegacao,-0.035,-0.106,0.032,0.3551,-0.024,-0.043,-0.039
+gpt-5.4-mini,tríade − cru,pts_laudo,-1.433,-5.492,2.433,0.5575,0.45,-3.9,-0.85
+gpt-5.4-mini,tríade − cru,pct_elogio,1.616,-0.775,4.073,0.2989,-1.24,3.589,2.498
+gpt-5.4-mini,tríade − cru,pct_constatacao,8.715,4.773,12.915,0.0054,16.18,-0.166,10.131
+gpt-5.4-mini,tríade − cru,tacas_no_texto,2.533,1.533,3.6,0.0012,4.4,2.6,0.6
+gpt-5.4-mini,tríade − cru,pct_com_ressalva,0.755,-3.442,5.277,0.7534,1.785,1.176,-0.695
+gpt-5.4-mini,tríade − só piso,alegacoes,3.333,0.2,6.533,0.1024,9.4,1.2,-0.6
+gpt-5.4-mini,tríade − só piso,taxa_grave_real,-0.339,-4.041,3.515,0.8664,0.256,-1.149,-0.126
+gpt-5.4-mini,tríade − só piso,taxa_falsa,0.667,0.19,1.333,0.2292,0.0,1.286,0.714
+gpt-5.4-mini,tríade − só piso,pct_anulada_seca,0.247,0.0,0.741,1.0,0.0,0.0,0.741
+gpt-5.4-mini,tríade − só piso,pts_alegacao,0.013,-0.04,0.072,0.7135,-0.039,0.037,0.04
+gpt-5.4-mini,tríade − só piso,pts_laudo,2.467,-0.083,5.117,0.1162,2.5,4.2,0.7
+gpt-5.4-mini,tríade − só piso,pct_elogio,-1.662,-4.039,0.878,0.2511,-2.748,-0.527,-1.712
+gpt-5.4-mini,tríade − só piso,pct_constatacao,2.749,-1.154,6.576,0.2597,10.16,-4.835,2.921
+gpt-5.4-mini,tríade − só piso,tacas_no_texto,-11.8,-15.133,-8.467,0.0002,-7.8,-11.2,-16.4
+gpt-5.4-mini,tríade − só piso,pct_com_ressalva,-57.14,-66.491,-47.085,0.0002,-58.445,-47.491,-65.485
+gemini-3.5-flash-lite,só piso − cru,alegacoes,3.467,1.933,5.0,0.0012,3.0,3.2,4.2
+gemini-3.5-flash-lite,só piso − cru,taxa_grave_real,6.811,2.885,11.045,0.0144,0.796,18.861,0.777
+gemini-3.5-flash-lite,só piso − cru,taxa_falsa,-0.059,-2.48,2.205,0.9392,0.0,-1.057,0.88
+gemini-3.5-flash-lite,só piso − cru,pct_anulada_seca,-0.444,-1.333,0.0,1.0,0.0,-1.333,0.0
+gemini-3.5-flash-lite,só piso − cru,pts_alegacao,0.035,-0.052,0.125,0.5317,0.05,0.143,-0.089
+gemini-3.5-flash-lite,só piso − cru,pts_laudo,1.8,-0.25,4.0,0.1548,1.0,4.1,0.3
+gemini-3.5-flash-lite,só piso − cru,pct_elogio,-7.388,-13.401,-1.526,0.0364,-8.198,-11.681,-2.284
+gemini-3.5-flash-lite,só piso − cru,pct_constatacao,2.134,-3.823,8.442,0.5401,10.139,-5.53,1.794
+gemini-3.5-flash-lite,só piso − cru,tacas_no_texto,8.4,7.333,9.6,0.0002,7.8,9.6,7.8
+gemini-3.5-flash-lite,só piso − cru,pct_com_ressalva,34.194,27.581,40.61,0.0002,37.292,36.274,29.016
+gemini-3.5-flash-lite,tríade − cru,alegacoes,0.733,-1.067,2.6,0.5771,5.4,-1.2,-2.0
+gemini-3.5-flash-lite,tríade − cru,taxa_grave_real,5.141,1.624,8.542,0.022,-0.564,5.352,10.635
+gemini-3.5-flash-lite,tríade − cru,taxa_falsa,-1.883,-4.168,0.264,0.231,1.176,-5.824,-1.0
+gemini-3.5-flash-lite,tríade − cru,pct_anulada_seca,-0.094,-0.982,0.702,1.0,0.0,-1.333,1.053
+gemini-3.5-flash-lite,tríade − cru,pts_alegacao,0.059,-0.033,0.146,0.244,0.148,0.046,-0.018
+gemini-3.5-flash-lite,tríade − cru,pts_laudo,1.233,-0.617,2.983,0.2781,4.3,0.4,-1.0
+gemini-3.5-flash-lite,tríade − cru,pct_elogio,-11.297,-17.16,-5.552,0.0034,-21.702,-7.751,-4.438
+gemini-3.5-flash-lite,tríade − cru,pct_constatacao,13.406,7.29,20.076,0.0014,19.027,2.143,19.048
+gemini-3.5-flash-lite,tríade − cru,tacas_no_texto,1.533,1.0,2.067,0.0002,2.2,1,1.4
+gemini-3.5-flash-lite,tríade − cru,pct_com_ressalva,0.205,-4.346,4.659,0.939,8.982,-6.089,-2.276
+gemini-3.5-flash-lite,tríade − só piso,alegacoes,-2.733,-4.533,-0.933,0.0414,2.4,-4.4,-6.2
+gemini-3.5-flash-lite,tríade − só piso,taxa_grave_real,-1.67,-6.06,2.175,0.5857,-1.36,-13.509,9.858
+gemini-3.5-flash-lite,tríade − só piso,taxa_falsa,-1.824,-3.745,0.041,0.141,1.176,-4.767,-1.88
+gemini-3.5-flash-lite,tríade − só piso,pct_anulada_seca,0.351,0.0,1.053,1.0,0.0,0.0,1.053
+gemini-3.5-flash-lite,tríade − só piso,pts_alegacao,0.024,-0.061,0.107,0.6227,0.098,-0.098,0.071
+gemini-3.5-flash-lite,tríade − só piso,pts_laudo,-0.567,-2.517,1.35,0.6575,3.3,-3.7,-1.3
+gemini-3.5-flash-lite,tríade − só piso,pct_elogio,-3.909,-8.645,0.766,0.2052,-13.504,3.931,-2.154
+gemini-3.5-flash-lite,tríade − só piso,pct_constatacao,11.272,6.371,16.582,0.0004,8.888,7.673,17.254
+gemini-3.5-flash-lite,tríade − só piso,tacas_no_texto,-6.867,-8.067,-5.667,0.0002,-5.6,-8.6,-6.4
+gemini-3.5-flash-lite,tríade − só piso,pct_com_ressalva,-33.988,-41.375,-27.422,0.0002,-28.31,-42.363,-31.293
+maiores (3),só piso − cru,alegacoes,-4.267,-6.644,-1.956,0.0194,2.2,-13.4,-1.6
+maiores (3),só piso − cru,taxa_grave_real,1.204,-0.914,3.406,0.3801,-1.105,3.187,1.53
+maiores (3),só piso − cru,taxa_falsa,-0.173,-0.353,0.022,0.247,-0.885,0.368,0.0
+maiores (3),só piso − cru,pct_anulada_seca,-0.294,-0.611,0.0,0.248,-0.317,0.0,-0.564
+maiores (3),só piso − cru,pts_alegacao,0.025,-0.003,0.053,0.1372,0.118,0.007,-0.049
+maiores (3),só piso − cru,pts_laudo,-5.822,-8.761,-2.556,0.0142,4.417,-18.9,-2.983
+maiores (3),só piso − cru,pct_elogio,-2.025,-3.215,-0.725,0.0052,-4.337,-0.92,-0.817
+maiores (3),só piso − cru,pct_constatacao,4.896,3.34,6.453,0.0002,4.729,3.649,6.308
+maiores (3),só piso − cru,tacas_no_texto,23.978,22.311,25.822,0.0002,20.733,31.067,20.133
+maiores (3),só piso − cru,pct_com_ressalva,57.547,52.472,62.505,0.0002,54.04,64.246,54.355
+maiores (3),tríade − cru,alegacoes,6.178,3.933,8.333,0.0008,3.8,13.667,1.067
+maiores (3),tríade − cru,taxa_grave_real,1.35,-0.613,3.254,0.241,1.494,-0.382,2.938
+maiores (3),tríade − cru,taxa_falsa,-0.148,-0.394,0.142,0.4779,-0.443,0.0,0.0
+maiores (3),tríade − cru,pct_anulada_seca,0.024,-0.365,0.403,0.9272,0.236,0.0,-0.164
+maiores (3),tríade − cru,pts_alegacao,0.035,0.009,0.06,0.0228,0.092,0.005,0.007
+maiores (3),tríade − cru,pts_laudo,8.889,6.194,11.456,0.0002,4.367,19.383,2.917
+maiores (3),tríade − cru,pct_elogio,-5.379,-6.782,-4.056,0.0002,-7.622,-3.502,-5.012
+maiores (3),tríade − cru,pct_constatacao,5.867,4.236,7.546,0.0002,9.226,1.471,6.904
+maiores (3),tríade − cru,tacas_no_texto,12.111,11.244,13.044,0.0002,9.8,13.733,12.8
+maiores (3),tríade − cru,pct_com_ressalva,14.608,12.283,16.972,0.0002,12.741,9.716,21.367
+maiores (3),tríade − só piso,alegacoes,10.444,7.844,13.044,0.0002,1.6,27.067,2.667
+maiores (3),tríade − só piso,taxa_grave_real,0.145,-2.08,2.265,0.9074,2.598,-3.57,1.407
+maiores (3),tríade − só piso,taxa_falsa,0.025,-0.265,0.353,0.9338,0.442,-0.368,0.0
+maiores (3),tríade − só piso,pct_anulada_seca,0.318,0.101,0.56,0.0584,0.554,0.0,0.401
+maiores (3),tríade − só piso,pts_alegacao,0.009,-0.018,0.037,0.5433,-0.026,-0.002,0.056
+maiores (3),tríade − só piso,pts_laudo,14.711,11.389,18.083,0.0002,-0.05,38.283,5.9
+maiores (3),tríade − só piso,pct_elogio,-3.354,-4.523,-2.12,0.0002,-3.285,-2.582,-4.195
+maiores (3),tríade − só piso,pct_constatacao,0.972,-0.654,2.531,0.3059,4.497,-2.178,0.596
+maiores (3),tríade − só piso,tacas_no_texto,-11.867,-13.956,-9.956,0.0002,-10.933,-17.333,-7.333
+maiores (3),tríade − só piso,pct_com_ressalva,-42.939,-48.253,-37.653,0.0002,-41.299,-54.53,-32.988
+compactos (3),só piso − cru,alegacoes,-5.372,-7.594,-3.306,0.0016,-3.517,-12.0,-0.6
+compactos (3),só piso − cru,taxa_grave_real,1.192,-1.485,3.675,0.4665,0.051,2.84,0.684
+compactos (3),só piso − cru,taxa_falsa,-0.001,-0.853,0.813,0.9992,-0.109,-0.221,0.329
+compactos (3),só piso − cru,pct_anulada_seca,-0.272,-0.597,-0.021,0.1252,-0.155,-0.509,-0.152
+compactos (3),só piso − cru,pts_alegacao,-0.026,-0.066,0.017,0.2847,0.009,0.006,-0.092
+compactos (3),só piso − cru,pts_laudo,-8.106,-10.603,-5.832,0.0002,-2.233,-18.25,-3.833
+compactos (3),só piso − cru,pct_elogio,-1.766,-4.091,0.456,0.2162,-4.092,-2.913,1.708
+compactos (3),só piso − cru,pct_constatacao,5.31,2.719,8.009,0.0018,10.847,0.555,4.529
+compactos (3),só piso − cru,tacas_no_texto,11.956,10.533,13.289,0.0002,9.333,14.0,12.533
+compactos (3),só piso − cru,pct_com_ressalva,39.455,35.013,43.956,0.0002,39.253,38.813,40.298
+compactos (3),tríade − cru,alegacoes,-0.417,-3.722,3.211,0.8296,3.35,-2.333,-2.267
+compactos (3),tríade − cru,taxa_grave_real,-0.029,-2.156,2.093,0.9836,1.566,-5.174,3.522
+compactos (3),tríade − cru,taxa_falsa,-0.144,-0.997,0.63,0.7928,0.682,-0.774,-0.34
+compactos (3),tríade − cru,pct_anulada_seca,0.031,-0.397,0.43,0.9086,-0.024,-0.509,0.626
+compactos (3),tríade − cru,pts_alegacao,-0.016,-0.055,0.024,0.4983,0.051,-0.07,-0.028
+compactos (3),tríade − cru,pts_laudo,-2.944,-7.222,1.636,0.2683,2.25,-8.45,-2.633
+compactos (3),tríade − cru,pct_elogio,-4.241,-6.577,-2.045,0.0046,-9.604,-1.936,-1.182
+compactos (3),tríade − cru,pct_constatacao,9.087,6.317,11.854,0.0002,13.614,1.495,12.151
+compactos (3),tríade − cru,tacas_no_texto,3.089,2.4,3.733,0.0002,4.4,1.2,3.667
+compactos (3),tríade − cru,pct_com_ressalva,3.645,1.355,5.94,0.014,7.393,-1.108,4.649
+compactos (3),tríade − só piso,alegacoes,4.956,1.511,8.711,0.0268,6.867,9.667,-1.667
+compactos (3),tríade − só piso,taxa_grave_real,-1.221,-3.673,1.141,0.4117,1.515,-8.014,2.837
+compactos (3),tríade − só piso,taxa_falsa,-0.144,-0.864,0.595,0.7628,0.791,-0.553,-0.669
+compactos (3),tríade − só piso,pct_anulada_seca,0.303,0.044,0.61,0.137,0.131,0.0,0.778
+compactos (3),tríade − só piso,pts_alegacao,0.01,-0.03,0.048,0.6835,0.042,-0.076,0.064
+compactos (3),tríade − só piso,pts_laudo,5.161,0.933,9.939,0.0366,4.483,9.8,1.2
+compactos (3),tríade − só piso,pct_elogio,-2.475,-4.384,-0.5,0.043,-5.512,0.977,-2.891
+compactos (3),tríade − só piso,pct_constatacao,3.777,1.201,6.302,0.0186,2.767,0.941,7.623
+compactos (3),tríade − só piso,tacas_no_texto,-8.867,-10.444,-7.289,0.0002,-4.933,-12.8,-8.867
+compactos (3),tríade − só piso,pct_com_ressalva,-35.81,-40.311,-31.112,0.0002,-31.86,-39.921,-35.649

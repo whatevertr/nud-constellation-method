@@ -55,6 +55,7 @@ O método cresceu em eras. Cada era vai até o ponto em que a forma de trabalhar
 - [`nud-install-constellation-method/`](nud-install-constellation-method/): a skill que instala o método.
 - `era-1-triad/` a `era-4-scripts-and-interface/`: uma pasta por era, cada uma só com o que ela acrescenta.
 - [`history/`](history/): a [cronologia](history/cronologia/), o [`FOUNDATIONS`](history/FOUNDATIONS.md) e o [`DEVLOG`](history/DEVLOG.md) (o que mudou, quando, e o que a conferência derrubou).
+- [`history/bench-v2/`](history/bench-v2/): o estudo do bench v2 (o contexto mínimo muda como um modelo avalia?), também no Zenodo: [DOI 10.5281/zenodo.24216027](https://doi.org/10.5281/zenodo.24216027).
 - [`MANIFESTO`](MANIFESTO.pt-BR.md): de onde isso veio.
 
 ## Licença

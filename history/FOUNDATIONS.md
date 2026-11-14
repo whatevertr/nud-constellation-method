@@ -8,6 +8,8 @@ O degrau em que o método está, a prática de engenharia que ele traduz e as le
 
 Em outubro de 2026, o método está no **segundo degrau**: pelo menos três pessoas além da autora usaram e reproduziram o método, e duas relataram melhora no resultado do trabalho. São relatos de uso, não avaliação medida: o terceiro degrau ainda espera uma medição. Nomear a escada é o convite: quem quiser ajudar sabe qual degrau está vago.
 
+Em novembro de 2026, uma primeira medição controlada (o bench v2, [DOI 10.5281/zenodo.24216027](https://doi.org/10.5281/zenodo.24216027)), numa tarefa de revisão de repositório, não mostrou diferença demonstrável na capacidade de avaliação com o uso do contexto mínimo. Os modelos usaram a taça (🍷, a marca do que não foi verificado), mas o efeito prático dela, ajudar quem lê a conferir, não foi medido; isso pede outro desenho de estudo. O ganho que o método propõe, o do trabalho continuado, não foi medido. O terceiro degrau continua aberto.
+
 ## Em que eu me apoio
 
 Eu não estou inventando disciplina nova, estou **traduzindo** prática velha de engenharia para um meio novo. Ferramentas e metodologias de análise, mapeamento e gerenciamento de processos também precisam de aplicação de contexto:
