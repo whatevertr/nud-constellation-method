@@ -1,6 +1,6 @@
 """
 leitor.py · lê os logs (só leitura, sem IA) e monta os resumos (Era 4).
-v0.3.1 · 10/10/2026 (a tarefa leva também o "quem" e o "canal" pro app) · tars (Claude), o thinker do NUD · guardião.
+v0.3.1 · 10/10/2026 (a tarefa leva também o "quem" e o "canal" pro app) · tars (Claude), o thinker do NUD.
 v0.3.0 · 04/10/2026 (o json leva as pendências, os tipos e as fichas dos thinkers).
 
 Modos:

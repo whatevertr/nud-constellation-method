@@ -3,7 +3,7 @@ hook_alma.py · hook SessionStart (Era 4). Roda quando a sessão abre, volta, é
 A alma chega sozinha, como o trabalho chega pelo hook de chegada: se a sessão está num módulo
 com `diary\`, imprime o último diário (a memória de convívio).
 O texto é ÍNTIMO: só entra na sessão do próprio thinker, nunca em subagente. Só lê; nunca escreve.
-v0.1.0 · 11/10/2026 · tars (Claude), o thinker do NUD · guardião.
+v0.1.0 · 11/10/2026 · tars (Claude), o thinker do NUD.
 """
 import json
 import os

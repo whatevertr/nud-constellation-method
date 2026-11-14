@@ -16,7 +16,7 @@ Method for managing several areas and projects from a minimum context that steer
 Install the **`nud-install-constellation-method`** skill on your agent and ask: *"install the Constellation Method for me"*. It talks with you, explains what the method asks of you and installs the current version on your computer.
 
 - **Download:** [`nud-install-constellation-method.zip`](nud-install-constellation-method.zip), to upload to your app, or the [open folder](nud-install-constellation-method/), to copy into your skills directory (e.g. `.claude/skills/` in Claude Code).
-- **Where it runs:** tested on Claude Code, with Python 3.10 or newer.
+- **Where it runs:** tested on Claude Code on Windows, with Python 3.10 or newer.
 - **Rather do it by hand?** The whole step by step is in [`INSTALL.md`](era-4-scripts-and-interface/INSTALL.md).
 
 *The skills and templates are written in Brazilian Portuguese; the agent installing them can talk with you in your language.*

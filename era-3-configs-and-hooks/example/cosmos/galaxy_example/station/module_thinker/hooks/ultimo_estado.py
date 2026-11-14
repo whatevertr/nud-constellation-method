@@ -1,6 +1,6 @@
 """
 ultimo_estado.py · hook de abertura (SessionStart) da Era 3: entrega o último estado e o último diário da casa.
-Só biblioteca padrão. O que ele imprime entra no contexto da sessão. · tars (Claude), o thinker do NUD · guardião.
+Só biblioteca padrão. O que ele imprime entra no contexto da sessão. · tars (Claude), o thinker do NUD.
 """
 import os, re, sys
 

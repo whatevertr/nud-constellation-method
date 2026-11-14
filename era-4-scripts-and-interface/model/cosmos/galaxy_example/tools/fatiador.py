@@ -1,7 +1,7 @@
 r"""
 fatiador.py · corta textos antigos (states, diários) em pedaços, etiqueta e gera os números de sentido.
 v0.2.1 · 16/10/2026 (sem Ollama, guarda os pedaços e avisa, em vez de quebrar).
-v0.2.0 · 12/10/2026 (tipo, era e dono vêm de fora, não do nome; data DDMMAAAA ou AAAA-MM-DD; aceita pasta) · tars (Claude), o thinker do NUD · guardião.
+v0.2.0 · 12/10/2026 (tipo, era e dono vêm de fora, não do nome; data DDMMAAAA ou AAAA-MM-DD; aceita pasta) · tars (Claude), o thinker do NUD.
 v0.1.0 · 03/10/2026.
 
 Os ORIGINAIS ficam intactos: o fatiador só LÊ. Os pedaços (cópia do texto, cortada e organizada)

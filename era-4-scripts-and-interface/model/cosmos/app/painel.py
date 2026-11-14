@@ -1,6 +1,6 @@
 """
 painel.py · o app da Era 4: o painel do cosmos.
-v0.7.0 · 17/10/2026 (versão pública: acha a raiz sozinho; cada galaxy é lida pelo leitor dela) · tars (Claude), o thinker do NUD · guardião.
+v0.7.0 · 17/10/2026 (versão pública: acha a raiz sozinho; cada galaxy é lida pelo leitor dela) · tars (Claude), o thinker do NUD.
 
 Abre o painel.html numa janela e entrega os dados lidos dos logs de todas as galaxies. Só lê.
 Mora em <cosmos>\\app\\ : a raiz é a pasta de cima, e toda pasta galaxy_* dela entra no painel.
